@@ -1,1 +1,329 @@
-/* ZXingOrg Styles */
+/* ===========================
+   ZXingOrg v1.0
+   Global Styles
+=========================== */
+
+:root{
+
+--primary:#2563eb;
+--primary-hover:#1d4ed8;
+
+--dark:#111827;
+--text:#374151;
+--light:#6b7280;
+
+--bg:#f8fafc;
+--white:#ffffff;
+
+--border:#e5e7eb;
+
+--radius:18px;
+
+--shadow:0 10px 35px rgba(0,0,0,.08);
+
+--transition:.30s ease;
+
+--max-width:1200px;
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+font-family:'Inter',sans-serif;
+
+background:var(--bg);
+
+color:var(--text);
+
+line-height:1.7;
+
+overflow-x:hidden;
+
+}
+
+img{
+
+max-width:100%;
+display:block;
+
+}
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+button{
+
+font-family:inherit;
+
+cursor:pointer;
+
+border:none;
+
+outline:none;
+
+transition:var(--transition);
+
+}
+
+.container{
+
+width:min(92%,var(--max-width));
+
+margin:auto;
+
+}
+
+/* ===========================
+HEADER
+=========================== */
+
+header{
+
+position:sticky;
+
+top:0;
+
+z-index:999;
+
+background:rgba(255,255,255,.95);
+
+backdrop-filter:blur(14px);
+
+border-bottom:1px solid var(--border);
+
+}
+
+header .container{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px 0;
+
+}
+
+.logo{
+
+font-size:28px;
+
+font-weight:800;
+
+font-family:'Plus Jakarta Sans',sans-serif;
+
+color:var(--dark);
+
+}
+
+.logo span{
+
+color:var(--primary);
+
+}
+
+nav{
+
+display:flex;
+
+gap:32px;
+
+}
+
+nav a{
+
+font-weight:600;
+
+color:var(--text);
+
+transition:.25s;
+
+}
+
+nav a:hover{
+
+color:var(--primary);
+
+}
+
+.menu-btn{
+
+display:none;
+
+background:none;
+
+font-size:30px;
+
+}
+
+/* ===========================
+HERO
+=========================== */
+
+.hero{
+
+padding:90px 0 60px;
+
+text-align:center;
+
+}
+
+.badge{
+
+display:inline-block;
+
+padding:10px 18px;
+
+border-radius:50px;
+
+background:#dbeafe;
+
+color:var(--primary);
+
+font-weight:700;
+
+margin-bottom:22px;
+
+}
+
+.hero h1{
+
+font-size:58px;
+
+line-height:1.1;
+
+font-family:'Plus Jakarta Sans',sans-serif;
+
+color:var(--dark);
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+max-width:760px;
+
+margin:auto;
+
+font-size:19px;
+
+color:var(--light);
+
+}
+
+.hero-buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:16px;
+
+margin-top:40px;
+
+flex-wrap:wrap;
+
+}
+
+.hero-buttons button{
+
+padding:15px 30px;
+
+border-radius:14px;
+
+font-size:16px;
+
+font-weight:700;
+
+background:var(--primary);
+
+color:#fff;
+
+box-shadow:var(--shadow);
+
+}
+
+.hero-buttons button:hover{
+
+background:var(--primary-hover);
+
+transform:translateY(-3px);
+
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+nav{
+
+display:none;
+
+}
+
+.menu-btn{
+
+display:block;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.hero{
+
+padding:70px 0 40px;
+
+}
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.hero-buttons button{
+
+width:100%;
+
+}
+
+}
