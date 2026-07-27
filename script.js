@@ -120,3 +120,71 @@ pasteBtn.addEventListener("click",()=>{
 alert("Press Ctrl + V to paste a QR image.");
 
 });
+/* ==========================
+ZXing Decoder Engine
+========================== */
+
+const codeReader = new ZXing.BrowserMultiFormatReader();
+
+const resultCard = document.getElementById("resultCard");
+const resultType = document.getElementById("resultType");
+const decodedText = document.getElementById("decodedText");
+const copyBtn = document.getElementById("copyBtn");
+
+async function decodeImage(file){
+
+    try{
+
+        const imageUrl = URL.createObjectURL(file);
+
+        const result = await codeReader.decodeFromImageUrl(imageUrl);
+
+        resultCard.classList.remove("hidden");
+
+        decodedText.value = result.text;
+
+        resultType.innerText = result.getBarcodeFormat();
+
+        URL.revokeObjectURL(imageUrl);
+
+    }catch(err){
+
+        resultCard.classList.remove("hidden");
+
+        resultType.innerText="No QR Code Found";
+
+        decodedText.value="Unable to decode this image.";
+
+    }
+
+}
+
+/* File Upload */
+
+fileInput.addEventListener("change",(e)=>{
+
+    const file=e.target.files[0];
+
+    if(file){
+
+        decodeImage(file);
+
+    }
+
+});
+
+/* Copy */
+
+copyBtn.addEventListener("click",()=>{
+
+    navigator.clipboard.writeText(decodedText.value);
+
+    copyBtn.innerText="Copied ✓";
+
+    setTimeout(()=>{
+
+        copyBtn.innerText="Copy Result";
+
+    },2000);
+
+});
