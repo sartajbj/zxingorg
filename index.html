@@ -139,3 +139,56 @@ Paste QR
 </div>
 
 </section>
+  <section class="scanner-section">
+  <div class="container">
+
+    <div class="scanner-card">
+
+      <div class="upload-area" id="uploadArea">
+
+        <div class="upload-icon">📷</div>
+
+        <h2>Upload QR Code Image</h2>
+
+        <p>Drag & drop an image here, paste from clipboard or choose a file.</p>
+
+        <input type="file" id="fileInput" accept="image/*" hidden>
+
+        <button id="chooseFileBtn" class="primary-btn">
+          Choose Image
+        </button>
+
+        <div class="upload-actions">
+          <button class="secondary-btn" id="cameraBtn">Open Camera</button>
+          <button class="secondary-btn" id="pasteBtn">Paste Image</button>
+        </div>
+
+      </div>
+
+      <div class="preview-wrapper hidden" id="previewWrapper">
+        <img id="previewImage" alt="QR Preview">
+      </div>
+
+    </div>
+
+    <div class="formats-grid">
+
+      <div class="format-item">QR Code</div>
+      <div class="format-item">Data Matrix</div>
+      <div class="format-item">PDF417</div>
+      <div class="format-item">Aztec</div>
+      <div class="format-item">EAN-13</div>
+      <div class="format-item">UPC-A</div>
+      <div class="format-item">Code 128</div>
+      <div class="format-item">ITF</div>
+
+    </div>
+
+  </div>
+</section>
+  </main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
