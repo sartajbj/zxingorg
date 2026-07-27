@@ -162,7 +162,19 @@ Paste QR
       <div class="preview-wrapper hidden" id="previewWrapper">
         <img id="previewImage" alt="QR Preview">
       </div>
+<div id="resultCard" class="scanner-card hidden">
 
+<h2>Decoded Result</h2>
+
+<div id="resultType">QR Code</div>
+
+<textarea id="decodedText" readonly></textarea>
+
+<div class="upload-actions">
+<button class="primary-btn" id="copyBtn">Copy Result</button>
+</div>
+
+</div>
     </div>
 
     <div class="formats-grid">
@@ -182,6 +194,7 @@ Paste QR
 </section>
   </main>
 
+<script src="https://unpkg.com/@zxing/library@0.21.3"></script>
 <script src="script.js"></script>
 
 </body>
