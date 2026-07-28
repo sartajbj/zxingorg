@@ -186,14 +186,28 @@ Paste QR
       </div>
 <div id="resultCard" class="scanner-card hidden">
 
-<h2>Decoded Result</h2>
+<h2>✅ Successfully Decoded</h2>
 
-<div id="resultType">QR Code</div>
+<div id="resultType" class="result-type">
+QR Code
+</div>
+
+<div id="resultBody">
 
 <textarea id="decodedText" readonly></textarea>
 
-<div class="upload-actions">
-<button class="primary-btn" id="copyBtn">Copy Result</button>
+</div>
+
+<div class="result-actions">
+
+<button class="primary-btn" id="copyBtn">
+📋 Copy Result
+</button>
+
+<button class="secondary-btn" id="newScanBtn">
+🔄 New Scan
+</button>
+
 </div>
 
 </div>
