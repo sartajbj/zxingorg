@@ -702,3 +702,20 @@ return;
 oldShowResult(text);
 
 };
+function shareText(text){
+
+if(navigator.share){
+
+navigator.share({
+text:text
+});
+
+}else{
+
+copyText(text);
+
+showToast("Share not supported. Text copied.");
+
+}
+
+}
