@@ -547,3 +547,62 @@ transition:.25s;
 transform:translateY(-2px);
 
 }
+/* ===== Loading ===== */
+
+.loading-box{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:35px;
+}
+
+.loading-spinner{
+width:55px;
+height:55px;
+border:5px solid #dbeafe;
+border-top:5px solid #2563eb;
+border-radius:50%;
+animation:spin .8s linear infinite;
+margin-bottom:18px;
+}
+
+@keyframes spin{
+to{
+transform:rotate(360deg);
+}
+}
+
+/* ===== New Scan Button ===== */
+
+.newscan-btn{
+width:100%;
+margin-top:15px;
+padding:14px;
+background:#f1f5f9;
+border:1px solid #dbeafe;
+border-radius:12px;
+font-weight:700;
+cursor:pointer;
+transition:.25s;
+}
+
+.newscan-btn:hover{
+background:#e0f2fe;
+}
+
+/* ===== Password ===== */
+
+.password-value{
+font-size:20px;
+font-weight:800;
+color:#dc2626;
+letter-spacing:1px;
+}
+
+.eye-btn{
+margin-left:10px;
+cursor:pointer;
+color:#2563eb;
+font-size:18px;
+}
