@@ -309,23 +309,19 @@ if (cameraBtn) {
           if (!result) return;
 
           const text = result.text;
+            let type = "QR Code";
 
-          if (text.startsWith("WIFI:")) {
+if (text.startsWith("http")) {
+  type = "🌐 Website";
+} else if (text.startsWith("WIFI:")) {
+  type = "📶 Wi-Fi QR";
+} else if (text.startsWith("mailto:")) {
+  type = "📧 Email";
+} else if (text.startsWith("tel:")) {
+  type = "📞 Phone";
+}
 
-            showResult("Wi-Fi QR", text);
-
-          } else if (text.startsWith("http")) {
-
-            showResult(
-              "Website",
-              `<a href="${text}" target="_blank">${text}</a>`
-            );
-
-          } else {
-
-            showResult("QR Code", text);
-
-          }
+          showResult(type, text);
 
           reader.reset();
 
