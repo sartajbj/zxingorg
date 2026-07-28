@@ -47,7 +47,11 @@ content="Fast Online QR Code Decoder">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+<!-- AOS Animation -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
 
 <body>
@@ -325,6 +329,13 @@ Decode QR Codes, Wi-Fi, URLs, Contacts, Email, SMS and Barcodes instantly.
 </main>
 <script src="https://unpkg.com/@zxing/library@0.21.3"></script>
 <script src="script.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
+<script>
+AOS.init({
+duration:700,
+once:true
+});
+</script>
 </body>
 </html>
