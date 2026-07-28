@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZXing Online Decoder</title>
+
+<meta name="description" content="Free ZXing Online Decoder to scan QR Codes and Barcodes instantly. Decode Wi-Fi QR, URLs, Contacts, Email and Phone Numbers directly in your browser.">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://zxingorg.com/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="container">
+
+<a href="/" class="logo">
+ZXing<span>Org</span>
+</a>
+
+<nav>
+
+<a href="/">Home</a>
+
+<a href="/generator.html">QR Generator</a>
+
+<a href="/blog.html">Blog</a>
+
+<a href="/about.html">About</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="hero">
+
+<div class="container">
+
+<h1>ZXing Online Decoder</h1>
+
+<p>
+Scan QR Codes and Barcodes instantly using your browser.
+No installation. Fast, secure and privacy-first.
+</p>
+
+</div>
+
+</section>
+
+<section class="scanner">
+
+<div class="container">
+
+<div class="scanner-card">
+
+<h2>Upload QR Code Image</h2>
+
+<p>
+Choose an image, paste from clipboard or use your camera.
+</p>
+
+<input type="file" id="fileInput" accept="image/*" hidden>
+
+<button id="chooseFileBtn" class="primary-btn">
+<i class="fa-solid fa-upload"></i>
+Choose Image
+</button>
+
+<div class="actions">
+
+<button id="cameraBtn" class="secondary-btn">
+<i class="fa-solid fa-camera"></i>
+Open Camera
+</button>
+
+<button id="pasteBtn" class="secondary-btn">
+<i class="fa-solid fa-paste"></i>
+Paste Image
+</button>
+
+</div>
+
+<div id="preview"></div>
+
+<div id="result"></div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="container">
+
+<p>© 2026 ZXingOrg. All rights reserved.</p>
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
