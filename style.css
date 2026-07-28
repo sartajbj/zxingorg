@@ -1035,3 +1035,36 @@ border:1px solid #d1d5db;
 resize:none;
 
 }
+.upload-icon{
+width:90px;
+height:90px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:#eff6ff;
+font-size:38px;
+color:#2563eb;
+margin-bottom:20px;
+}
+
+.supported-mini{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+margin-top:20px;
+}
+
+.supported-mini span{
+background:#f8fafc;
+border:1px solid #e5e7eb;
+padding:8px 14px;
+border-radius:999px;
+font-size:14px;
+font-weight:600;
+display:flex;
+align-items:center;
+gap:6px;
+}
