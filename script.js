@@ -602,8 +602,9 @@ eye.className="fa-solid fa-eye-slash";
 function renderWifiCard(ssid,password,security){
 
 result.style.display="block";
-
+ 
 result.innerHTML=`
+smoothToResult();
 
 <div class="result-card">
 
@@ -717,5 +718,16 @@ copyText(text);
 showToast("Share not supported. Text copied.");
 
 }
+
+}
+function smoothToResult(){
+
+document.getElementById("result").scrollIntoView({
+
+behavior:"smooth",
+
+block:"start"
+
+});
 
 }
