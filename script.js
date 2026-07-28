@@ -341,3 +341,12 @@ if (cameraBtn) {
   });
 
 }
+// New Scan
+document.getElementById("newScanBtn")?.addEventListener("click", () => {
+  document.getElementById("resultCard").classList.add("hidden");
+  document.getElementById("previewWrapper").classList.add("hidden");
+  document.getElementById("uploadArea").classList.remove("hidden");
+
+  document.getElementById("decodedText").value = "";
+  document.getElementById("resultType").textContent = "";
+});
