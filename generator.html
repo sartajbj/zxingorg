@@ -21,6 +21,42 @@ Create QR Codes for URLs, Wi-Fi, Text, Email, Phone, SMS and Contacts instantly.
 <h2>Create QR Code</h2>
 
 <p>Select a QR type and generate it instantly.</p>
+  <div class="generator-types">
+
+<button class="type-btn active" data-type="text">Text</button>
+
+<button class="type-btn" data-type="url">URL</button>
+
+<button class="type-btn" data-type="wifi">Wi-Fi</button>
+
+<button class="type-btn" data-type="email">Email</button>
+
+<button class="type-btn" data-type="phone">Phone</button>
+
+<button class="type-btn" data-type="sms">SMS</button>
+
+<button class="type-btn" data-type="vcard">Contact</button>
+
+</div>
+
+<div class="generator-form">
+
+<input
+type="text"
+id="qrInput"
+placeholder="Enter your text or URL">
+
+<button id="generateBtn" class="primary-btn">
+
+<i class="fa-solid fa-qrcode"></i>
+
+Generate QR
+
+</button>
+
+</div>
+
+<div id="qrPreview"></div>
 
 </div>
 
