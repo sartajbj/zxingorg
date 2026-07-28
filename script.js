@@ -408,3 +408,130 @@ onclick="navigator.share ? navigator.share({text:'${text}'}) : copyText(\`${text
 result.style.display="block";
 
 }
+
+// ===== Smart Result Upgrade =====
+
+const oldRenderResult = renderResult;
+
+renderResult = function(type, text){
+
+// 🌐 Website
+if(text.startsWith("http://") || text.startsWith("https://")){
+
+const bytes=new TextEncoder().encode(text).length;
+
+result.innerHTML=`
+
+<div class="result-card">
+
+<div class="success-header">
+<i class="fa-solid fa-circle-check"></i>
+<div>
+<div>Decode Succeeded</div>
+<small>Website Detected</small>
+</div>
+</div>
+
+<div class="result-box">
+<div class="result-label">WEBSITE</div>
+<div class="result-value">${text}</div>
+</div>
+
+<div class="result-box">
+<div class="result-label">RAW BYTES</div>
+<div class="result-value">${bytes} Bytes</div>
+</div>
+
+<div class="action-grid">
+
+<a class="action-btn success"
+href="${text}"
+target="_blank">
+
+🌍 Open
+
+</a>
+
+<button class="action-btn primary"
+onclick="copyText('${text}')">
+
+📋 Copy
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+result.style.display="block";
+return;
+
+}
+
+// 📶 Wi-Fi
+if(text.startsWith("WIFI:")){
+
+const ssid=text.match(/S:([^;]*)/)?.[1]||"";
+const pass=text.match(/P:([^;]*)/)?.[1]||"";
+const sec=text.match(/T:([^;]*)/)?.[1]||"";
+
+result.innerHTML=`
+
+<div class="result-card">
+
+<div class="success-header">
+<i class="fa-solid fa-circle-check"></i>
+<div>
+<div>Decode Succeeded</div>
+<small>Wi-Fi QR Detected</small>
+</div>
+</div>
+
+<div class="result-box">
+<div class="result-label">NETWORK</div>
+<div class="result-value">${ssid}</div>
+</div>
+
+<div class="result-box">
+<div class="result-label">PASSWORD</div>
+<div class="result-value"><strong style="color:#dc2626;font-size:18px;">${pass}</strong></div>
+</div>
+
+<div class="result-box">
+<div class="result-label">SECURITY</div>
+<div class="result-value">${sec}</div>
+</div>
+
+<div class="action-grid">
+
+<button class="action-btn primary"
+onclick="copyText('${pass}')">
+
+📋 Copy Password
+
+</button>
+
+<button class="action-btn success"
+onclick="navigator.share && navigator.share({text:'Wi-Fi: ${ssid}\nPassword: ${pass}'})">
+
+📤 Share
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+result.style.display="block";
+return;
+
+}
+
+// Other QR types
+oldRenderResult(type,text);
+
+};
