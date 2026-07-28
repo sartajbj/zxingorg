@@ -859,3 +859,69 @@ transform:translateY(-4px);
 border-color:#2563eb;
 box-shadow:0 8px 20px rgba(37,99,235,.15);
 }
+/* ===== Smart Result Card ===== */
+
+.result-card{
+background:#fff;
+border-radius:20px;
+padding:25px;
+border:1px solid #e5e7eb;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+margin-top:20px;
+}
+
+.result-title{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:24px;
+font-weight:700;
+margin-bottom:20px;
+color:#111827;
+}
+
+.result-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 0;
+border-bottom:1px solid #f1f5f9;
+gap:15px;
+}
+
+.result-row:last-child{
+border-bottom:none;
+}
+
+.result-label{
+font-weight:600;
+color:#6b7280;
+min-width:120px;
+}
+
+.result-value{
+flex:1;
+font-weight:700;
+color:#111827;
+word-break:break-word;
+}
+
+.result-value.password{
+font-size:20px;
+letter-spacing:.5px;
+}
+
+.copy-btn{
+background:#2563eb;
+color:#fff;
+border:none;
+padding:10px 16px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+transition:.25s;
+}
+
+.copy-btn:hover{
+background:#1d4ed8;
+}
