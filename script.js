@@ -299,3 +299,48 @@ Copy Result
 result.innerHTML=html;
 
 }
+// ===== Premium Toast =====
+
+function showToast(message){
+
+const old=document.getElementById("toast");
+
+if(old) old.remove();
+
+const toast=document.createElement("div");
+
+toast.id="toast";
+
+toast.innerHTML="✅ "+message;
+
+toast.style.cssText=`
+position:fixed;
+left:50%;
+bottom:25px;
+transform:translateX(-50%);
+background:#16a34a;
+color:#fff;
+padding:14px 22px;
+border-radius:12px;
+font-weight:700;
+z-index:99999;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+`;
+
+document.body.appendChild(toast);
+
+setTimeout(()=>{
+toast.remove();
+},2200);
+
+}
+
+// ===== Copy =====
+
+function copyText(text){
+
+navigator.clipboard.writeText(text);
+
+showToast("Copied Successfully");
+
+}
