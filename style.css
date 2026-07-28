@@ -661,3 +661,43 @@ width:100%;
 height:5px;
 background:linear-gradient(90deg,#22c55e,#2563eb,#06b6d4);
 }
+/* Website Button */
+
+.action-btn{
+display:flex;
+justify-content:center;
+align-items:center;
+text-decoration:none;
+min-height:48px;
+}
+
+.action-grid{
+margin-top:18px;
+}
+
+/* Success Badge */
+
+.success-header{
+padding-bottom:14px;
+border-bottom:1px solid #e5e7eb;
+margin-bottom:18px;
+}
+
+/* Better QR Values */
+
+.result-value{
+line-height:1.7;
+font-size:17px;
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+.action-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
