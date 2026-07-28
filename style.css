@@ -1241,3 +1241,28 @@ font-size:14px;
 color:#64748b;
 
 }
+/* About Section */
+
+.about-section{
+
+padding:70px 0;
+
+background:#f8fbff;
+
+}
+
+.about-section p{
+
+max-width:900px;
+
+margin:18px auto;
+
+text-align:center;
+
+line-height:1.9;
+
+color:#475569;
+
+font-size:17px;
+
+}
