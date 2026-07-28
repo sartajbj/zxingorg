@@ -784,3 +784,38 @@ border-color:#2563eb;
 transform:translateY(-3px);
 box-shadow:0 8px 20px rgba(37,99,235,.10);
 }
+/* ===== About Section ===== */
+
+.about-section{
+padding:70px 0;
+}
+
+.about-section h2{
+text-align:center;
+font-size:34px;
+margin-bottom:22px;
+}
+
+.about-section h3{
+margin:35px 0 15px;
+font-size:24px;
+color:#0f172a;
+}
+
+.about-section p{
+font-size:17px;
+line-height:1.9;
+color:#475569;
+margin-bottom:18px;
+}
+
+.about-list{
+margin:20px 0 0;
+padding-left:22px;
+}
+
+.about-list li{
+margin-bottom:12px;
+line-height:1.8;
+color:#475569;
+}
