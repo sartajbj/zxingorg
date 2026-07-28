@@ -625,3 +625,39 @@ font-size:15px;
 margin:0;
 color:#64748b;
 }
+/* Premium Badges */
+
+.result-label{
+display:inline-block;
+background:#eff6ff;
+color:#2563eb;
+padding:4px 10px;
+border-radius:999px;
+font-size:12px;
+font-weight:700;
+margin-bottom:8px;
+}
+
+.result-box{
+transition:.25s;
+}
+
+.result-box:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(37,99,235,.08);
+}
+
+.result-card{
+overflow:hidden;
+position:relative;
+}
+
+.result-card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:5px;
+background:linear-gradient(90deg,#22c55e,#2563eb,#06b6d4);
+}
