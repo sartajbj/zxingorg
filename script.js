@@ -535,3 +535,65 @@ return;
 oldRenderResult(type,text);
 
 };
+// ===== Premium Helpers =====
+
+// Loading
+function showLoading(){
+
+result.style.display="block";
+
+result.innerHTML=`
+
+<div class="loading-box">
+
+<div class="loading-spinner"></div>
+
+<p>Decoding QR Code...</p>
+
+</div>
+
+`;
+
+}
+
+// New Scan
+function newScan(){
+
+preview.innerHTML="";
+
+result.innerHTML="";
+
+result.style.display="none";
+
+fileInput.value="";
+
+}
+
+// Show / Hide Password
+function togglePassword(){
+
+const pass=document.getElementById("wifiPassword");
+
+const eye=document.getElementById("eyeIcon");
+
+if(!pass) return;
+
+if(pass.dataset.show==="1"){
+
+pass.textContent="••••••••••";
+
+pass.dataset.show="0";
+
+eye.className="fa-solid fa-eye";
+
+}else{
+
+pass.textContent=pass.dataset.password;
+
+pass.dataset.show="1";
+
+eye.className="fa-solid fa-eye-slash";
+
+}
+
+}
