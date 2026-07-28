@@ -1068,3 +1068,23 @@ display:flex;
 align-items:center;
 gap:6px;
 }
+.hero-btn{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:15px 26px;
+font-size:17px;
+font-weight:700;
+}
+
+.upload-area h2{
+font-size:30px;
+margin:15px 0 10px;
+}
+
+.upload-area p{
+max-width:600px;
+margin:auto;
+line-height:1.7;
+color:#64748b;
+}
