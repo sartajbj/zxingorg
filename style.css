@@ -606,3 +606,22 @@ cursor:pointer;
 color:#2563eb;
 font-size:18px;
 }
+.success-header{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.success-header div{
+display:flex;
+align-items:center;
+gap:8px;
+flex-wrap:wrap;
+}
+
+.success-header small{
+display:inline;
+font-size:15px;
+margin:0;
+color:#64748b;
+}
