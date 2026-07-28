@@ -597,3 +597,88 @@ eye.className="fa-solid fa-eye-slash";
 }
 
 }
+// ===== Wi-Fi Result Upgrade =====
+
+function renderWifiCard(ssid,password,security){
+
+result.style.display="block";
+
+result.innerHTML=`
+
+<div class="result-card">
+
+<div class="success-header">
+<i class="fa-solid fa-circle-check"></i>
+<div>
+<div>Decode Succeeded</div>
+<small>Wi-Fi QR Code Detected</small>
+</div>
+</div>
+
+<div class="result-box">
+<div class="result-label">NETWORK NAME</div>
+<div class="result-value">${ssid}</div>
+</div>
+
+<div class="result-box">
+<div class="result-label">PASSWORD</div>
+
+<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+
+<span id="wifiPassword"
+class="password-value"
+data-password="${password}"
+data-show="0">
+
+••••••••••
+
+</span>
+
+<i id="eyeIcon"
+class="fa-solid fa-eye eye-btn"
+onclick="togglePassword()"></i>
+
+</div>
+
+</div>
+
+<div class="result-box">
+<div class="result-label">SECURITY</div>
+<div class="result-value">${security}</div>
+</div>
+
+<div class="action-grid">
+
+<button class="action-btn primary"
+onclick="copyText('${password}')">
+
+📋 Copy Password
+
+</button>
+
+<button class="action-btn success"
+onclick="navigator.share && navigator.share({
+title:'Wi-Fi',
+text:'Network: ${ssid}\nPassword: ${password}'
+})">
+
+📤 Share
+
+</button>
+
+</div>
+
+<button
+class="newscan-btn"
+onclick="newScan()">
+
+🔄 Scan Another QR
+
+</button>
+
+</div>
+
+`;
+
+}
+
