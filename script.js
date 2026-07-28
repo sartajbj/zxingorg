@@ -681,4 +681,24 @@ onclick="newScan()">
 `;
 
 }
+// ===== Auto Wi-Fi Card =====
 
+const oldShowResult = showResult;
+
+showResult = function(text){
+
+if(text.startsWith("WIFI:")){
+
+const ssid = text.match(/S:([^;]*)/)?.[1] || "";
+const password = text.match(/P:([^;]*)/)?.[1] || "";
+const security = text.match(/T:([^;]*)/)?.[1] || "Unknown";
+
+renderWifiCard(ssid,password,security);
+
+return;
+
+}
+
+oldShowResult(text);
+
+};
