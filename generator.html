@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Free QR Code Generator | ZXingOrg</title>
 
-<meta name="description" content="Generate free QR Codes for URLs, Text, Wi-Fi, Email, Phone, SMS and Contacts.">
+<meta name="description" content="Generate QR Codes for URLs, Wi-Fi, Text, Email, Phone, SMS and Contact. Free online QR Code Generator.">
+
+<meta name="robots" content="index,follow">
+
+<link rel="canonical" href="https://zxingorg.com/generator.html">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Free QR Code Generator",
+"url":"https://zxingorg.com/generator.html",
+"applicationCategory":"UtilitiesApplication",
+"operatingSystem":"Any",
+"offers":{
+"@type":"Offer",
+"price":"0"
+}
+}
+</script>
 
 </head>
 
@@ -23,7 +48,9 @@
 <div class="container">
 
 <a href="/" class="logo">
+
 ZXing<span>Org</span>
+
 </a>
 
 <nav>
@@ -51,16 +78,22 @@ ZXing<span>Org</span>
 <h1>Free QR Code Generator</h1>
 
 <p>
-Create QR Codes for URLs, Wi-Fi, Text, Email, Phone, SMS and Contacts instantly. No registration required.
+
+Create QR Codes for URLs, Text, Wi-Fi, Email, Phone, SMS and Contact in seconds.
+
 </p>
 
 <p class="internal-links">
 
-<a href="/">ZXing Online Decoder</a> •
+<a href="/">ZXing Online Decoder</a>
 
-<a href="/blog.html">QR Code Guides</a> •
+•
 
-<a href="/about.html">About ZXing</a>
+<a href="/blog.html">Guides</a>
+
+•
+
+<a href="/about.html">About</a>
 
 </p>
 
@@ -76,32 +109,66 @@ Create QR Codes for URLs, Wi-Fi, Text, Email, Phone, SMS and Contacts instantly.
 
 <h2>Create QR Code</h2>
 
-<p>Select a QR type and generate it instantly.</p>
+<p>
+
+Choose a QR type, enter your information and generate instantly.
+
+</p>
 
 <div class="generator-types">
 
-<button class="type-btn active" data-type="text">Text</button>
+<button class="type-btn active" data-type="text">
 
-<button class="type-btn" data-type="url">URL</button>
+Text
 
-<button class="type-btn" data-type="wifi">Wi-Fi</button>
+</button>
 
-<button class="type-btn" data-type="email">Email</button>
+<button class="type-btn" data-type="url">
 
-<button class="type-btn" data-type="phone">Phone</button>
+URL
 
-<button class="type-btn" data-type="sms">SMS</button>
+</button>
 
-<button class="type-btn" data-type="vcard">Contact</button>
+<button class="type-btn" data-type="wifi">
+
+Wi-Fi
+
+</button>
+
+<button class="type-btn" data-type="email">
+
+Email
+
+</button>
+
+<button class="type-btn" data-type="phone">
+
+Phone
+
+</button>
+
+<button class="type-btn" data-type="sms">
+
+SMS
+
+</button>
+
+<button class="type-btn" data-type="vcard">
+
+Contact
+
+</button>
 
 </div>
 
-<div class="generator-form">
+<div id="dynamicFields">
 
 <input
 type="text"
 id="qrInput"
-placeholder="Enter your text or URL">
+placeholder="Enter text">
+
+</div>
 
 <button
 id="generateBtn"
@@ -113,32 +180,12 @@ Generate QR
 
 </button>
 
-</div>
-
 <div id="qrPreview"></div>
+
+<div id="downloadArea"></div>
 
 </div>
 
 </div>
 
 </section>
-
-</main>
-
-<footer>
-
-<div class="container">
-
-<p>© 2026 ZXingOrg. All rights reserved.</p>
-
-</div>
-
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
-<script src="generator.js"></script>
-
-</body>
-
-</html>
