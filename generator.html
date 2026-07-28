@@ -1,3 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free QR Code Generator | ZXingOrg</title>
+
+<meta name="description" content="Generate free QR Codes for URLs, Text, Wi-Fi, Email, Phone, SMS and Contacts.">
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="container">
+
+<a href="/" class="logo">
+ZXing<span>Org</span>
+</a>
+
+<nav>
+
+<a href="/">Home</a>
+
+<a href="/generator.html">QR Generator</a>
+
+<a href="/blog.html">Blog</a>
+
+<a href="/about.html">About</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<main>
+
 <section class="hero">
 
 <div class="container">
@@ -8,9 +54,6 @@
 Create QR Codes for URLs, Wi-Fi, Text, Email, Phone, SMS and Contacts instantly. No registration required.
 </p>
 
-</div>
-
-</section>
 <p class="internal-links">
 
 <a href="/">ZXing Online Decoder</a> •
@@ -20,6 +63,11 @@ Create QR Codes for URLs, Wi-Fi, Text, Email, Phone, SMS and Contacts instantly.
 <a href="/about.html">About ZXing</a>
 
 </p>
+
+</div>
+
+</section>
+
 <section class="generator">
 
 <div class="container">
@@ -29,7 +77,8 @@ Create QR Codes for URLs, Wi-Fi, Text, Email, Phone, SMS and Contacts instantly.
 <h2>Create QR Code</h2>
 
 <p>Select a QR type and generate it instantly.</p>
-  <div class="generator-types">
+
+<div class="generator-types">
 
 <button class="type-btn active" data-type="text">Text</button>
 
@@ -54,7 +103,9 @@ type="text"
 id="qrInput"
 placeholder="Enter your text or URL">
 
-<button id="generateBtn" class="primary-btn">
+<button
+id="generateBtn"
+class="primary-btn">
 
 <i class="fa-solid fa-qrcode"></i>
 
@@ -71,3 +122,23 @@ Generate QR
 </div>
 
 </section>
+
+</main>
+
+<footer>
+
+<div class="container">
+
+<p>© 2026 ZXingOrg. All rights reserved.</p>
+
+</div>
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script src="generator.js"></script>
+
+</body>
+
+</html>
