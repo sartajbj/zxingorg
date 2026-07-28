@@ -224,3 +224,61 @@ function showResult(type, value) {
   card.innerHTML = html;
 
 }
+// ---------- Decode QR Image ----------
+
+const fileInput = document.getElementById("fileInput");
+
+if (fileInput) {
+  fileInput.addEventListener("change", async (e) => {
+
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const img = new Image();
+    img.src = URL.createObjectURL(file);
+
+    img.onload = async () => {
+
+      try {
+
+        const reader = new ZXing.BrowserMultiFormatReader();
+
+        const result = await reader.decodeFromImageElement(img);
+
+        const text = result.text;
+
+        if (text.startsWith("WIFI:")) {
+
+          showResult("Wi-Fi QR", text);
+
+        } else if (text.startsWith("http")) {
+
+          showResult(
+            "Website",
+            `<a href="${text}" target="_blank">${text}</a>`
+          );
+
+        } else if (text.startsWith("mailto:")) {
+
+          showResult("Email", text);
+
+        } else if (text.startsWith("tel:")) {
+
+          showResult("Phone", text);
+
+        } else {
+
+          showResult("QR Code", text);
+
+        }
+
+      } catch (err) {
+
+        alert("No QR Code found in this image.");
+
+      }
+
+    };
+
+  });
+}
