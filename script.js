@@ -188,3 +188,39 @@ copyBtn.addEventListener("click",()=>{
     },2000);
 
 });
+// ---------- Scan Result UI ----------
+
+function showResult(type, value) {
+
+  const section = document.getElementById("resultSection");
+  const card = document.getElementById("resultCard");
+
+  section.classList.remove("hidden");
+  section.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+
+  let html = `<h3>${type}</h3>`;
+
+  if (type === "Wi-Fi QR") {
+
+    const ssid = value.match(/S:([^;]*)/)?.[1] || "-";
+    const password = value.match(/P:([^;]*)/)?.[1] || "-";
+    const security = value.match(/T:([^;]*)/)?.[1] || "-";
+
+    html += `
+      <p><strong>Network:</strong> ${ssid}</p>
+      <p><strong>Password:</strong> <b>${password}</b></p>
+      <p><strong>Security:</strong> ${security}</p>
+    `;
+
+  } else {
+
+    html += `<p>${value}</p>`;
+
+  }
+
+  card.innerHTML = html;
+
+}
