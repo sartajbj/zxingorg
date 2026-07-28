@@ -282,3 +282,62 @@ if (fileInput) {
 
   });
 }
+// ---------- Live Camera Scanner ----------
+
+const cameraBtn = document.getElementById("cameraBtn");
+
+if (cameraBtn) {
+
+  cameraBtn.addEventListener("click", async () => {
+
+    try {
+
+      const reader = new ZXing.BrowserMultiFormatReader();
+
+      const devices = await reader.listVideoInputDevices();
+
+      if (!devices.length) {
+        alert("No camera found.");
+        return;
+      }
+
+      await reader.decodeFromVideoDevice(
+        devices[0].deviceId,
+        null,
+        (result) => {
+
+          if (!result) return;
+
+          const text = result.text;
+
+          if (text.startsWith("WIFI:")) {
+
+            showResult("Wi-Fi QR", text);
+
+          } else if (text.startsWith("http")) {
+
+            showResult(
+              "Website",
+              `<a href="${text}" target="_blank">${text}</a>`
+            );
+
+          } else {
+
+            showResult("QR Code", text);
+
+          }
+
+          reader.reset();
+
+        }
+      );
+
+    } catch (e) {
+
+      alert("Camera permission denied.");
+
+    }
+
+  });
+
+}
