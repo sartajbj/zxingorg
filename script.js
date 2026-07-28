@@ -344,3 +344,67 @@ navigator.clipboard.writeText(text);
 showToast("Copied Successfully");
 
 }
+// ===== Premium Result Card =====
+
+function renderResult(type,text){
+
+let bytes=new TextEncoder().encode(text).length;
+
+result.innerHTML=`
+
+<div class="result-card">
+
+<div class="success-header">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<div>
+
+<div>Decode Succeeded</div>
+
+<small style="color:#64748b;font-size:14px;">QR Code decoded successfully</small>
+
+</div>
+
+</div>
+
+<div class="result-box">
+<div class="result-label">TYPE</div>
+<div class="result-value">${type}</div>
+</div>
+
+<div class="result-box">
+<div class="result-label">RAW TEXT</div>
+<div class="result-value">${text}</div>
+</div>
+
+<div class="result-box">
+<div class="result-label">RAW BYTES</div>
+<div class="result-value">${bytes} Bytes</div>
+</div>
+
+<div class="action-grid">
+
+<button class="action-btn primary"
+onclick="copyText(\`${text}\`)">
+
+📋 Copy
+
+</button>
+
+<button class="action-btn success"
+onclick="navigator.share ? navigator.share({text:'${text}'}) : copyText(\`${text}\`)">
+
+📤 Share
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+result.style.display="block";
+
+}
