@@ -819,3 +819,41 @@ margin-bottom:12px;
 line-height:1.8;
 color:#475569;
 }
+/* ===== FAQ ===== */
+
+.faq-section{
+padding:70px 0;
+background:#f8fbff;
+}
+
+.faq-section h2{
+text-align:center;
+font-size:34px;
+margin-bottom:35px;
+}
+
+.faq-item{
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:16px;
+padding:22px;
+margin-bottom:18px;
+transition:.25s;
+}
+
+.faq-item:hover{
+border-color:#2563eb;
+box-shadow:0 8px 20px rgba(37,99,235,.08);
+}
+
+.faq-item h3{
+font-size:20px;
+margin-bottom:10px;
+color:#0f172a;
+}
+
+.faq-item p{
+color:#64748b;
+line-height:1.8;
+margin:0;
+}
