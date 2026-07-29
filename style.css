@@ -1529,3 +1529,26 @@ padding:24px;
 }
 
 }
+.hero h1{
+font-size:clamp(2.5rem,8vw,3.5rem)!important;
+line-height:1.08!important;
+letter-spacing:-1px;
+margin-bottom:16px!important;
+}
+.hero{
+padding:60px 20px 45px!important;
+}
+.hero,
+.scanner,
+.supported-section,
+.faq-section,
+.about-section{
+margin:0!important;
+padding-top:60px!important;
+padding-bottom:60px!important;
+}
+.hero p{
+max-width:700px;
+margin:0 auto;
+line-height:1.7;
+}
