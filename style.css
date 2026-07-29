@@ -1042,3 +1042,43 @@ section,
   height: 20px !important;
   flex-shrink: 0 !important;
 }
+/* Hero Subtitle Styling */
+.hero-subtitle {
+  font-size: 15px !important;
+  color: #4a5568 !important;
+  margin-top: 6px !important;
+  margin-bottom: 10px !important;
+  text-align: center !important;
+}
+
+.hero-subtitle strong {
+  color: #1a202c !important;
+  font-weight: 600 !important;
+}
+
+/* Single Line Badges Container */
+.hero-badges {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: nowrap !important; /* Force strictly single line */
+  gap: 6px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #2b6cb0 !important;
+  margin-bottom: 20px !important;
+  white-space: nowrap !important; /* No text wrapping */
+}
+
+.hero-badges .dot {
+  color: #cbd5e0 !important;
+  font-size: 10px !important;
+}
+
+/* Screen size adjustments for smaller devices */
+@media (max-width: 380px) {
+  .hero-badges {
+    font-size: 10.5px !important;
+    gap: 4px !important;
+  }
+}
