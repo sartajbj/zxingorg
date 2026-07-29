@@ -971,3 +971,59 @@ footer {
     font-size: 1.5rem;
   }
 }
+/* ===================================
+   EXACT FIX FOR HEADINGS & SPACING
+=================================== */
+
+/* 1. Alignment & Font Sizing Fix */
+.hero h1 {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  text-align: center !important;
+  margin-bottom: 12px !important;
+}
+
+h2, 
+.section-title, 
+.supported-section h2, 
+.about-section h2, 
+.faq-section h2 {
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+  text-align: center !important;
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+.about-section h3 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+  margin-top: 16px !important;
+  margin-bottom: 8px !important;
+}
+
+/* 2. Compact Section Gaps Fix */
+section, 
+.hero, 
+.scanner, 
+.supported-section, 
+.about-section, 
+.faq-section {
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* 3. Text Line Height & Spacing Adjustments */
+.hero p, 
+.section-subtitle, 
+.supported-intro, 
+.about-section p {
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  margin-bottom: 16px !important;
+}
