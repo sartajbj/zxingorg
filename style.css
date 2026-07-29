@@ -1027,3 +1027,18 @@ section,
   line-height: 1.5 !important;
   margin-bottom: 16px !important;
 }
+/* Exact Button Icon Alignment & Spacing */
+.hero-buttons .primary-btn,
+.primary-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important; /* Icon aur text me clean gap */
+}
+
+.hero-buttons .primary-btn svg,
+.primary-btn svg {
+  width: 20px !important;
+  height: 20px !important;
+  flex-shrink: 0 !important;
+}
