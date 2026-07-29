@@ -78,44 +78,76 @@ ZXing<span>Org</span>
 
 <h1>ZXing Online Decoder</h1>
 
-<p>
-Scan QR Codes and Barcodes instantly using your browser.
-No installation. Fast, secure and privacy-first.
+<p class="hero-subtitle">
+Scan QR Codes & Barcodes instantly in your browser.
+<br>
+<span>⚡ No Installation • 🔒 100% Private • 🆓 Free Forever</span>
 </p>
+
+<div class="hero-buttons">
+
+<a href="#scanner" class="primary-btn">
+<i class="fa-solid fa-upload"></i>
+Upload QR
+</a>
+
+<button id="cameraHeroBtn" class="secondary-btn">
+<i class="fa-solid fa-camera"></i>
+Open Camera
+</button>
+
+</div>
 
 </div>
 
 </section>
 
-<section class="scanner">
+<section class="scanner" id="scanner">
 
 <div class="container">
 
 <div class="scanner-card">
 
-<h2>Upload QR Code Image</h2>
+<div class="scanner-brand">
+
+<span class="brand-dot"></span>
+
+ZXingOrg
+
+</div>
+
+<h2>Scan QR Code or Barcode</h2>
 
 <p>
-Choose an image, paste from clipboard or use your camera.
+Upload an image, paste from clipboard or scan live using your camera.
 </p>
 
 <input type="file" id="fileInput" accept="image/*" hidden>
 
 <button id="chooseFileBtn" class="primary-btn">
+
 <i class="fa-solid fa-upload"></i>
+
 Choose Image
+
 </button>
 
 <div class="actions">
 
 <button id="cameraBtn" class="secondary-btn">
+
 <i class="fa-solid fa-camera"></i>
+
 Open Camera
+
 </button>
 
 <button id="pasteBtn" class="secondary-btn">
+
 <i class="fa-solid fa-paste"></i>
+
 Paste Image
+
 </button>
 
 </div>
