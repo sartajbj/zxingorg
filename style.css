@@ -1082,3 +1082,14 @@ section,
     gap: 4px !important;
   }
 }
+/* Compact Wi-Fi Result Grid */
+.wifi-meta-row {
+  display: flex !important;
+  gap: 8px !important;
+}
+
+@media (max-width: 360px) {
+  .wifi-meta-row {
+    flex-direction: column !important;
+  }
+}
