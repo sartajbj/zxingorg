@@ -85,10 +85,11 @@ text-align:center;
 }
 
 .hero h1{
-font-size:52px;
+font-size:36px;
 font-weight:800;
 margin-bottom:18px;
 line-height:1.15;
+letter-spacing:-0.5px;
 }
 
 .hero p{
