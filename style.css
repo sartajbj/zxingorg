@@ -1200,3 +1200,94 @@ text-align:center;
 font-size:15px;
 
 }
+/* ===== Hero Upgrade ===== */
+
+.hero{
+
+padding:70px 0 55px;
+
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:48px;
+
+margin-bottom:18px;
+
+}
+
+.hero-subtitle{
+
+font-size:19px;
+
+line-height:1.8;
+
+color:#475569;
+
+}
+
+.hero-subtitle span{
+
+font-size:15px;
+
+font-weight:600;
+
+color:#2563eb;
+
+}
+
+.hero-buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:16px;
+
+margin-top:30px;
+
+flex-wrap:wrap;
+
+}
+
+/* ===== Scanner Brand ===== */
+
+.scanner-brand{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:8px;
+
+padding:6px 14px;
+
+border-radius:999px;
+
+background:#eff6ff;
+
+border:1px solid #bfdbfe;
+
+color:#2563eb;
+
+font-size:14px;
+
+font-weight:700;
+
+margin-bottom:18px;
+
+}
+
+.brand-dot{
+
+width:8px;
+
+height:8px;
+
+border-radius:50%;
+
+background:#2563eb;
+
+}
