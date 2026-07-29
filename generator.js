@@ -314,3 +314,24 @@ downloadArea.innerHTML = "";
 // ================================
 // End of generator.js
 // ================================
+const newQRBtn=document.getElementById("newQRBtn");
+
+newQRBtn.addEventListener("click",()=>{
+
+document.getElementById("resultCard").style.display="none";
+
+qrPreview.innerHTML="";
+
+downloadArea.innerHTML="";
+
+dynamicFields.querySelector("input").focus();
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+});
