@@ -1293,3 +1293,28 @@ border-radius:50%;
 background:#2563eb;
 
 }
+section{
+padding:72px 0;
+}
+
+.hero{
+padding:60px 0 50px;
+}
+
+.scanner-card,
+.result-card{
+padding:36px;
+}
+
+h1{
+margin-bottom:18px;
+}
+
+h2{
+margin-bottom:14px;
+}
+
+p{
+margin-bottom:24px;
+line-height:1.7;
+}
