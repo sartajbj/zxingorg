@@ -153,7 +153,7 @@ return;
 }
 
 }
-
+document.getElementById("resultCard").style.display="block";
 qrPreview.innerHTML="";
 
 downloadArea.innerHTML="";
