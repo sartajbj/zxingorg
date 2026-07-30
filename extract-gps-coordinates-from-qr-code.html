@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Extract GPS Coordinates from Location Sharing QR Codes | ZXing Org</title>
+<meta name="description" content="Learn how to extract GPS coordinates, latitude and longitude from a location-sharing QR code, inspect the raw data safely, and open the coordinates in a map.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.zxingorg.com/posts/extract-gps-coordinates-from-qr-code/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Extract GPS Coordinates from Location Sharing QR Codes">
+<meta property="og:description" content="Learn how to extract GPS coordinates, latitude and longitude from a location QR code and inspect the decoded data safely.">
+<meta property="og:url" content="https://www.zxingorg.com/posts/extract-gps-coordinates-from-qr-code/">
+<meta property="og:site_name" content="ZXing Org">
+<meta property="og:image" content="https://www.zxingorg.com/images/extract-gps-coordinates-from-qr-code.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Extract GPS Coordinates from Location Sharing QR Codes">
+<meta name="twitter:description" content="Learn how to extract GPS coordinates, latitude and longitude from a location QR code and inspect the decoded data safely.">
+<meta name="twitter:image" content="https://www.zxingorg.com/images/extract-gps-coordinates-from-qr-code.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"How to Extract GPS Coordinates from Location Sharing QR Codes",
+  "description":"Learn how to extract GPS coordinates, latitude and longitude from a location QR code and inspect the decoded data safely.",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://www.zxingorg.com/posts/extract-gps-coordinates-from-qr-code/"},
+  "image":["https://www.zxingorg.com/images/extract-gps-coordinates-from-qr-code.webp"],
+  "publisher":{"@type":"Organization","name":"ZXing Org","url":"https://www.zxingorg.com/"}
+}
+</script>
+<style>
+:root{--blue:#2563eb;--blue-dark:#1d4ed8;--navy:#0f172a;--text:#475569;--muted:#64748b;--bg:#f5f9ff;--white:#fff;--line:#e2e8f0;--soft:#eff6ff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:#1e293b;line-height:1.6}
+img{max-width:100%;display:block} a{text-decoration:none}
+.article-header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.header-inner{width:min(1180px,92%);min-height:76px;margin:auto;display:flex;align-items:center;justify-content:space-between;position:relative}
+.logo{color:var(--blue);font-size:32px;font-weight:800;letter-spacing:-1.4px}.logo span{color:var(--blue-dark)}
+.nav{display:flex;align-items:center;gap:28px}.nav a{color:#1e293b;font-size:16px;font-weight:700}.nav a:hover{color:var(--blue)}
+.menu-toggle{display:none;border:0;background:transparent;color:#1e293b;width:46px;height:46px;padding:0;border-radius:12px;font-size:25px;cursor:pointer}
+.article-shell{padding:52px 0 76px;background:var(--bg)}.article-wrap{width:min(860px,92%);margin:auto}.article-top{margin-bottom:28px}
+.article-kicker{display:inline-flex;padding:7px 13px;margin-bottom:16px;border-radius:999px;background:var(--soft);border:1px solid #bfdbfe;color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.45px;text-transform:uppercase}
+.article-top h1{margin:0 0 18px;color:var(--navy);font-size:clamp(2.25rem,5.3vw,3.35rem);line-height:1.08;letter-spacing:-1.4px}
+.article-intro{margin:0;color:var(--muted);font-size:18px;line-height:1.85}
+.feature-image{width:100%;height:420px;object-fit:cover;object-position:center;margin:0 0 34px;border:1px solid var(--line);border-radius:22px;background:#eaf2ff;box-shadow:0 16px 40px rgba(15,23,42,.08)}
+.article-body{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:34px;box-shadow:0 12px 34px rgba(15,23,42,.06)}
+.article-body h2{margin:0 0 14px;color:var(--navy);font-size:28px;line-height:1.28}.article-body h2:not(:first-child){margin-top:38px}
+.article-body h3{margin:28px 0 10px;color:var(--navy);font-size:21px;line-height:1.35}
+.article-body p{margin:0 0 18px;color:var(--text);font-size:17px;line-height:1.85}
+.article-body ul,.article-body ol{margin:0 0 24px;padding-left:24px;color:var(--text)}.article-body li{margin-bottom:10px;line-height:1.75}
+.article-body a{color:var(--blue);font-weight:700}.article-body a:hover{text-decoration:underline}
+.article-body hr{margin:34px 0;border:0;border-top:1px solid var(--line)}
+.quick-answer{margin:0 0 30px;padding:20px 22px;border:1px solid #dbeafe;border-left:4px solid var(--blue);border-radius:16px;background:#f8fbff}
+.article-related{margin-top:38px;padding:24px;border:1px solid #dbeafe;border-radius:18px;background:#f8fbff}
+.article-related h2{margin-top:0!important;font-size:25px}.article-related ul{margin-bottom:0}
+.article-cta{margin-top:30px;padding:30px 24px;text-align:center;border:1px solid #dbeafe;border-radius:20px;background:linear-gradient(135deg,#eff6ff,#fff)}
+.article-cta h2{margin:0 0 10px;font-size:26px}.article-cta p{max-width:650px;margin:0 auto 20px}
+.article-cta a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:14px;background:var(--blue);color:#fff!important;text-decoration:none!important}
+.footer{padding:26px 20px;background:#0f172a;color:#cbd5e1;text-align:center}.footer p{margin:0;color:#cbd5e1;font-size:14px}
+@media(max-width:768px){
+.header-inner{min-height:68px}.logo{font-size:29px}.menu-toggle{display:flex;align-items:center;justify-content:center}
+.nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:4px;padding:10px;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 16px 30px rgba(15,23,42,.10)}
+.nav.show{display:flex}.nav a{padding:13px 14px;border-radius:10px}.nav a:hover{background:var(--soft)}
+.article-shell{padding:38px 0 54px}.article-top h1{font-size:2.15rem}.article-intro{font-size:17px;line-height:1.8}
+.feature-image{height:240px;margin-bottom:26px;border-radius:18px}.article-body{padding:24px;border-radius:18px}.article-body h2{font-size:25px}.article-body p{font-size:16px}
+}
+@media(max-width:480px){.feature-image{height:220px}}
+</style>
+</head>
+<body>
+<header class="article-header">
+<div class="header-inner">
+<a href="/" class="logo">ZXing<span>Org</span></a>
+<button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+<nav class="nav" id="mainNav"><a href="/">Home</a><a href="/generator.html">QR Generator</a><a href="/blog.html">Blog</a><a href="/about.html">About</a></nav>
+</div>
+</header>
+
+<main>
+<section class="article-shell">
+<article class="article-wrap">
+
+<header class="article-top">
+<span class="article-kicker">QR &amp; Location Guide</span>
+<h1>How to Extract GPS Coordinates from Location Sharing QR Codes</h1>
+<p class="article-intro">A location-sharing QR code can contain more than a simple webpage link. Learn how to decode the image, identify latitude and longitude values, inspect the raw location data, and verify the destination before opening it.</p>
+</header>
+
+<img class="feature-image" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjGCe78h1P__vA5pxUbZvuJm0zxJV8huwpRJvXqFv1xP4NK6oa6Mn96_OELruyGv0bEVZBTFLM1tv7xGMX4wW4q7L82MWh1Tl24IYtcw16bMEZw_AVE2goHIqF55M2PfAAFl_d0EetxlCsJrB9Rp_F9kTCeQMzbbG6X8ips96jUULXyURQKwSF7uIeUJZH/s1024/1000070962.webp" alt="Extracting GPS coordinates and latitude longitude from a location sharing QR code" width="1280" height="720" fetchpriority="high">
+
+<div class="article-body">
+
+<div class="quick-answer">
+<strong>Quick answer:</strong> Decode the location QR image first, inspect the returned text for GPS, latitude and longitude information, then paste the coordinates into a trusted map service to verify the location before following any link.
+</div>
+
+<h2>What Data Is Stored Inside a Location QR Code?</h2>
+
+<p>QR codes are commonly used to share links, join Wi-Fi networks, exchange contact details and transfer text. They can also be used to share a geographic location.</p>
+
+<p>A location-sharing QR code may contain geographic coordinates, a map URL, or another location reference that a compatible application can interpret. A common coordinate-oriented format uses a <strong>geo:</strong> prefix followed by latitude and longitude values.</p>
+
+<p>If you receive a QR code as a screenshot and the image is difficult to read, our <a href="/posts/fix-qr-code-cannot-be-read-from-image/">QR code image troubleshooting guide</a> can help with common decoding problems before you inspect the location data.</p>
+
+<p>At the most basic level, <strong>latitude</strong> describes a position north or south of the equator, while <strong>longitude</strong> describes a position east or west of the prime meridian. Together, the two values can identify a specific point on a map.</p>
+
+<hr>
+
+<h2>How a QR Decoder Extracts Location Information</h2>
+
+<p>When a decoder reads a QR image, it identifies the code's visual structure and converts the encoded modules into data. For a location QR code, the result can be plain text containing coordinates or a URL that points to a map location.</p>
+
+<p>This is useful because you can inspect the decoded value before opening a destination. Instead of letting an unknown QR code immediately redirect your browser, you can first see whether it contains a coordinate pair, a normal map URL or something unexpected.</p>
+
+<p>For a general image-based QR workflow, see our <a href="/posts/decode-qr-code-from-image/">QR code from image guide</a>.</p>
+
+<hr>
+
+<h2>Step-by-Step Guide to Extract GPS Coordinates</h2>
+
+<p>You can follow these steps on a desktop or mobile browser when you already have the location QR code as an image.</p>
+
+<ol>
+<li><strong>Save the QR image:</strong> download the location code or take a clear screenshot.</li>
+<li><strong>Open the decoder:</strong> go to the ZXing Org browser-based decoder.</li>
+<li><strong>Upload the image:</strong> select the saved QR image from your device.</li>
+<li><strong>Review the decoded text:</strong> look for latitude, longitude, a <strong>geo:</strong> value, or a map URL.</li>
+<li><strong>Verify the destination:</strong> inspect the decoded data before opening an external website.</li>
+</ol>
+
+<p>If you are working from an older phone or a mobile browser that handles file uploads differently, our <a href="/posts/scan-barcode-from-image-mobile/">mobile image scanning guide</a> covers another browser-based workflow.</p>
+
+<hr>
+
+<h2>Why You Should Check Coordinates Before Clicking Links</h2>
+
+<p>QR codes found in public spaces, forwarded messages and unfamiliar images can point to destinations you did not expect. A safer workflow is to decode the raw value first and inspect it before following a link.</p>
+
+<p>This is especially useful for location-sharing codes. If the decoded value contains a normal coordinate pair, you can verify the location separately. If it contains a web address, check the domain carefully before opening it.</p>
+
+<p>This kind of QR-based phishing is often called <strong>quishing</strong>. The practical defense is simple: inspect the decoded result before you trust the destination.</p>
+
+<hr>
+
+<h2>How to Read Latitude and Longitude Values</h2>
+
+<p>Once the QR data has been decoded, the location may be represented by a latitude and longitude pair. For example:</p>
+
+<p><strong>40.6892, -74.0445</strong></p>
+
+<p>The first number is latitude and the second is longitude. Positive and negative values indicate which side of the equator or prime meridian the point lies on.</p>
+
+<p>When the decoded value uses a map URL instead of raw coordinates, you can still inspect the URL to understand what destination it refers to before opening the link.</p>
+
+<hr>
+
+<h2>Convert the Coordinates Back into a Live Map</h2>
+
+<p>After you have the latitude and longitude, copy the coordinate pair and paste it into a trusted map service. A mapping application can then place a pin at the corresponding point.</p>
+
+<p>This makes it easy to verify whether the decoded location matches the place you expected, such as an event venue, meeting point, business address or shared travel location.</p>
+
+<p>The same decode-first approach can be useful with other QR payloads, including Wi-Fi configuration data. See our <a href="/posts/decode-wifi-qr-code-from-image/">Wi-Fi QR decoding guide</a> for another example of inspecting QR data before using it.</p>
+
+<hr>
+
+<h2>Create Your Own Location QR Codes</h2>
+
+<p>Once you understand how location data can be encoded, you can create QR codes for your own projects. A high-resolution, high-contrast QR image is easier for phones and image decoders to read.</p>
+
+<p>For generating new QR codes, use the <a href="/generator.html">ZXing QR Generator</a> and test the finished code before sharing or printing it.</p>
+
+<hr>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Can a QR code contain GPS coordinates?</h3>
+<p>Yes. A QR code can encode location-related text, including latitude and longitude values or a URL that points to a map location.</p>
+
+<h3>How do I get latitude and longitude from a QR code?</h3>
+<p>Decode the QR image first, then inspect the returned text for a coordinate pair or a location URL. You can copy the coordinates into a map service to verify the point.</p>
+
+<h3>Can I decode a location QR code without opening the map link?</h3>
+<p>Yes. Image decoding lets you inspect the raw result first. This can be useful when you want to verify the destination before opening an external website.</p>
+
+<h3>What if the location QR code is blurry?</h3>
+<p>Try the clearest image available first. If the code still will not decode, use our <a href="/posts/decode-qr-code-blurred-image/">blurred QR code guide</a> for additional troubleshooting.</p>
+
+<hr>
+
+<h2>Conclusion</h2>
+
+<p>A location-sharing QR code can carry useful geographic information such as latitude, longitude, a geo URI or a map destination. Decoding the image first lets you inspect that information, verify the coordinates, and decide what to open next.</p>
+
+<p>For the safest workflow, use a clear QR image, decode it, review the raw data, and only then move the coordinates into a trusted map service.</p>
+
+<div class="article-related">
+<h2>Related ZXing Org Guides</h2>
+<ul>
+<li><a href="/posts/decode-qr-code-from-image/">How to Decode QR Code from Image via Browser</a></li>
+<li><a href="/posts/fix-qr-code-cannot-be-read-from-image/">How to Fix a QR Code Cannot Be Read from Image Error</a></li>
+<li><a href="/posts/decode-wifi-qr-code-from-image/">How to Decode WiFi QR Code from Image Safely</a></li>
+</ul>
+</div>
+
+<div class="article-cta">
+<h2>Ready to decode a location QR code?</h2>
+<p>Upload the QR image and inspect the decoded coordinates or destination before opening it.</p>
+<a href="/">Open ZXing Decoder <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+</div>
+
+</div>
+</article>
+</section>
+</main>
+
+<footer class="footer"><p>© 2026 ZXingOrg. All rights reserved.</p></footer>
+
+<script>
+const menuToggle=document.getElementById("menuToggle");
+const mainNav=document.getElementById("mainNav");
+if(menuToggle && mainNav){
+menuToggle.addEventListener("click",()=>{
+const isOpen=mainNav.classList.toggle("show");
+menuToggle.setAttribute("aria-expanded",isOpen?"true":"false");
+menuToggle.querySelector("i").className=isOpen?"fa-solid fa-xmark":"fa-solid fa-bars";
+});
+mainNav.querySelectorAll("a").forEach(link=>{
+link.addEventListener("click",()=>{
+mainNav.classList.remove("show");
+menuToggle.setAttribute("aria-expanded","false");
+menuToggle.querySelector("i").className="fa-solid fa-bars";
+});
+});
+}
+</script>
+
+</body>
+</html>
