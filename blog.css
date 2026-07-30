@@ -7,18 +7,6 @@ padding:58px 0 34px;
 text-align:center;
 }
 
-.blog-breadcrumb{
-margin-bottom:18px;
-font-size:14px;
-color:#64748b;
-}
-
-.blog-breadcrumb a{
-color:#2563eb;
-font-weight:700;
-text-decoration:none;
-}
-
 .blog-hero h1{
 margin:0 0 14px;
 font-size:clamp(2.25rem,5vw,3.4rem);
@@ -80,9 +68,7 @@ line-height:1.7;
 }
 
 
-/* =========================================================
-   FEATURED GUIDE
-   ========================================================= */
+/* ===== Featured Guide ===== */
 
 .blog-feature{
 display:grid;
@@ -116,6 +102,19 @@ flex-direction:column;
 justify-content:center;
 }
 
+.blog-badge{
+display:inline-flex;
+align-self:flex-start;
+padding:6px 12px;
+margin-bottom:14px;
+border-radius:999px;
+background:#eff6ff;
+color:#2563eb;
+font-size:12px;
+font-weight:800;
+text-transform:uppercase;
+}
+
 .blog-feature-content h3{
 margin:0 0 12px;
 font-size:28px;
@@ -139,27 +138,7 @@ line-height:1.7;
 }
 
 
-/* =========================================================
-   BADGE
-   ========================================================= */
-
-.blog-badge{
-display:inline-flex;
-align-self:flex-start;
-padding:6px 12px;
-margin-bottom:14px;
-border-radius:999px;
-background:#eff6ff;
-color:#2563eb;
-font-size:12px;
-font-weight:800;
-text-transform:uppercase;
-}
-
-
-/* =========================================================
-   POST CARDS
-   ========================================================= */
+/* ===== Cards ===== */
 
 .blog-grid{
 display:grid;
@@ -235,9 +214,7 @@ line-height:1.7;
 }
 
 
-/* =========================================================
-   READ GUIDE
-   ========================================================= */
+/* ===== Read Guide ===== */
 
 .blog-read{
 display:inline-flex;
@@ -253,9 +230,7 @@ text-decoration:underline;
 }
 
 
-/* =========================================================
-   FINAL CTA
-   ========================================================= */
+/* ===== Final CTA ===== */
 
 .blog-cta{
 margin-top:56px;
@@ -304,9 +279,7 @@ transform:translateY(-2px);
 }
 
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
+/* ===== Mobile ===== */
 
 @media(max-width:800px){
 
@@ -323,7 +296,6 @@ grid-template-columns:1fr;
 }
 
 }
-
 
 @media(max-width:600px){
 
