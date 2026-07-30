@@ -353,3 +353,34 @@ function smoothToResult(){
     block:"center"
   });
 }
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+if (menuToggle && mainNav) {
+
+menuToggle.addEventListener("click", () => {
+
+const isOpen = mainNav.classList.toggle("show");
+
+menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+menuToggle.querySelector("i").className =
+isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+
+});
+
+mainNav.querySelectorAll("a").forEach(link => {
+
+link.addEventListener("click", () => {
+
+mainNav.classList.remove("show");
+
+menuToggle.setAttribute("aria-expanded", "false");
+
+menuToggle.querySelector("i").className = "fa-solid fa-bars";
+
+});
+
+});
+
+}
