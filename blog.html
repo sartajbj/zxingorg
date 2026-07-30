@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZXing Org Blog – QR Code & Barcode Guides</title>
+<meta name="description" content="Practical QR code, Wi-Fi QR, barcode and ZXingOrg decoder guides. Learn how to scan, decode and troubleshoot QR codes and barcodes online.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.zxingorg.com/blog.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZXing Org Blog – QR Code & Barcode Guides">
+<meta property="og:description" content="Practical QR code, Wi-Fi QR, barcode and decoder guides from ZXing Org.">
+<meta property="og:url" content="https://www.zxingorg.com/blog.html">
+<meta property="og:site_name" content="ZXing Org">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ZXing Org Blog – QR Code & Barcode Guides">
+<meta name="twitter:description" content="Practical QR code, Wi-Fi QR, barcode and decoder guides from ZXing Org.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CollectionPage",
+  "name":"ZXing Org Blog – QR Code & Barcode Guides",
+  "url":"https://www.zxingorg.com/blog.html",
+  "description":"Practical QR code, Wi-Fi QR, barcode and decoder guides from ZXing Org.",
+  "isPartOf":{
+    "@type":"WebSite",
+    "name":"ZXing Org",
+    "url":"https://www.zxingorg.com/"
+  }
+}
+</script>
+
+<style>
+.blog-hero{
+  padding:64px 0 34px;
+  text-align:center;
+}
+.blog-hero h1{
+  margin:0 auto 14px;
+  max-width:900px;
+  font-size:clamp(2.2rem,5vw,3.3rem);
+  line-height:1.08;
+  color:#0f172a;
+}
+.blog-hero p{
+  max-width:740px;
+  margin:0 auto;
+  color:#64748b;
+  font-size:18px;
+  line-height:1.8;
+}
+.blog-main{
+  padding:18px 0 72px;
+}
+.blog-section{
+  margin-top:54px;
+}
+.blog-section:first-child{
+  margin-top:0;
+}
+.blog-section-title{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:20px;
+}
+.blog-section-title h2{
+  margin:0;
+  font-size:28px;
+  color:#0f172a;
+}
+.blog-feature{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:24px;
+  box-shadow:0 14px 40px rgba(15,23,42,.08);
+}
+.blog-feature-media{
+  min-height:300px;
+  background:#eff6ff;
+}
+.blog-feature-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.blog-feature-content{
+  padding:34px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.blog-badge{
+  display:inline-flex;
+  align-self:flex-start;
+  padding:6px 12px;
+  border-radius:999px;
+  background:#eff6ff;
+  color:#2563eb;
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.4px;
+  margin-bottom:14px;
+}
+.blog-feature-content h3{
+  margin:0 0 12px;
+  font-size:30px;
+  line-height:1.2;
+  color:#0f172a;
+}
+.blog-feature-content p{
+  margin:0 0 22px;
+  color:#64748b;
+  line-height:1.8;
+}
+.blog-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+}
+.blog-card{
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:20px;
+  box-shadow:0 10px 28px rgba(15,23,42,.06);
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+.blog-card:hover{
+  transform:translateY(-4px);
+  border-color:#bfdbfe;
+  box-shadow:0 18px 38px rgba(37,99,235,.10);
+}
+.blog-card-media{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:#eff6ff;
+}
+.blog-card-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .35s ease;
+}
+.blog-card:hover .blog-card-media img{
+  transform:scale(1.03);
+}
+.blog-card-content{
+  padding:22px;
+}
+.blog-card-content h3{
+  margin:0 0 10px;
+  font-size:21px;
+  line-height:1.3;
+  color:#0f172a;
+}
+.blog-card-content p{
+  margin:0 0 18px;
+  color:#64748b;
+  line-height:1.7;
+}
+.blog-read{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:#2563eb;
+  font-weight:800;
+}
+.blog-read i{
+  transition:transform .2s ease;
+}
+.blog-card:hover .blog-read i,
+.blog-feature:hover .blog-read i{
+  transform:translateX(3px);
+}
+.blog-cta{
+  margin-top:56px;
+  padding:30px;
+  text-align:center;
+  background:linear-gradient(135deg,#eff6ff,#ffffff);
+  border:1px solid #dbeafe;
+  border-radius:22px;
+}
+.blog-cta h2{
+  margin:0 0 10px;
+  color:#0f172a;
+}
+.blog-cta p{
+  max-width:680px;
+  margin:0 auto 20px;
+  color:#64748b;
+  line-height:1.7;
+}
+.blog-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:52px;
+  padding:0 22px;
+  border-radius:14px;
+  background:#2563eb;
+  color:#fff;
+  font-weight:800;
+}
+.blog-breadcrumb{
+  margin:0 0 16px;
+  font-size:14px;
+  color:#64748b;
+}
+.blog-breadcrumb a{
+  color:#2563eb;
+  font-weight:700;
+}
+@media(max-width:800px){
+  .blog-feature{
+    grid-template-columns:1fr;
+  }
+  .blog-feature-media{
+    min-height:220px;
+  }
+  .blog-grid{
+    grid-template-columns:1fr;
+  }
+}
+@media(max-width:600px){
+  .blog-hero{
+    padding:48px 0 24px;
+  }
+  .blog-hero p{
+    font-size:16px;
+  }
+  .blog-section{
+    margin-top:42px;
+  }
+  .blog-section-title h2{
+    font-size:24px;
+  }
+  .blog-feature-content{
+    padding:24px;
+  }
+  .blog-feature-content h3{
+    font-size:24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="/" class="logo">ZXing<span>Org</span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav id="mainNav">
+      <a href="/">Home</a>
+      <a href="/generator.html">QR Generator</a>
+      <a href="/blog.html" aria-current="page">Blog</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="blog-hero">
+  <div class="container">
+    <div class="blog-breadcrumb">
+      <a href="/">Home</a> <span aria-hidden="true">›</span> Blog
+    </div>
+
+    <h1>ZXing Org Blog</h1>
+
+    <p>
+      Practical QR code, Wi-Fi QR, barcode and decoder guides to help you scan,
+      decode and troubleshoot codes online.
+    </p>
+  </div>
+</section>
+
+<section class="blog-main">
+  <div class="container">
+
+    <section class="blog-section">
+      <div class="blog-section-title">
+        <h2>Featured Guide</h2>
+      </div>
+
+      <article class="blog-feature">
+        <a class="blog-feature-media" href="/posts/decode-qr-code-from-image/" aria-label="Read How to Decode QR Code from Image via Browser">
+          <img
+            src="/images/decode-qr-code-from-image.webp"
+            alt="QR code being decoded from an image in a browser"
+            width="1280"
+            height="720"
+          >
+        </a>
+
+        <div class="blog-feature-content">
+          <span class="blog-badge">QR Decoder</span>
+
+          <h3>How to Decode QR Code from Image via Browser</h3>
+
+          <p>
+            Learn how to decode a QR code from an image directly in a browser,
+            with practical steps for faster and safer scanning.
+          </p>
+
+          <a class="blog-read" href="/posts/decode-qr-code-from-image/">
+            Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section class="blog-section">
+      <div class="blog-section-title">
+        <h2>QR Decoder Guides</h2>
+      </div>
+
+      <div class="blog-grid">
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/decode-qr-code-blurred-image/">
+            <img src="/images/decode-qr-code-blurred-image.webp" alt="Decoding a blurred QR code image" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">QR Decoder</span>
+            <h3>How to Decode a QR Code Blurred Image with ZXing Org</h3>
+            <p>Practical steps for testing and decoding QR images that are blurred or difficult to read.</p>
+            <a class="blog-read" href="/posts/decode-qr-code-blurred-image/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/fix-qr-code-cannot-be-read-from-image/">
+            <img src="/images/fix-qr-code-cannot-be-read-from-image.webp" alt="Troubleshooting a QR code that cannot be read from an image" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Troubleshooting</span>
+            <h3>How to Fix ZXing Org QR Code Cannot Be Read from Image Error</h3>
+            <p>Common image and scanning issues that can prevent a QR code from being decoded successfully.</p>
+            <a class="blog-read" href="/posts/fix-qr-code-cannot-be-read-from-image/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/decode-wifi-qr-code-from-image/">
+            <img src="/images/decode-wifi-qr-code-from-image.webp" alt="Decoding a Wi-Fi QR code from an image" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Wi-Fi QR</span>
+            <h3>How to Decode WiFi QR Code from Image Safely</h3>
+            <p>Understand what a Wi-Fi QR code contains and how to decode one from an image.</p>
+            <a class="blog-read" href="/posts/decode-wifi-qr-code-from-image/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="blog-section">
+      <div class="blog-section-title">
+        <h2>Wi-Fi & QR Code Guides</h2>
+      </div>
+
+      <div class="blog-grid">
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/connect-to-wi-fi-using-qr-code-windows/">
+            <img src="/images/connect-to-wi-fi-using-qr-code-windows.webp" alt="Connecting to Wi-Fi on Windows with a QR code" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Wi-Fi QR</span>
+            <h3>3 Ways to Connect to Wi-Fi Using a QR Code on Windows</h3>
+            <p>Explore practical ways to connect a Windows device to Wi-Fi using a QR code.</p>
+            <a class="blog-read" href="/posts/connect-to-wi-fi-using-qr-code-windows/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/extract-gps-coordinates-from-qr-code/">
+            <img src="/images/extract-gps-coordinates-from-qr-code.webp" alt="Extracting GPS coordinates from a location sharing QR code" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">QR & Location</span>
+            <h3>How to Extract GPS Coordinates from Location Sharing QR Codes</h3>
+            <p>Learn how location-sharing QR codes can contain geographic information and how to decode it.</p>
+            <a class="blog-read" href="/posts/extract-gps-coordinates-from-qr-code/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/fix-rick-astley-qr-code-patch/">
+            <img src="/images/fix-rick-astley-qr-code-patch.webp" alt="Troubleshooting a QR code patch and extracting its link" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Troubleshooting</span>
+            <h3>How to Fix a Rick Astley QR Code Patch and Extract the Link Safely</h3>
+            <p>Understand how patched QR codes can behave and how to inspect the destination safely.</p>
+            <a class="blog-read" href="/posts/fix-rick-astley-qr-code-patch/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="blog-section">
+      <div class="blog-section-title">
+        <h2>Barcode & 2D Code Guides</h2>
+      </div>
+
+      <div class="blog-grid">
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/decode-data-matrix-from-image/">
+            <img src="/images/decode-data-matrix-from-image.webp" alt="Decoding a Data Matrix code from an image" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Data Matrix</span>
+            <h3>How to Upload and Decode Data Matrix Files on ZXing Org</h3>
+            <p>Learn how to upload a Data Matrix image and read its encoded information online.</p>
+            <a class="blog-read" href="/posts/decode-data-matrix-from-image/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/scan-barcode-from-image-mobile/">
+            <img src="/images/scan-barcode-from-image-mobile.webp" alt="Scanning a barcode from an image on a mobile browser" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Barcode</span>
+            <h3>How to Scan Barcode from Image on Mobile Browsers</h3>
+            <p>Discover a practical way to scan barcode images from mobile browsers without installing an app.</p>
+            <a class="blog-read" href="/posts/scan-barcode-from-image-mobile/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/zxing-org-android-apk-mobile-guide/">
+            <img src="/images/zxing-org-android-apk-mobile-guide.webp" alt="ZXing Org Android mobile decoder guide" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Mobile Guide</span>
+            <h3>ZXing Org Android APK: Mobile Integration and Decoder App Guide</h3>
+            <p>A guide to understanding mobile use cases and decoder workflows on Android.</p>
+            <a class="blog-read" href="/posts/zxing-org-android-apk-mobile-guide/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="blog-cta">
+      <h2>Need to scan a QR code?</h2>
+      <p>
+        Use the ZXing Online Decoder to scan a QR code or supported barcode
+        directly in your browser.
+      </p>
+      <a class="blog-button" href="/">
+        Open ZXing Decoder
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </section>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2026 ZXingOrg. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+if (menuToggle && mainNav) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("show");
+    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    menuToggle.querySelector("i").className =
+      isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+  });
+
+  mainNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mainNav.classList.remove("show");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.querySelector("i").className = "fa-solid fa-bars";
+    });
+  });
+}
+</script>
+
+</body>
+</html>
