@@ -1155,3 +1155,628 @@ background:#eff6ff;
 }
 
 }
+
+Bhaia meny zxingorg name py bna lia public and create now yaha b sath sath smjaw gy kia kia krna hoga ok
+
+Check kre  bar bar sshot nh mango apka ye free version hai itna photo upload nh hota ab agy jaw
+
+Kya nh aik phla part dya tha ab ye 2 meny os phla wla index html end mr dono paste kia
+
+Kaha hay ks sy replace kro tak koi eror na hn and aik bat ap aik sath kam kia kro mobil bad me kro wo karo acha nh lgta
+
+Kaha paste kru excat jaga btaw
+
+Han sub file cummit save kia ab yaha kya kro
+
+1000079137.jpg
+1000079139.jpg
+Bhaia ye dekho is me menu and Upload Image
+Open Camera
+Paste QR
+Options kam nh krta 
+And 2nd camer sshot ka UX ui zara dekhy and Results ka kya seen hoga abhi tak just text dummy ki trah
+
+1000079141.jpg
+1000079143.jpg
+Bhaia aik or bat Wi-Fi QR code me password bold hna chye user boly ga well and good 2nd bat ye QR Code
+Data Matrix
+PDF417
+
+Ye direct start na koi heading aik or bat last sshot me spacing buht ha ap dekhy
+
+Kaha paste kro yar main yo footer me likha hwa ha
+
+Kaha paste kro sahi knc line
+
+Scanner card ki opar ya kaha kaste krna
+
+Kaha sy kaha tak replace krna
+
+Me ny to esa replace and paste kia check
+
+Yesterday 10:38 AM
+Bhaia ye dekho itna mehnat kia apko itna zari kia baki ap b dekhy sab sahi hay lekin Generator wala part ksa ha UX ؟ itna chota box input k lye hum to to aik High quality chez banny ja rha tha os ki bad Homepage/footer ka UX and sshot de rha
+
+Dev id kaha sy kaha tak replace krna
+
+1000079394.jpg
+1000079392.jpg
+Chlo me apko Homepage and footer ka sshot de rha taka ap khud dekh ly
+
+Yesterday 5:46 PM
+1000079560.jpg
+1000079551.jpg
+Bhaia Dono sshot dekh lye. Homepage py  ZXing Online Decoder buht bara dekhta see and upload qr py click kren nechy scroll krta Qr scaner ki pas and upload qr ki nechy open camera falto me kam ka nh 
+2nd Results Section ux patla sa lg rai ap dekhy ux ki hisab 
+Baki falo code nh dena taka or tool kharab na hn jye understand
+
+1000079560.jpg
+1000079649.jpg
+Bhaia ap 2nd wali site ki heading dekho hmra wala see kitna bara UX to dekho yar
+
+Yesterday 8:32 PM
+1000079663.jpg
+1000079665.jpg
+1000079667.jpg
+Bhaia heading dekhy 36px koi asr nh prta pta ni kyn aik to apny 82 css replace kreaya 2nd one section sy dosra section space dekhy UX apng css deya koi asr nh para
+
+
+Pasted text(2).txt
+Document
+Ye all check kro nd sab fix kro
+
+1000079678.jpg
+1000079680.jpg
+Bhaia h1 heading b dekhy and spacing 1% b asr nh hwa akhir kyn yar
+
+
+style.css
+File
+
+
+style (1).css
+File
+Check kru upload kia 
+
+Thought for 6s
+Haan, seedhi baat:
+
+blog.html file already ready hai. Maine usme Blog Hub ka complete structure banaya tha. blog.html
+
+Tumhe blog post ka content blog.html ke andar paste nahi karna.
+
+System ye hoga:
+
+zxingorg.com/
+├── index.html
+├── generator.html
+├── blog.html          ← sirf Blog Hub
+├── about.html
+├── privacy.html
+├── terms.html
+├── contact.html
+│
+├── posts/
+│   ├── connect-to-wi-fi-using-qr-code-windows/
+│   │   └── index.html
+│   ├── decode-qr-code-blurred-image/
+│   │   └── index.html
+│   ├── fix-rick-astley-qr-code-patch/
+│   │   └── index.html
+│   └── ...10 posts
+│
+├── images/
+│   ├── connect-to-wi-fi-using-qr-code-windows.webp
+│   ├── decode-qr-code-blurred-image.webp
+│   └── ...10 images
+│
+├── style.css
+├── generator.js
+├── sitemap.xml
+└── robots.txt
+blog.html me kya rahega?
+Sirf cards + links + images + short descriptions.
+
+Example:
+
+<a href="/posts/decode-qr-code-from-image/">
+    <img src="/images/decode-qr-code-from-image.webp"
+         alt="How to decode a QR code from an image">
+    <h3>How to Decode QR Code from Image via Browser</h3>
+    <p>Learn how to decode a QR code from an image directly in your browser.</p>
+    <span>Read Guide →</span>
+</a>
+Actual article kahan jayega?
+Us post ka poora Blogger content yahan jayega:
+
+/posts/decode-qr-code-from-image/index.html
+Us page me hoga:
+
+Title
+Featured WebP image
+Full article content
+Internal links
+Related guides
+Decoder CTA
+Article schema
+Canonical
+Unique meta description
+Google crawlable <a href> links se pages discover karta hai, aur Article structured data article title/image/date ko better understand karne me help kar sakta hai. 
+
+Images ka system
+10 WebP images → /images/ folder
+
+Blog card me same image use ho sakti hai:
+
+blog.html
+   ↓
+image.webp
+Aur article page par bhi:
+
+post/index.html
+   ↓
+same image.webp
+Bas filename aur alt descriptive rakhenge.
+
+SEO/indexing ka flow
+Google
+  ↓
+Homepage
+  ↓
+blog.html
+  ↓
+10 article links
+  ↓
+10 article pages
+  ↓
+related article links
+  ↓
+Decoder / Generator
+Sitemap in URLs ko additional discovery signal dega, lekin sitemap akela indexing guarantee nahi karta. 
+
+Ab tumhe blog.html me article content paste nahi karna. Pehle blog.html GitHub ke root me upload karo. Phir hum Post #1 ka complete index.html banayenge aur usme tumhara existing Blogger content + WebP image + SEO + internal links fit karenge.
+
+
+
+
+blog.html
+HTML
+
+
+1000079877.jpg
+Bhaia see sshot Zxing org blog or os sy Above ksy ajeb lg ria apka ux and is sab post feature image box is ka kya hoga so bta dy sab
+
+Thought for 10s
+Haan bhai, screenshot dekh liya. Ab asli issue clear hai. Blog ka UX is waqt weird isliye lag raha hai kyunki screenshot me style.css load hi nahi hui. Is wajah se:
+
+ZXingOrg purple/default browser link ban gaya.
+
+Home / QR Generator / Blog / About bhi default links hain.
+
+Hamburger default browser button dikh raha hai.
+
+Fonts serif/default ho gaye.
+
+Card ka proper design apply nahi hua.
+
+Feature image broken hai, isliye bada empty blue box ban gaya.
+
+Feature image box ka final system
+Har post ki apni WebP image hogi.
+
+Example:
+
+images/
+├── wifi-windows.webp
+├── blurred-qr.webp
+├── rick-astley-qr.webp
+├── qr-from-image.webp
+...
+Aur Blog card usi image ko use karega:
+
+<img src="/images/qr-from-image.webp"
+     alt="How to decode a QR code from an image">
+Broken/empty image box nahi hona chahiye.
+
+UX bhi main change karunga
+Meri recommendation screenshot dekh kar:
+
+Top:
+
+ZXingOrg Blog
+QR Code & Barcode Guides
+Short description
+
+Phir ek compact Featured Guide card, bahut giant blank image box nahi.
+
+Uske neeche:
+
+Latest QR Decoder Guides
+
+2-column cards:
+
+Image → Category → Title → 2-line description → Read Guide
+
+Phir:
+
+Wi-Fi & QR Guides
+
+Phir:
+
+Barcode & 2D Code Guides
+
+Phir:
+
+More Guides
+
+Aur last me:
+
+Need to scan? → Open ZXing Decoder
+
+Sabse pehle ek important fix
+blog.html me CSS path:
+
+<link rel="stylesheet" href="/style.css">
+Agar blog.html aur style.css same GitHub root folder me hain, ye production site par theek hona chahiye. Lekin screenshot local file/preview se hai to /style.css load nahi hoga. Root-relative path ke bajaye:
+
+<link rel="stylesheet" href="style.css">
+use karna local preview ke liye safer hai.
+
+Aur images
+Abhi maine placeholder filenames assume kiye the. Ye sahi final approach nahi hai. Tumhare jo actual 10 WebP files hain, unke exact filenames use karne honge. Main fake paths nahi rakhunga.
+
+So blog.html ka current design final mat samjho. Pehle CSS loading aur actual 10 image filenames fix karte hain; phir Blog Hub genuinely premium lagega.
+
+
+Bhaia Blog section again sy do Tek sa and Css file to apny dya he nh k is ko css end me padte kro
+
+Thought for 7s
+Haan bhai, ab sahi system hai:
+
+1. blog-final.html
+Is file ko GitHub ke root me blog.html naam se rakho.
+
+blog-final.html
+
+2. Blog CSS
+Tumhari existing style.css ke bilkul END me ye CSS paste karo:
+
+blog-css-to-paste.txt
+
+3. Images
+Blog HTML me maine ye exact folder assume kiya hai:
+
+/images/
+Aur filenames slug ke hisaab se hain, example:
+
+images/decode-qr-code-from-image.webp
+images/decode-qr-code-blurred-image.webp
+images/decode-wifi-qr-code-from-image.webp
+Tumhari actual WebP files ko in filenames ke mutabiq rename/upload karna hoga, warna image broken dikhegi.
+
+4. Post content
+Blog.html me full article content nahi hoga.
+
+Har post ki apni file hogi:
+
+/posts/decode-qr-code-from-image/index.html
+/posts/decode-qr-code-blurred-image/index.html
+...
+Wahin tumhara existing Blogger content + featured WebP + SEO meta + canonical + related posts + Decoder CTA jayega.
+
+Abhi blog.html + CSS complete karo. Uske baad hum Post #1 ko proper article page me convert karenge. 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZXing Org Blog – QR Code & Barcode Guides</title>
+<meta name="description" content="Practical QR code, Wi-Fi QR, barcode and ZXingOrg decoder guides. Learn how to scan, decode and troubleshoot QR codes and barcodes online.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.zxingorg.com/blog.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZXing Org Blog – QR Code & Barcode Guides">
+<meta property="og:description" content="Practical QR code, Wi-Fi QR, barcode and decoder guides from ZXing Org.">
+<meta property="og:url" content="https://www.zxingorg.com/blog.html">
+<meta property="og:site_name" content="ZXing Org">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ZXing Org Blog – QR Code & Barcode Guides">
+<meta name="twitter:description" content="Practical QR code, Wi-Fi QR, barcode and decoder guides from ZXing Org.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CollectionPage",
+  "name":"ZXing Org Blog – QR Code & Barcode Guides",
+  "url":"https://www.zxingorg.com/blog.html",
+  "description":"Practical QR code, Wi-Fi QR, barcode and decoder guides from ZXing Org.",
+  "isPartOf":{
+    "@type":"WebSite",
+    "name":"ZXing Org",
+    "url":"https://www.zxingorg.com/"
+  }
+}
+</script>
+
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="/" class="logo">ZXing<span>Org</span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav id="mainNav">
+      <a href="/">Home</a>
+      <a href="/generator.html">QR Generator</a>
+      <a href="/blog.html" aria-current="page">Blog</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="blog-hero">
+  <div class="container">
+    <div class="blog-breadcrumb">
+      <a href="/">Home</a> <span aria-hidden="true">›</span> Blog
+    </div>
+
+    <h1>ZXing Org Blog</h1>
+
+    <p>
+      Practical QR code, Wi-Fi QR, barcode and decoder guides to help you scan,
+      decode and troubleshoot codes online.
+    </p>
+  </div>
+</section>
+
+<section class="blog-main">
+  <div class="container">
+
+    <section class="blog-section">
+      <div class="blog-section-title">
+        <h2>Featured Guide</h2>
+      </div>
+
+      <article class="blog-feature">
+        <a class="blog-feature-media" href="/posts/decode-qr-code-from-image/" aria-label="Read How to Decode QR Code from Image via Browser">
+          <img
+            src="/images/decode-qr-code-from-image.webp"
+            alt="QR code being decoded from an image in a browser"
+            width="1280"
+            height="720"
+          >
+        </a>
+
+        <div class="blog-feature-content">
+          <span class="blog-badge">QR Decoder</span>
+
+          <h3>How to Decode QR Code from Image via Browser</h3>
+
+          <p>
+            Learn how to decode a QR code from an image directly in a browser,
+            with practical steps for faster and safer scanning.
+          </p>
+
+          <a class="blog-read" href="/posts/decode-qr-code-from-image/">
+            Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section class="blog-section">
+      <div class="blog-section-title">
+        <h2>QR Decoder Guides</h2>
+      </div>
+
+      <div class="blog-grid">
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/decode-qr-code-blurred-image/">
+            <img src="/images/decode-qr-code-blurred-image.webp" alt="Decoding a blurred QR code image" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">QR Decoder</span>
+            <h3>How to Decode a QR Code Blurred Image with ZXing Org</h3>
+            <p>Practical steps for testing and decoding QR images that are blurred or difficult to read.</p>
+            <a class="blog-read" href="/posts/decode-qr-code-blurred-image/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/fix-qr-code-cannot-be-read-from-image/">
+            <img src="/images/fix-qr-code-cannot-be-read-from-image.webp" alt="Troubleshooting a QR code that cannot be read from an image" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Troubleshooting</span>
+            <h3>How to Fix ZXing Org QR Code Cannot Be Read from Image Error</h3>
+            <p>Common image and scanning issues that can prevent a QR code from being decoded successfully.</p>
+            <a class="blog-read" href="/posts/fix-qr-code-cannot-be-read-from-image/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/decode-wifi-qr-code-from-image/">
+            <img src="/images/decode-wifi-qr-code-from-image.webp" alt="Decoding a Wi-Fi QR code from an image" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Wi-Fi QR</span>
+            <h3>How to Decode WiFi QR Code from Image Safely</h3>
+            <p>Understand what a Wi-Fi QR code contains and how to decode one from an image.</p>
+            <a class="blog-read" href="/posts/decode-wifi-qr-code-from-image/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="blog-section">
+      <div class="blog-section-title">
+        <h2>Wi-Fi & QR Code Guides</h2>
+      </div>
+
+      <div class="blog-grid">
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/connect-to-wi-fi-using-qr-code-windows/">
+            <img src="/images/connect-to-wi-fi-using-qr-code-windows.webp" alt="Connecting to Wi-Fi on Windows with a QR code" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Wi-Fi QR</span>
+            <h3>3 Ways to Connect to Wi-Fi Using a QR Code on Windows</h3>
+            <p>Explore practical ways to connect a Windows device to Wi-Fi using a QR code.</p>
+            <a class="blog-read" href="/posts/connect-to-wi-fi-using-qr-code-windows/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/extract-gps-coordinates-from-qr-code/">
+            <img src="/images/extract-gps-coordinates-from-qr-code.webp" alt="Extracting GPS coordinates from a location sharing QR code" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">QR & Location</span>
+            <h3>How to Extract GPS Coordinates from Location Sharing QR Codes</h3>
+            <p>Learn how location-sharing QR codes can contain geographic information and how to decode it.</p>
+            <a class="blog-read" href="/posts/extract-gps-coordinates-from-qr-code/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/fix-rick-astley-qr-code-patch/">
+            <img src="/images/fix-rick-astley-qr-code-patch.webp" alt="Troubleshooting a QR code patch and extracting its link" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Troubleshooting</span>
+            <h3>How to Fix a Rick Astley QR Code Patch and Extract the Link Safely</h3>
+            <p>Understand how patched QR codes can behave and how to inspect the destination safely.</p>
+            <a class="blog-read" href="/posts/fix-rick-astley-qr-code-patch/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="blog-section">
+      <div class="blog-section-title">
+        <h2>Barcode & 2D Code Guides</h2>
+      </div>
+
+      <div class="blog-grid">
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/decode-data-matrix-from-image/">
+            <img src="/images/decode-data-matrix-from-image.webp" alt="Decoding a Data Matrix code from an image" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Data Matrix</span>
+            <h3>How to Upload and Decode Data Matrix Files on ZXing Org</h3>
+            <p>Learn how to upload a Data Matrix image and read its encoded information online.</p>
+            <a class="blog-read" href="/posts/decode-data-matrix-from-image/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/scan-barcode-from-image-mobile/">
+            <img src="/images/scan-barcode-from-image-mobile.webp" alt="Scanning a barcode from an image on a mobile browser" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Barcode</span>
+            <h3>How to Scan Barcode from Image on Mobile Browsers</h3>
+            <p>Discover a practical way to scan barcode images from mobile browsers without installing an app.</p>
+            <a class="blog-read" href="/posts/scan-barcode-from-image-mobile/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a class="blog-card-media" href="/posts/zxing-org-android-apk-mobile-guide/">
+            <img src="/images/zxing-org-android-apk-mobile-guide.webp" alt="ZXing Org Android mobile decoder guide" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="blog-card-content">
+            <span class="blog-badge">Mobile Guide</span>
+            <h3>ZXing Org Android APK: Mobile Integration and Decoder App Guide</h3>
+            <p>A guide to understanding mobile use cases and decoder workflows on Android.</p>
+            <a class="blog-read" href="/posts/zxing-org-android-apk-mobile-guide/">Read Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="blog-cta">
+      <h2>Need to scan a QR code?</h2>
+      <p>
+        Use the ZXing Online Decoder to scan a QR code or supported barcode
+        directly in your browser.
+      </p>
+      <a class="blog-button" href="/">
+        Open ZXing Decoder
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </section>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2026 ZXingOrg. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+if (menuToggle && mainNav) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("show");
+    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    menuToggle.querySelector("i").className =
+      isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+  });
+
+  mainNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mainNav.classList.remove("show");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.querySelector("i").className = "fa-solid fa-bars";
+    });
+  });
+}
+</script>
+
+</body>
+</html>
+
+
+
+/* ===== Blog Hub CSS — paste at END of style.css ===== */
+.blog-hero{padding:58px 0 34px;text-align:center}.blog-breadcrumb{margin-bottom:18px;font-size:14px;color:#64748b}.blog-breadcrumb a{color:#2563eb;font-weight:700}.blog-hero h1{margin:0 0 14px;font-size:clamp(2.25rem,5vw,3.4rem);line-height:1.08;color:#0f172a}.blog-hero p{max-width:760px;margin:0 auto;font-size:18px;line-height:1.8;color:#64748b}.blog-main{padding:18px 0 72px}.blog-section{margin-top:52px}.blog-section-heading{max-width:760px;margin-bottom:22px}.blog-section-heading h2{margin:4px 0 8px;font-size:28px;color:#0f172a}.blog-section-heading p{margin:0;color:#64748b;line-height:1.7}.blog-kicker{display:inline-block;padding:5px 11px;background:#eff6ff;color:#2563eb;border:1px solid #dbeafe;border-radius:999px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.45px}.blog-feature{display:grid;grid-template-columns:1.08fr .92fr;overflow:hidden;background:#fff;border:1px solid #e2e8f0;border-radius:24px;box-shadow:0 14px 40px rgba(15,23,42,.08)}.blog-feature-image{display:block;min-height:320px;background:#eff6ff;overflow:hidden}.blog-feature-image img{width:100%;height:100%;object-fit:cover}.blog-feature-content{padding:34px;display:flex;flex-direction:column;justify-content:center}.blog-badge{display:inline-flex;align-self:flex-start;padding:6px 12px;margin-bottom:14px;border-radius:999px;background:#eff6ff;color:#2563eb;font-size:12px;font-weight:800;text-transform:uppercase}.blog-feature-content h3{margin:0 0 12px;font-size:29px;line-height:1.2;color:#0f172a}.blog-feature-content h3 a,.blog-card-content h3 a{color:inherit}.blog-feature-content p,.blog-card-content p{color:#64748b;line-height:1.7}.blog-feature-content p{margin:0 0 20px}.blog-read{display:inline-flex;align-items:center;gap:8px;color:#2563eb;font-weight:800}.blog-read:hover{text-decoration:underline}.blog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.blog-card{display:flex;flex-direction:column;overflow:hidden;background:#fff;border:1px solid #e2e8f0;border-radius:20px;box-shadow:0 10px 28px rgba(15,23,42,.06);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}.blog-card:hover{transform:translateY(-4px);border-color:#bfdbfe;box-shadow:0 18px 38px rgba(37,99,235,.10)}.blog-card-image{display:block;aspect-ratio:16/9;overflow:hidden;background:#eff6ff}.blog-card-image img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}.blog-card:hover .blog-card-image img{transform:scale(1.03)}.blog-card-content{padding:21px}.blog-card-content h3{margin:0 0 10px;font-size:21px;line-height:1.3;color:#0f172a}.blog-card-content p{margin:0 0 17px}.blog-cta{margin-top:54px;padding:30px;text-align:center;background:linear-gradient(135deg,#eff6ff,#fff);border:1px solid #dbeafe;border-radius:22px}.blog-cta h2{margin:0 0 10px;color:#0f172a}.blog-cta p{max-width:680px;margin:0 auto 18px;color:#64748b}.blog-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:14px;background:#2563eb;color:#fff;font-weight:800}@media(max-width:800px){.blog-feature{grid-template-columns:1fr}.blog-feature-image{min-height:220px}.blog-grid{grid-template-columns:1fr}}@media(max-width:600px){.blog-hero{padding:46px 0 26px}.blog-hero p{font-size:16px}.blog-section{margin-top:42px}.blog-section-heading h2{font-size:24px}.blog-feature-content{padding:24px}.blog-feature-content h3{font-size:24px}.blog-card-content{padding:18px}}
+Library
+/
+blog-css-to-paste.txt
+
+
+/* ===== Blog Hub CSS — paste at END of style.css ===== */
+.blog-hero{padding:58px 0 34px;text-align:center}.blog-breadcrumb{margin-bottom:18px;font-size:14px;color:#64748b}.blog-breadcrumb a{color:#2563eb;font-weight:700}.blog-hero h1{margin:0 0 14px;font-size:clamp(2.25rem,5vw,3.4rem);line-height:1.08;color:#0f172a}.blog-hero p{max-width:760px;margin:0 auto;font-size:18px;line-height:1.8;color:#64748b}.blog-main{padding:18px 0 72px}.blog-section{margin-top:52px}.blog-section-heading{max-width:760px;margin-bottom:22px}.blog-section-heading h2{margin:4px 0 8px;font-size:28px;color:#0f172a}.blog-section-heading p{margin:0;color:#64748b;line-height:1.7}.blog-kicker{display:inline-block;padding:5px 11px;background:#eff6ff;color:#2563eb;border:1px solid #dbeafe;border-radius:999px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.45px}.blog-feature{display:grid;grid-template-columns:1.08fr .92fr;overflow:hidden;background:#fff;border:1px solid #e2e8f0;border-radius:24px;box-shadow:0 14px 40px rgba(15,23,42,.08)}.blog-feature-image{display:block;min-height:320px;background:#eff6ff;overflow:hidden}.blog-feature-image img{width:100%;height:100%;object-fit:cover}.blog-feature-content{padding:34px;display:flex;flex-direction:column;justify-content:center}.blog-badge{display:inline-flex;align-self:flex-start;padding:6px 12px;margin-bottom:14px;border-radius:999px;background:#eff6ff;color:#2563eb;font-size:12px;font-weight:800;text-transform:uppercase}.blog-feature-content h3{margin:0 0 12px;font-size:29px;line-height:1.2;color:#0f172a}.blog-feature-content h3 a,.blog-card-content h3 a{color:inherit}.blog-feature-content p,.blog-card-content p{color:#64748b;line-height:1.7}.blog-feature-content p{margin:0 0 20px}.blog-read{display:inline-flex;align-items:center;gap:8px;color:#2563eb;font-weight:800}.blog-read:hover{text-decoration:underline}.blog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.blog-card{display:flex;flex-direction:column;overflow:hidden;background:#fff;border:1px solid #e2e8f0;border-radius:20px;box-shadow:0 10px 28px rgba(15,23,42,.06);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}.blog-card:hover{transform:translateY(-4px);border-color:#bfdbfe;box-shadow:0 18px 38px rgba(37,99,235,.10)}.blog-card-image{display:block;aspect-ratio:16/9;overflow:hidden;background:#eff6ff}.blog-card-image img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}.blog-card:hover .blog-card-image img{transform:scale(1.03)}.blog-card-content{padding:21px}.blog-card-content h3{margin:0 0 10px;font-size:21px;line-height:1.3;color:#0f172a}.blog-card-content p{margin:0 0 17px}.blog-cta{margin-top:54px;padding:30px;text-align:center;background:linear-gradient(135deg,#eff6ff,#fff);border:1px solid #dbeafe;border-radius:22px}.blog-cta h2{margin:0 0 10px;color:#0f172a}.blog-cta p{max-width:680px;margin:0 auto 18px;color:#64748b}.blog-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:14px;background:#2563eb;color:#fff;font-weight:800}@media(max-width:800px){.blog-feature{grid-template-columns:1fr}.blog-feature-image{min-height:220px}.blog-grid{grid-template-columns:1fr}}@media(max-width:600px){.blog-hero{padding:46px 0 26px}.blog-hero p{font-size:16px}.blog-section{margin-top:42px}.blog-section-heading h2{font-size:24px}.blog-feature-content{padding:24px}.blog-feature-content h3{font-size:24px}.blog-card-content{padding:18px}}
