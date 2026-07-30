@@ -52,7 +52,6 @@
 </script>
 
 <style>
-
 :root{
   --blue:#2563eb;
   --blue-dark:#1d4ed8;
@@ -65,13 +64,9 @@
   --soft:#eff6ff;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box;}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
   margin:0;
@@ -86,12 +81,9 @@ img{
   display:block;
 }
 
-a{
-  text-decoration:none;
-}
+a{text-decoration:none;}
 
-/* HEADER */
-
+/* Header */
 .article-header{
   position:sticky;
   top:0;
@@ -118,9 +110,7 @@ a{
   letter-spacing:-1.4px;
 }
 
-.logo span{
-  color:var(--blue-dark);
-}
+.logo span{color:var(--blue-dark);}
 
 .nav{
   display:flex;
@@ -134,9 +124,7 @@ a{
   font-weight:700;
 }
 
-.nav a:hover{
-  color:var(--blue);
-}
+.nav a:hover{color:var(--blue);}
 
 .menu-toggle{
   display:none;
@@ -151,8 +139,7 @@ a{
   cursor:pointer;
 }
 
-/* ARTICLE */
-
+/* Article */
 .article-shell{
   padding:52px 0 76px;
   background:var(--bg);
@@ -163,9 +150,7 @@ a{
   margin:auto;
 }
 
-.article-top{
-  margin-bottom:28px;
-}
+.article-top{margin-bottom:28px;}
 
 .article-kicker{
   display:inline-flex;
@@ -196,10 +181,13 @@ a{
   line-height:1.85;
 }
 
+/* FIXED featured image: no giant thumbnail */
 .feature-image{
   width:100%;
-  aspect-ratio:16/9;
+  height:420px;
+  display:block;
   object-fit:cover;
+  object-position:center;
   margin:0 0 34px;
   border:1px solid var(--line);
   border-radius:22px;
@@ -207,6 +195,7 @@ a{
   box-shadow:0 16px 40px rgba(15,23,42,.08);
 }
 
+/* Body */
 .article-body{
   background:var(--white);
   border:1px solid var(--line);
@@ -222,9 +211,7 @@ a{
   line-height:1.28;
 }
 
-.article-body h2:not(:first-child){
-  margin-top:38px;
-}
+.article-body h2:not(:first-child){margin-top:38px;}
 
 .article-body h3{
   margin:28px 0 10px;
@@ -256,9 +243,7 @@ a{
   font-weight:700;
 }
 
-.article-body a:hover{
-  text-decoration:underline;
-}
+.article-body a:hover{text-decoration:underline;}
 
 .article-body hr{
   margin:34px 0;
@@ -322,9 +307,7 @@ a{
   font-size:25px;
 }
 
-.related ul{
-  margin-bottom:0;
-}
+.related ul{margin-bottom:0;}
 
 .cta{
   margin-top:30px;
@@ -371,17 +354,12 @@ a{
   font-size:14px;
 }
 
-/* MOBILE */
-
+/* Mobile */
 @media(max-width:768px){
 
-  .header-inner{
-    min-height:68px;
-  }
+  .header-inner{min-height:68px;}
 
-  .logo{
-    font-size:29px;
-  }
+  .logo{font-size:29px;}
 
   .menu-toggle{
     display:flex;
@@ -405,26 +383,18 @@ a{
     box-shadow:0 16px 30px rgba(15,23,42,.10);
   }
 
-  .nav.show{
-    display:flex;
-  }
+  .nav.show{display:flex;}
 
   .nav a{
     padding:13px 14px;
     border-radius:10px;
   }
 
-  .nav a:hover{
-    background:var(--soft);
-  }
+  .nav a:hover{background:var(--soft);}
 
-  .article-shell{
-    padding:38px 0 54px;
-  }
+  .article-shell{padding:38px 0 54px;}
 
-  .article-top h1{
-    font-size:2.2rem;
-  }
+  .article-top h1{font-size:2.2rem;}
 
   .article-intro{
     font-size:17px;
@@ -432,6 +402,7 @@ a{
   }
 
   .feature-image{
+    height:240px;
     margin-bottom:26px;
     border-radius:18px;
   }
@@ -441,16 +412,17 @@ a{
     border-radius:18px;
   }
 
-  .article-body h2{
-    font-size:25px;
-  }
+  .article-body h2{font-size:25px;}
 
-  .article-body p{
-    font-size:16px;
-  }
-
+  .article-body p{font-size:16px;}
 }
 
+@media(max-width:480px){
+
+  .feature-image{
+    height:220px;
+  }
+}
 </style>
 </head>
 
@@ -458,33 +430,32 @@ a{
 
 <header class="article-header">
 
-  <div class="header-inner">
+<div class="header-inner">
 
-    <a href="/" class="logo">
-      ZXing<span>Org</span>
-    </a>
+<a href="/" class="logo">
+ZXing<span>Org</span>
+</a>
 
-    <button
-      class="menu-toggle"
-      id="menuToggle"
-      type="button"
-      aria-label="Open menu"
-      aria-expanded="false"
-    >
-      <i class="fa-solid fa-bars" aria-hidden="true"></i>
-    </button>
+<button
+class="menu-toggle"
+id="menuToggle"
+type="button"
+aria-label="Open menu"
+aria-expanded="false"
+>
+<i class="fa-solid fa-bars" aria-hidden="true"></i>
+</button>
 
-    <nav class="nav" id="mainNav">
+<nav class="nav" id="mainNav">
 
-      <a href="/">Home</a>
-      <a href="/generator.html">QR Generator</a>
-      <a href="/blog.html">Blog</a>
-      <a href="/about.html">About</a>
+<a href="/">Home</a>
+<a href="/generator.html">QR Generator</a>
+<a href="/blog.html">Blog</a>
+<a href="/about.html">About</a>
 
-    </nav>
+</nav>
 
-  </div>
-
+</div>
 </header>
 
 <main>
@@ -495,38 +466,36 @@ a{
 
 <header class="article-top">
 
-  <span class="article-kicker">
-    Wi-Fi QR Guide
-  </span>
+<span class="article-kicker">
+Wi-Fi QR Guide
+</span>
 
-  <h1>
-    3 Ways to Connect to Wi-Fi Using a QR Code on Windows
-  </h1>
+<h1>
+3 Ways to Connect to Wi-Fi Using a QR Code on Windows
+</h1>
 
-  <p class="article-intro">
-    Connecting your Windows laptop to a public or office Wi-Fi network
-    using a QR code can save time and avoid typing long passwords.
-    This guide covers three practical approaches: using a Windows camera,
-    decoding a saved QR image with ZXing Org, and entering the extracted
-    Wi-Fi details manually.
-  </p>
+<p class="article-intro">
+Connecting your Windows laptop to a public or office Wi-Fi network
+using a QR code can save time and avoid typing long passwords.
+This guide covers three practical approaches: using a Windows camera,
+decoding a saved QR image with ZXing Org, and entering the extracted
+Wi-Fi details manually.
+</p>
 
 </header>
 
 <img
-  class="feature-image"
-  src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8Op0HI-cM5dSybg348l1DLSoAAyf1GBjxZar8IwasLqm49fJeoWtrNL-47eszfaAPmD94L8KzFjmr3jZlgYMX7PVs3s_RH0POC6ZbL_nMie8a1Asp28_0iTYoz9B35viFawHC7djT_RYIo8avKdH5JJfQDgxCtNViiqx4alTlrP1JOT3NrnzyagLWek1c/s16000/1000074634.webp"
-  alt="Connect to Wi-Fi on Windows using a QR code"
-  width="1280"
-  height="720"
-  fetchpriority="high"
+class="feature-image"
+src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8Op0HI-cM5dSybg348l1DLSoAAyf1GBjxZar8IwasLqm49fJeoWtrNL-47eszfaAPmD94L8KzFjmr3jZlgYMX7PVs3s_RH0POC6ZbL_nMie8a1Asp28_0iTYoz9B35viFawHC7djT_RYIo8avKdH5JJfQDgxCtNViiqx4alTlrP1JOT3NrnzyagLWek1c/s16000/1000074634.webp"
+alt="Connect to Wi-Fi on Windows using a QR code"
+width="1280"
+height="720"
+fetchpriority="high"
 >
 
 <div class="article-body">
 
-<h2>
-Why Use a QR Code to Connect to Wi-Fi on Windows?
-</h2>
+<h2>Why Use a QR Code to Connect to Wi-Fi on Windows?</h2>
 
 <p>
 Manually entering wireless network passwords on a laptop can be frustrating,
@@ -542,9 +511,7 @@ whether the QR code is physical or already saved as an image.
 
 <hr>
 
-<h2>
-Method 1: Use the Windows Camera App
-</h2>
+<h2>Method 1: Use the Windows Camera App</h2>
 
 <p>
 If your Windows device has a working webcam and supports QR or barcode
@@ -554,43 +521,25 @@ the Wi-Fi QR code in front of the camera.
 </p>
 
 <ul>
-
-<li>
-Open the <strong>Camera</strong> app in Windows.
-</li>
-
-<li>
-Select the QR/barcode scanning option when available.
-</li>
-
-<li>
-Place the Wi-Fi QR code in front of the camera.
-</li>
-
-<li>
-Keep the code clear, steady and in focus.
-</li>
-
-<li>
-Follow the Windows connection instructions that appear.
-</li>
-
+<li>Open the <strong>Camera</strong> app in Windows.</li>
+<li>Select the QR/barcode scanning option when available.</li>
+<li>Place the Wi-Fi QR code in front of the camera.</li>
+<li>Keep the code clear, steady and in focus.</li>
+<li>Follow the Windows connection instructions that appear.</li>
 </ul>
 
 <img
-  class="article-image"
-  src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMM6wnhbXtCirPzSK46e_MnIuvosGR0F4cOv7YOAGTMJZGUIQ5-PbFX1A486U8KHbgPN78VAYYIste-6VQ295oAH_lwaf73so-sYHG3tKTmMJFnHAQXlfSEHeEfR9U2HC-4uPCr6qV9KlM7rRlpgYZhHhhp9Jr46UcfIuyy5x3oZpcL2mYhcU0baCClDcv/s16000/1000074633.webp"
-  alt="Scanning a Wi-Fi QR code with a Windows camera"
-  width="1280"
-  height="720"
-  loading="lazy"
+class="article-image"
+src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMM6wnhbXtCirPzSK46e_MnIuvosGR0F4cOv7YOAGTMJZGUIQ5-PbFX1A486U8KHbgPN78VAYYIste-6VQ295oAH_lwaf73so-sYHG3tKTmMJFnHAQXlfSEHeEfR9U2HC-4uPCr6qV9KlM7rRlpgYZhHhhp9Jr46UcfIuyy5x3oZpcL2mYhcU0baCClDcv/s16000/1000074633.webp"
+alt="Scanning a Wi-Fi QR code with a Windows camera"
+width="1280"
+height="720"
+loading="lazy"
 >
 
 <hr>
 
-<h2>
-Method 2: No Webcam? Use the ZXing Org Online Decoder
-</h2>
+<h2>Method 2: No Webcam? Use the ZXing Org Online Decoder</h2>
 
 <p>
 A webcam is not required when the Wi-Fi QR code is already available
@@ -600,40 +549,21 @@ to decode it directly in your browser.
 </p>
 
 <ul>
-
-<li>
-Capture a clear screenshot of the QR code.
-</li>
-
-<li>
-Save the screenshot or photo to your computer.
-</li>
-
-<li>
-Open the <a href="/">ZXing Org Online Decoder</a>.
-</li>
-
-<li>
-Choose the image upload option.
-</li>
-
-<li>
-Select the saved QR image.
-</li>
-
-<li>
-Review the decoded Wi-Fi information.
-</li>
-
+<li>Capture a clear screenshot of the QR code.</li>
+<li>Save the screenshot or photo to your computer.</li>
+<li>Open the <a href="/">ZXing Org Online Decoder</a>.</li>
+<li>Choose the image upload option.</li>
+<li>Select the saved QR image.</li>
+<li>Review the decoded Wi-Fi information.</li>
 </ul>
 
 <img
-  class="article-image"
-  src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgs59iQNkD_dya8g7qqjya1XY539SDwKzqPokkmjVLv5nubikboKn2j7RQ14CRL4CqqbG8OwragswAGPfVMmOJ1kqCPIc4n2ONiTWSvE-AP7IWyIreKXmz5kAlzQEzZ7KAIyXvMm8TWDKWmYF5ETTkbgmHJR1zDBT_clS-WjN0qdHo8zTCp_KFHByZvNFG9/s16000/1000074632.webp"
-  alt="Uploading a Wi-Fi QR code image to the ZXing Org decoder"
-  width="1280"
-  height="720"
-  loading="lazy"
+class="article-image"
+src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgs59iQNkD_dya8g7qqjya1XY539SDwKzqPokkmjVLv5nubikboKn2j7RQ14CRL4CqqbG8OwragswAGPfVMmOJ1kqCPIc4n2ONiTWSvE-AP7IWyIreKXmz5kAlzQEzZ7KAIyXvMm8TWDKWmYF5ETTkbgmHJR1zDBT_clS-WjN0qdHo8zTCp_KFHByZvNFG9/s16000/1000074632.webp"
+alt="Uploading a Wi-Fi QR code image to the ZXing Org decoder"
+width="1280"
+height="720"
+loading="lazy"
 >
 
 <p>
@@ -643,15 +573,8 @@ A common Wi-Fi QR payload looks similar to:
 <code class="article-code">WIFI:S:Cafe_Guest_Network;T:WPA;P:SecretPassword123;;</code>
 
 <ul>
-
-<li>
-<strong>S:</strong> the Wi-Fi network name or SSID.
-</li>
-
-<li>
-<strong>P:</strong> the password stored in the Wi-Fi QR payload.
-</li>
-
+<li><strong>S:</strong> the Wi-Fi network name or SSID.</li>
+<li><strong>P:</strong> the password stored in the Wi-Fi QR payload.</li>
 </ul>
 
 <p>
@@ -661,9 +584,7 @@ normal Windows Wi-Fi controls.
 
 <hr>
 
-<h2>
-Method 3: Enter the Extracted Wi-Fi Details Manually
-</h2>
+<h2>Method 3: Enter the Extracted Wi-Fi Details Manually</h2>
 
 <p>
 If automatic connection is not available, you can use the decoded network
@@ -671,27 +592,11 @@ name and password to connect through Windows manually.
 </p>
 
 <ul>
-
-<li>
-Open the Wi-Fi controls from the Windows taskbar.
-</li>
-
-<li>
-Find the network name shown in the decoded QR information.
-</li>
-
-<li>
-Select the matching wireless network.
-</li>
-
-<li>
-Choose <strong>Connect</strong>.
-</li>
-
-<li>
-Enter the decoded Wi-Fi password when Windows asks for it.
-</li>
-
+<li>Open the Wi-Fi controls from the Windows taskbar.</li>
+<li>Find the network name shown in the decoded QR information.</li>
+<li>Select the matching wireless network.</li>
+<li>Choose <strong>Connect</strong>.</li>
+<li>Enter the decoded Wi-Fi password when Windows asks for it.</li>
 </ul>
 
 <p>
@@ -701,13 +606,9 @@ If you want to create your own Wi-Fi QR code, use the
 
 <hr>
 
-<h2>
-Troubleshooting Common Connection and Scanning Problems
-</h2>
+<h2>Troubleshooting Common Connection and Scanning Problems</h2>
 
-<h3>
-1. The QR image is blurry or difficult to scan
-</h3>
+<h3>1. The QR image is blurry or difficult to scan</h3>
 
 <p>
 Use the clearest image available and avoid reflections, glare and heavy
@@ -717,9 +618,7 @@ blurred QR code decoding guide
 </a>.
 </p>
 
-<h3>
-2. The code decodes but Windows cannot connect
-</h3>
+<h3>2. The code decodes but Windows cannot connect</h3>
 
 <p>
 Check the decoded network name, password and security information.
@@ -727,9 +626,7 @@ The QR code may still be readable even when the stored network settings
 are outdated.
 </p>
 
-<h3>
-3. You already have a QR code screenshot
-</h3>
+<h3>3. You already have a QR code screenshot</h3>
 
 <p>
 You do not need a webcam for a saved image. See our
@@ -744,13 +641,11 @@ for the image-decoding workflow.
 <table>
 
 <thead>
-
 <tr>
 <th>Method</th>
 <th>Hardware Needed</th>
 <th>Best Use Case</th>
 </tr>
-
 </thead>
 
 <tbody>
@@ -781,9 +676,7 @@ for the image-decoding workflow.
 
 <hr>
 
-<h2>
-Frequently Asked Questions
-</h2>
+<h2>Frequently Asked Questions</h2>
 
 <h3>
 Can I connect a Windows desktop to Wi-Fi using a QR code without a webcam?
@@ -795,18 +688,14 @@ Yes. Save the QR code as an image, decode it with the
 and use the decoded network information to connect through Windows.
 </p>
 
-<h3>
-Is it safe to scan a public Wi-Fi QR code?
-</h3>
+<h3>Is it safe to scan a public Wi-Fi QR code?</h3>
 
 <p>
 Treat a Wi-Fi QR code like any other network credential. Only connect
 to networks you trust and verify unfamiliar network details before joining.
 </p>
 
-<h3>
-What if Windows does not scan my QR code?
-</h3>
+<h3>What if Windows does not scan my QR code?</h3>
 
 <p>
 Try a clearer image, improve camera focus and lighting, or save the QR code
@@ -815,9 +704,7 @@ as an image and use the browser-based decoder instead.
 
 <hr>
 
-<h2>
-Conclusion
-</h2>
+<h2>Conclusion</h2>
 
 <p>
 Using a Wi-Fi QR code can make connecting a Windows computer easier.
@@ -828,9 +715,7 @@ when automatic connection is not available.
 
 <div class="related">
 
-<h2>
-Related ZXing Org Guides
-</h2>
+<h2>Related ZXing Org Guides</h2>
 
 <ul>
 
@@ -858,9 +743,7 @@ How to Decode a QR Code Blurred Image with ZXing Org
 
 <div class="cta">
 
-<h2>
-Need to decode a Wi-Fi QR code?
-</h2>
+<h2>Need to decode a Wi-Fi QR code?</h2>
 
 <p>
 Upload your QR image and decode its contents directly in your browser.
@@ -882,60 +765,48 @@ Open ZXing Decoder
 </main>
 
 <footer class="footer">
-
-<p>
-© 2026 ZXingOrg. All rights reserved.
-</p>
-
+<p>© 2026 ZXingOrg. All rights reserved.</p>
 </footer>
 
 <script>
-
-const menuToggle =
-document.getElementById("menuToggle");
-
-const mainNav =
-document.getElementById("mainNav");
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
 
 if(menuToggle && mainNav){
 
-menuToggle.addEventListener("click",()=>{
+  menuToggle.addEventListener("click",()=>{
 
-const isOpen =
-mainNav.classList.toggle("show");
+    const isOpen = mainNav.classList.toggle("show");
 
-menuToggle.setAttribute(
-"aria-expanded",
-isOpen ? "true" : "false"
-);
+    menuToggle.setAttribute(
+      "aria-expanded",
+      isOpen ? "true" : "false"
+    );
 
-menuToggle.querySelector("i").className =
-isOpen
-? "fa-solid fa-xmark"
-: "fa-solid fa-bars";
+    menuToggle.querySelector("i").className =
+      isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
 
-});
+  });
 
-mainNav.querySelectorAll("a").forEach(link=>{
+  mainNav.querySelectorAll("a").forEach(link=>{
 
-link.addEventListener("click",()=>{
+    link.addEventListener("click",()=>{
 
-mainNav.classList.remove("show");
+      mainNav.classList.remove("show");
 
-menuToggle.setAttribute(
-"aria-expanded",
-"false"
-);
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
 
-menuToggle.querySelector("i").className =
-"fa-solid fa-bars";
+      menuToggle.querySelector("i").className =
+        "fa-solid fa-bars";
 
-});
+    });
 
-});
+  });
 
 }
-
 </script>
 
 </body>
