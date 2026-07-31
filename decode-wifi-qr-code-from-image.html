@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>How to Decode WiFi QR Code from Image Safely | ZXing Org</title>
+
+<meta name="description"
+content="Learn how to safely decode a WiFi QR code from an image, understand the WIFI payload, review the SSID and password, and avoid opening unknown QR links blindly.">
+
+<meta name="robots" content="index,follow">
+
+<link
+rel="canonical"
+href="https://www.zxingorg.com/posts/decode-wifi-qr-code-from-image/"
+>
+
+<meta property="og:type" content="article">
+
+<meta
+property="og:title"
+content="How to Decode WiFi QR Code from Image Safely"
+>
+
+<meta
+property="og:description"
+content="Learn how to decode a WiFi QR code from an image, inspect the SSID and password, and review the decoded result safely."
+>
+
+<meta
+property="og:url"
+content="https://www.zxingorg.com/posts/decode-wifi-qr-code-from-image/"
+>
+
+<meta property="og:site_name" content="ZXing Org">
+
+<meta
+property="og:image"
+content="https://www.zxingorg.com/images/decode-wifi-qr-code-from-image.webp"
+>
+
+<meta
+name="twitter:card"
+content="summary_large_image"
+>
+
+<meta
+name="twitter:title"
+content="How to Decode WiFi QR Code from Image Safely"
+>
+
+<meta
+name="twitter:description"
+content="Learn how to decode a WiFi QR code from an image, inspect the SSID and password, and review the decoded result safely."
+>
+
+<meta
+name="twitter:image"
+content="https://www.zxingorg.com/images/decode-wifi-qr-code-from-image.webp"
+>
+
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com"
+>
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin
+>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet"
+>
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
+
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"How to Decode WiFi QR Code from Image Safely",
+  "description":"Learn how to safely decode a WiFi QR code from an image, understand the WIFI payload, review the SSID and password, and avoid opening unknown QR links blindly.",
+  "mainEntityOfPage":{
+    "@type":"WebPage",
+    "@id":"https://www.zxingorg.com/posts/decode-wifi-qr-code-from-image/"
+  },
+  "image":[
+    "https://www.zxingorg.com/images/decode-wifi-qr-code-from-image.webp"
+  ],
+  "publisher":{
+    "@type":"Organization",
+    "name":"ZXing Org",
+    "url":"https://www.zxingorg.com/"
+  }
+}
+</script>
+
+
+<style>
+
+:root{
+  --blue:#2563eb;
+  --blue-dark:#1d4ed8;
+  --navy:#0f172a;
+  --text:#475569;
+  --muted:#64748b;
+  --bg:#f5f9ff;
+  --white:#fff;
+  --line:#e2e8f0;
+  --soft:#eff6ff;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:#1e293b;
+  line-height:1.6;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+a{
+  text-decoration:none;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.article-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  background:rgba(255,255,255,.97);
+
+  backdrop-filter:blur(12px);
+
+  border-bottom:1px solid var(--line);
+}
+
+.header-inner{
+  width:min(1180px,92%);
+
+  min-height:76px;
+
+  margin:auto;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  position:relative;
+}
+
+.logo{
+  color:var(--blue);
+
+  font-size:32px;
+
+  font-weight:800;
+
+  letter-spacing:-1.4px;
+}
+
+.logo span{
+  color:var(--blue-dark);
+}
+
+.nav{
+  display:flex;
+
+  align-items:center;
+
+  gap:28px;
+}
+
+.nav a{
+  color:#1e293b;
+
+  font-size:16px;
+
+  font-weight:700;
+}
+
+.nav a:hover{
+  color:var(--blue);
+}
+
+.menu-toggle{
+  display:none;
+
+  border:0;
+
+  background:transparent;
+
+  color:#1e293b;
+
+  width:46px;
+
+  height:46px;
+
+  padding:0;
+
+  border-radius:12px;
+
+  font-size:25px;
+
+  cursor:pointer;
+}
+
+
+/* =========================
+   ARTICLE
+========================= */
+
+.article-shell{
+  padding:52px 0 76px;
+
+  background:var(--bg);
+}
+
+.article-wrap{
+  width:min(860px,92%);
+
+  margin:auto;
+}
+
+.article-top{
+  margin-bottom:28px;
+}
+
+.article-kicker{
+  display:inline-flex;
+
+  padding:7px 13px;
+
+  margin-bottom:16px;
+
+  border-radius:999px;
+
+  background:var(--soft);
+
+  border:1px solid #bfdbfe;
+
+  color:var(--blue);
+
+  font-size:12px;
+
+  font-weight:800;
+
+  letter-spacing:.45px;
+
+  text-transform:uppercase;
+}
+
+.article-top h1{
+  margin:0 0 18px;
+
+  color:var(--navy);
+
+  font-size:clamp(2.2rem,5.3vw,3.35rem);
+
+  line-height:1.08;
+
+  letter-spacing:-1.4px;
+}
+
+.article-intro{
+  margin:0;
+
+  color:var(--muted);
+
+  font-size:18px;
+
+  line-height:1.85;
+}
+
+
+/* =========================
+   FEATURE IMAGE
+========================= */
+
+.feature-image{
+  width:100%;
+
+  height:420px;
+
+  object-fit:cover;
+
+  object-position:center;
+
+  margin:0 0 34px;
+
+  border:1px solid var(--line);
+
+  border-radius:22px;
+
+  background:#eaf2ff;
+
+  box-shadow:0 16px 40px rgba(15,23,42,.08);
+}
+
+
+/* =========================
+   QUICK ANSWER
+========================= */
+
+.quick-answer{
+  margin:0 0 30px;
+
+  padding:20px 22px;
+
+  border:1px solid #dbeafe;
+
+  border-left:4px solid var(--blue);
+
+  border-radius:16px;
+
+  background:#f8fbff;
+
+  color:var(--text);
+}
+
+.quick-answer strong{
+  color:var(--navy);
+}
+
+
+/* =========================
+   ARTICLE BODY
+========================= */
+
+.article-body{
+  background:var(--white);
+
+  border:1px solid var(--line);
+
+  border-radius:22px;
+
+  padding:34px;
+
+  box-shadow:0 12px 34px rgba(15,23,42,.06);
+}
+
+.article-body h2{
+  margin:0 0 14px;
+
+  color:var(--navy);
+
+  font-size:28px;
+
+  line-height:1.28;
+}
+
+.article-body h2:not(:first-child){
+  margin-top:38px;
+}
+
+.article-body h3{
+  margin:28px 0 10px;
+
+  color:var(--navy);
+
+  font-size:21px;
+
+  line-height:1.35;
+}
+
+.article-body p{
+  margin:0 0 18px;
+
+  color:var(--text);
+
+  font-size:17px;
+
+  line-height:1.85;
+}
+
+.article-body ul,
+.article-body ol{
+  margin:0 0 24px;
+
+  padding-left:24px;
+
+  color:var(--text);
+}
+
+.article-body li{
+  margin-bottom:10px;
+
+  line-height:1.75;
+}
+
+.article-body a{
+  color:var(--blue);
+
+  font-weight:700;
+}
+
+.article-body a:hover{
+  text-decoration:underline;
+}
+
+.article-body hr{
+  margin:34px 0;
+
+  border:0;
+
+  border-top:1px solid var(--line);
+}
+
+.article-code{
+  display:block;
+
+  overflow:auto;
+
+  margin:18px 0 24px;
+
+  padding:16px 18px;
+
+  border-radius:14px;
+
+  background:#0f172a;
+
+  color:#e2e8f0;
+
+  font-size:14px;
+
+  line-height:1.7;
+}
+
+.article-image{
+  width:100%;
+
+  height:auto;
+
+  margin:24px 0 30px;
+
+  border:1px solid var(--line);
+
+  border-radius:16px;
+}
+
+
+/* =========================
+   RELATED GUIDES
+========================= */
+
+.article-related{
+  margin-top:38px;
+
+  padding:24px;
+
+  border:1px solid #dbeafe;
+
+  border-radius:18px;
+
+  background:#f8fbff;
+}
+
+.article-related h2{
+  margin-top:0 !important;
+
+  font-size:25px;
+}
+
+.article-related ul{
+  margin-bottom:0;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.article-cta{
+  margin-top:30px;
+
+  padding:30px 24px;
+
+  text-align:center;
+
+  border:1px solid #dbeafe;
+
+  border-radius:20px;
+
+  background:linear-gradient(135deg,#eff6ff,#fff);
+}
+
+.article-cta h2{
+  margin:0 0 10px;
+
+  font-size:26px;
+}
+
+.article-cta p{
+  max-width:650px;
+
+  margin:0 auto 20px;
+}
+
+.article-cta a{
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:8px;
+
+  min-height:52px;
+
+  padding:0 22px;
+
+  border-radius:14px;
+
+  background:var(--blue);
+
+  color:#fff !important;
+
+  text-decoration:none !important;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  padding:26px 20px;
+
+  background:#0f172a;
+
+  color:#cbd5e1;
+
+  text-align:center;
+}
+
+.footer p{
+  margin:0;
+
+  color:#cbd5e1;
+
+  font-size:14px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .header-inner{
+    min-height:68px;
+  }
+
+  .logo{
+    font-size:29px;
+  }
+
+  .menu-toggle{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+  }
+
+  .nav{
+    display:none;
+
+    position:absolute;
+
+    top:100%;
+
+    left:0;
+
+    right:0;
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+    gap:4px;
+
+    padding:10px;
+
+    background:#fff;
+
+    border-top:1px solid var(--line);
+
+    border-bottom:1px solid var(--line);
+
+    box-shadow:0 16px 30px rgba(15,23,42,.10);
+  }
+
+  .nav.show{
+    display:flex;
+  }
+
+  .nav a{
+    padding:13px 14px;
+
+    border-radius:10px;
+  }
+
+  .nav a:hover{
+    background:var(--soft);
+  }
+
+  .article-shell{
+    padding:38px 0 54px;
+  }
+
+  .article-top h1{
+    font-size:2.15rem;
+  }
+
+  .article-intro{
+    font-size:17px;
+
+    line-height:1.8;
+  }
+
+  .feature-image{
+    height:240px;
+
+    margin-bottom:26px;
+
+    border-radius:18px;
+  }
+
+  .article-body{
+    padding:24px;
+
+    border-radius:18px;
+  }
+
+  .article-body h2{
+    font-size:25px;
+  }
+
+  .article-body p{
+    font-size:16px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .feature-image{
+    height:220px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="article-header">
+
+<div class="header-inner">
+
+<a href="/" class="logo">
+ZXing<span>Org</span>
+</a>
+
+
+<button
+class="menu-toggle"
+id="menuToggle"
+type="button"
+aria-label="Open menu"
+aria-expanded="false"
+>
+
+<i
+class="fa-solid fa-bars"
+aria-hidden="true">
+</i>
+
+</button>
+
+
+<nav
+class="nav"
+id="mainNav"
+>
+
+<a href="/">
+Home
+</a>
+
+<a href="/generator.html">
+QR Generator
+</a>
+
+<a href="/blog.html">
+Blog
+</a>
+
+<a href="/about.html">
+About
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<main>
+
+
+<section class="article-shell">
+
+
+<article class="article-wrap">
+
+
+<header class="article-top">
+
+<span class="article-kicker">
+Wi-Fi QR Guide
+</span>
+
+
+<h1>
+How to Decode WiFi QR Code from Image Safely
+</h1>
+
+
+<p class="article-intro">
+Learn how to decode a Wi-Fi QR code from a saved image or screenshot,
+inspect the SSID and security details, review the password safely,
+and connect only after you understand the decoded information.
+</p>
+
+</header>
+
+
+
+<img
+class="feature-image"
+src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8F2FG3jmr3arcWsuTXlzS92wimllo04Y7KI_KLqgRFNwFdR_KFyoIkEa4X7NTmhWAFfTaMzDyHEsCqO2dlC_wDCnNqBQNfEHcy9cq5j2nr__wWgfEGCUGhabaLcgBMZdWUJC87TWIE6qMGI0rWpaxHTL11ShFhF0A4z2orABbHE4I4qcbOo4KXQoglXS2/s1024/1000069928.webp"
+alt="How to decode a WiFi QR code from an image safely"
+width="1280"
+height="720"
+fetchpriority="high"
+>
+
+
+
+<div class="article-body">
+
+
+<div class="quick-answer">
+
+<strong>Quick answer:</strong>
+
+Save a clear Wi-Fi QR image, open the ZXing Org decoder in your browser,
+upload the image, and review the decoded Wi-Fi payload before using the
+network details. This lets you inspect the SSID, security type and password
+without blindly opening an unknown QR destination.
+
+</div>
+
+
+
+<h2>
+Why Decode a Wi-Fi QR Code from an Image?
+</h2>
+
+
+<p>
+Wi-Fi QR codes make network sharing easier because the connection details
+can be encoded into a small visual pattern. A router, phone or another
+device can display the code so another person can scan it without typing
+a long wireless password.
+</p>
+
+
+<p>
+The difficulty starts when the QR code is no longer in front of you.
+You may receive a screenshot, saved image or photo of the Wi-Fi QR code
+while away from the original router. In that situation, scanning the
+physical code with a camera is not practical.
+</p>
+
+
+<p>
+An image-based decoder gives you a way to inspect the saved QR code first
+and review what information it contains.
+</p>
+
+
+<hr>
+
+
+
+<h2>
+What Information Is Stored Inside a Wi-Fi QR Code?
+</h2>
+
+
+<p>
+A Wi-Fi QR payload commonly follows a structured format that identifies
+the network name, security type and password.
+</p>
+
+
+<code class="article-code">
+WIFI:S:MyHomeNetwork;T:WPA;P:SecretPassword123;;
+</code>
+
+
+<p>
+The most useful fields are:
+
+</p>
+
+
+<ul>
+
+<li>
+<strong>S:</strong>
+the wireless network name, or SSID.
+</li>
+
+<li>
+<strong>T:</strong>
+the security type stored in the payload.
+</li>
+
+<li>
+<strong>P:</strong>
+the password or passphrase.
+</li>
+
+</ul>
+
+
+<p>
+The exact information and formatting can vary, but the important point is
+that the QR image contains structured connection data rather than only
+a visual graphic.
+</p>
+
+
+<hr>
+
+
+
+<h2>
+How to Safely Decode a Wi-Fi QR Image
+</h2>
+
+
+<p>
+The safest practical workflow is to inspect the QR result before using
+the network information.
+</p>
+
+
+<ol>
+
+<li>
+<strong>Save the image:</strong>
+download the Wi-Fi QR code or capture a clear screenshot.
+</li>
+
+<li>
+<strong>Open the decoder:</strong>
+visit the ZXing Org decoder in your mobile or desktop browser.
+</li>
+
+<li>
+<strong>Upload the image:</strong>
+select the saved QR image from your gallery or file storage.
+</li>
+
+<li>
+<strong>Review the result:</strong>
+check the SSID, security information and password shown by the decoder.
+</li>
+
+<li>
+<strong>Connect only after verification:</strong>
+make sure the network name matches the network you actually intend to use.
+</li>
+
+</ol>
+
+
+<img
+class="article-image"
+src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKO2XLXtKkjH7Yh0iFIpIuZIkxMTYCWhP6tF6YDALwUiWFT0w99TTnzz9vbi_YRzTfTDfBqhnO4UHkB2Awb9w8kCQz_v61dZKwEn0PssfN5IehyphenhyphenRMMFTzT6BecIgZuHUQPnvIEmKuBXBc7enzelPCSJxhHjVN-_8bccJKEhK_j5z_bZRKCVLyuL8V5t_lO/s1024/1000069934.webp"
+alt="Uploading a saved WiFi QR code image for decoding"
+width="1280"
+height="720"
+loading="lazy"
+>
+
+
+<p>
+If the image is difficult to read, our
+<a href="/posts/decode-qr-code-blurred-image/">
+blurred QR code decoding guide
+</a>
+covers common image-quality problems such as blur, compression and poor
+contrast.
+</p>
+
+
+<hr>
+
+
+
+<h2>
+Why Checking the Raw Wi-Fi Data Matters
+</h2>
+
+
+<p>
+Decoding the image before connecting gives you a chance to inspect the
+actual information stored inside the QR code.
+</p>
+
+
+<p>
+For example, you can confirm that the SSID matches the router or hotspot
+you expected. You can also review the decoded password before entering
+it into another device.
+</p>
+
+
+<p>
+This is particularly useful for QR codes received through messages,
+social media or other sources where the original network context is unclear.
+</p>
+
+
+<hr>
+
+
+
+<h2>
+How to Fix a Wi-Fi QR Code That Will Not Decode
+</h2>
+
+
+<p>
+If the image fails to decode, start with the image itself instead of
+assuming the Wi-Fi payload is invalid.
+</p>
+
+
+<ul>
+
+<li>
+Use the original image instead of a compressed screenshot when possible.
+</li>
+
+<li>
+Keep the complete QR pattern visible.
+</li>
+
+<li>
+Preserve the white quiet zone around the code.
+</li>
+
+<li>
+Avoid strong glare and reflections.
+</li>
+
+<li>
+Try a sharper or higher-resolution version.
+</li>
+
+</ul>
+
+
+<p>
+For more detailed troubleshooting, see our
+<a href="/posts/fix-qr-code-cannot-be-read-from-image/">
+QR image error guide
+</a>.
+</p>
+
+
+<hr>
+
+
+
+<h2>
+Decode a Wi-Fi QR Code from a Mobile Browser
+</h2>
+
+
+<p>
+A mobile browser is especially useful when the QR code is already saved
+inside the phone's gallery. Instead of needing a second phone to photograph
+the first screen, you can select the existing image and use the browser-based
+decoder workflow.
+</p>
+
+
+<p>
+Our
+<a href="/posts/scan-barcode-from-image-mobile/">
+mobile image scanning guide
+</a>
+explains the same basic saved-image approach for barcode and QR workflows.
+</p>
+
+
+<hr>
+
+
+
+<h2>
+Create Your Own Wi-Fi QR Code
+</h2>
+
+
+<p>
+Decoding an existing Wi-Fi QR code and creating a new one are separate
+tasks. If you need to share your own network without typing the password
+manually, you can create a fresh QR code containing the required Wi-Fi data.
+</p>
+
+
+<p>
+Use the
+<a href="/generator.html">
+ZXing QR Generator
+</a>
+to create a new supported QR code and test the result before sharing it.
+</p>
+
+
+<hr>
+
+
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+
+<h3>
+Can I decode a Wi-Fi QR code from a screenshot?
+</h3>
+
+
+<p>
+Yes. Save the screenshot and upload it to a compatible image decoder.
+The decoded result can then be reviewed for the network information
+stored in the QR payload.
+</p>
+
+
+<h3>
+Can I see the Wi-Fi password inside the QR result?
+</h3>
+
+
+<p>
+If the QR code contains the password in its encoded payload and the decoder
+successfully reads it, the resulting text can show the stored password.
+Review it carefully before using it.
+</p>
+
+
+<h3>
+What if my Wi-Fi QR image is blurry?
+</h3>
+
+
+<p>
+Use the clearest version available and preserve the full QR pattern.
+If decoding still fails, see our
+<a href="/posts/decode-qr-code-blurred-image/">
+blurred QR image guide
+</a>.
+</p>
+
+
+<h3>
+Is it safe to use a Wi-Fi QR code from an unknown source?
+</h3>
+
+
+<p>
+Treat unfamiliar network credentials carefully. Verify the SSID and source
+of the QR code before connecting your device to the network.
+</p>
+
+
+<hr>
+
+
+
+<h2>
+Conclusion
+</h2>
+
+
+<p>
+A saved Wi-Fi QR image can contain the network name, security information
+and password needed for a connection. Decoding the image first gives you
+a chance to inspect those details before using them.
+</p>
+
+
+<p>
+For the best results, use a clear QR image, preserve the complete pattern,
+review the decoded payload, and connect only when the network information
+matches the source you trust.
+</p>
+
+
+
+<div class="article-related">
+
+<h2>
+Related ZXing Org Guides
+</h2>
+
+
+<ul>
+
+<li>
+<a href="/posts/decode-qr-code-from-image/">
+How to Decode QR Code from Image via Browser
+</a>
+</li>
+
+<li>
+<a href="/posts/decode-qr-code-blurred-image/">
+How to Decode a QR Code Blurred Image with ZXing Org
+</a>
+</li>
+
+<li>
+<a href="/posts/scan-barcode-from-image-mobile/">
+How to Scan Barcode from Image on Mobile Browsers
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="article-cta">
+
+<h2>
+Need to decode a Wi-Fi QR image?
+</h2>
+
+
+<p>
+Upload your saved QR image and inspect the decoded Wi-Fi information
+directly in your browser.
+</p>
+
+
+<a href="/">
+Open ZXing Decoder
+
+<i
+class="fa-solid fa-arrow-right"
+aria-hidden="true">
+</i>
+
+</a>
+
+</div>
+
+
+</div>
+
+</article>
+
+</section>
+
+</main>
+
+
+
+<footer class="footer">
+
+<p>
+© 2026 ZXingOrg. All rights reserved.
+</p>
+
+</footer>
+
+
+
+<script>
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const mainNav =
+document.getElementById("mainNav");
+
+
+if(menuToggle && mainNav){
+
+menuToggle.addEventListener("click",()=>{
+
+const isOpen =
+mainNav.classList.toggle("show");
+
+menuToggle.setAttribute(
+"aria-expanded",
+isOpen ? "true" : "false"
+);
+
+menuToggle.querySelector("i").className =
+isOpen
+? "fa-solid fa-xmark"
+: "fa-solid fa-bars";
+
+});
+
+
+mainNav.querySelectorAll("a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+mainNav.classList.remove("show");
+
+menuToggle.setAttribute(
+"aria-expanded",
+"false"
+);
+
+menuToggle.querySelector("i").className =
+"fa-solid fa-bars";
+
+});
+
+});
+
+}
+
+</script>
+
+
+</body>
+</html>
