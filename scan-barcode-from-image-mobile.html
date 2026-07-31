@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>How to Scan Barcode from Image on Mobile Browsers | ZXing Org</title>
+
+<meta name="description" content="Learn how to scan a barcode or QR code from a saved image, screenshot, or phone gallery using a mobile browser without installing another app.">
+
+<meta name="robots" content="index,follow">
+
+<link
+rel="canonical"
+href="https://www.zxingorg.com/posts/scan-barcode-from-image-mobile/"
+>
+
+<meta property="og:type" content="article">
+
+<meta
+property="og:title"
+content="How to Scan Barcode from Image on Mobile Browsers"
+>
+
+<meta
+property="og:description"
+content="Learn how to scan a barcode or QR code from a saved image or screenshot using a mobile browser."
+>
+
+<meta
+property="og:url"
+content="https://www.zxingorg.com/posts/scan-barcode-from-image-mobile/"
+>
+
+<meta property="og:site_name" content="ZXing Org">
+
+<meta
+property="og:image"
+content="https://www.zxingorg.com/images/scan-barcode-from-image-mobile.webp"
+>
+
+<meta name="twitter:card" content="summary_large_image">
+
+<meta
+name="twitter:title"
+content="How to Scan Barcode from Image on Mobile Browsers"
+>
+
+<meta
+name="twitter:description"
+content="Learn how to scan a barcode or QR code from a saved image or screenshot using a mobile browser."
+>
+
+<meta
+name="twitter:image"
+content="https://www.zxingorg.com/images/scan-barcode-from-image-mobile.webp"
+>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com"
+>
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin
+>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet"
+>
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
+
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"How to Scan Barcode from Image on Mobile Browsers",
+  "description":"Learn how to scan a barcode or QR code from a saved image or screenshot using a mobile browser.",
+  "mainEntityOfPage":{
+    "@type":"WebPage",
+    "@id":"https://www.zxingorg.com/posts/scan-barcode-from-image-mobile/"
+  },
+  "image":[
+    "https://www.zxingorg.com/images/scan-barcode-from-image-mobile.webp"
+  ],
+  "publisher":{
+    "@type":"Organization",
+    "name":"ZXing Org",
+    "url":"https://www.zxingorg.com/"
+  }
+}
+</script>
+
+
+<style>
+
+:root{
+  --blue:#2563eb;
+  --blue-dark:#1d4ed8;
+  --navy:#0f172a;
+  --text:#475569;
+  --muted:#64748b;
+  --bg:#f5f9ff;
+  --white:#fff;
+  --line:#e2e8f0;
+  --soft:#eff6ff;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:#1e293b;
+  line-height:1.6;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+a{
+  text-decoration:none;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.article-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+
+.header-inner{
+  width:min(1180px,92%);
+  min-height:76px;
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  position:relative;
+}
+
+.logo{
+  color:var(--blue);
+  font-size:32px;
+  font-weight:800;
+  letter-spacing:-1.4px;
+}
+
+.logo span{
+  color:var(--blue-dark);
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.nav a{
+  color:#1e293b;
+  font-size:16px;
+  font-weight:700;
+}
+
+.nav a:hover{
+  color:var(--blue);
+}
+
+.menu-toggle{
+  display:none;
+
+  border:0;
+  background:transparent;
+
+  color:#1e293b;
+
+  width:46px;
+  height:46px;
+
+  padding:0;
+
+  border-radius:12px;
+
+  font-size:25px;
+
+  cursor:pointer;
+}
+
+
+/* =========================
+   ARTICLE
+========================= */
+
+.article-shell{
+  padding:52px 0 76px;
+  background:var(--bg);
+}
+
+.article-wrap{
+  width:min(860px,92%);
+  margin:auto;
+}
+
+.article-top{
+  margin-bottom:28px;
+}
+
+.article-kicker{
+  display:inline-flex;
+
+  padding:7px 13px;
+
+  margin-bottom:16px;
+
+  border-radius:999px;
+
+  background:var(--soft);
+
+  border:1px solid #bfdbfe;
+
+  color:var(--blue);
+
+  font-size:12px;
+
+  font-weight:800;
+
+  letter-spacing:.45px;
+
+  text-transform:uppercase;
+}
+
+.article-top h1{
+  margin:0 0 18px;
+
+  color:var(--navy);
+
+  font-size:clamp(2.2rem,5.3vw,3.35rem);
+
+  line-height:1.08;
+
+  letter-spacing:-1.4px;
+}
+
+.article-intro{
+  margin:0;
+
+  color:var(--muted);
+
+  font-size:18px;
+
+  line-height:1.85;
+}
+
+
+/* =========================
+   FEATURE IMAGE
+========================= */
+
+.feature-image{
+  width:100%;
+
+  height:420px;
+
+  object-fit:cover;
+
+  object-position:center;
+
+  margin:0 0 34px;
+
+  border:1px solid var(--line);
+
+  border-radius:22px;
+
+  background:#eaf2ff;
+
+  box-shadow:0 16px 40px rgba(15,23,42,.08);
+}
+
+
+/* =========================
+   QUICK ANSWER
+========================= */
+
+.quick-answer{
+  margin:0 0 30px;
+
+  padding:20px 22px;
+
+  border:1px solid #dbeafe;
+
+  border-left:4px solid var(--blue);
+
+  border-radius:16px;
+
+  background:#f8fbff;
+
+  color:var(--text);
+}
+
+.quick-answer strong{
+  color:var(--navy);
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+.article-body{
+  background:var(--white);
+
+  border:1px solid var(--line);
+
+  border-radius:22px;
+
+  padding:34px;
+
+  box-shadow:0 12px 34px rgba(15,23,42,.06);
+}
+
+.article-body h2{
+  margin:0 0 14px;
+
+  color:var(--navy);
+
+  font-size:28px;
+
+  line-height:1.28;
+}
+
+.article-body h2:not(:first-child){
+  margin-top:38px;
+}
+
+.article-body h3{
+  margin:28px 0 10px;
+
+  color:var(--navy);
+
+  font-size:21px;
+
+  line-height:1.35;
+}
+
+.article-body p{
+  margin:0 0 18px;
+
+  color:var(--text);
+
+  font-size:17px;
+
+  line-height:1.85;
+}
+
+.article-body ul,
+.article-body ol{
+  margin:0 0 24px;
+
+  padding-left:24px;
+
+  color:var(--text);
+}
+
+.article-body li{
+  margin-bottom:10px;
+
+  line-height:1.75;
+}
+
+.article-body a{
+  color:var(--blue);
+
+  font-weight:700;
+}
+
+.article-body a:hover{
+  text-decoration:underline;
+}
+
+.article-body hr{
+  margin:34px 0;
+
+  border:0;
+
+  border-top:1px solid var(--line);
+}
+
+.article-image{
+  width:100%;
+
+  height:auto;
+
+  margin:24px 0 30px;
+
+  border:1px solid var(--line);
+
+  border-radius:16px;
+}
+
+
+/* =========================
+   RELATED
+========================= */
+
+.article-related{
+  margin-top:38px;
+
+  padding:24px;
+
+  border:1px solid #dbeafe;
+
+  border-radius:18px;
+
+  background:#f8fbff;
+}
+
+.article-related h2{
+  margin-top:0 !important;
+
+  font-size:25px;
+}
+
+.article-related ul{
+  margin-bottom:0;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.article-cta{
+  margin-top:30px;
+
+  padding:30px 24px;
+
+  text-align:center;
+
+  border:1px solid #dbeafe;
+
+  border-radius:20px;
+
+  background:linear-gradient(135deg,#eff6ff,#fff);
+}
+
+.article-cta h2{
+  margin:0 0 10px;
+
+  font-size:26px;
+}
+
+.article-cta p{
+  max-width:650px;
+
+  margin:0 auto 20px;
+}
+
+.article-cta a{
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:8px;
+
+  min-height:52px;
+
+  padding:0 22px;
+
+  border-radius:14px;
+
+  background:var(--blue);
+
+  color:#fff !important;
+
+  text-decoration:none !important;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  padding:26px 20px;
+
+  background:#0f172a;
+
+  color:#cbd5e1;
+
+  text-align:center;
+}
+
+.footer p{
+  margin:0;
+
+  color:#cbd5e1;
+
+  font-size:14px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .header-inner{
+    min-height:68px;
+  }
+
+  .logo{
+    font-size:29px;
+  }
+
+  .menu-toggle{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+  }
+
+  .nav{
+    display:none;
+
+    position:absolute;
+
+    top:100%;
+
+    left:0;
+
+    right:0;
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+    gap:4px;
+
+    padding:10px;
+
+    background:#fff;
+
+    border-top:1px solid var(--line);
+
+    border-bottom:1px solid var(--line);
+
+    box-shadow:0 16px 30px rgba(15,23,42,.10);
+  }
+
+  .nav.show{
+    display:flex;
+  }
+
+  .nav a{
+    padding:13px 14px;
+
+    border-radius:10px;
+  }
+
+  .nav a:hover{
+    background:var(--soft);
+  }
+
+  .article-shell{
+    padding:38px 0 54px;
+  }
+
+  .article-top h1{
+    font-size:2.15rem;
+  }
+
+  .article-intro{
+    font-size:17px;
+
+    line-height:1.8;
+  }
+
+  .feature-image{
+    height:240px;
+
+    margin-bottom:26px;
+
+    border-radius:18px;
+  }
+
+  .article-body{
+    padding:24px;
+
+    border-radius:18px;
+  }
+
+  .article-body h2{
+    font-size:25px;
+  }
+
+  .article-body p{
+    font-size:16px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .feature-image{
+    height:220px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="article-header">
+
+<div class="header-inner">
+
+<a href="/" class="logo">
+ZXing<span>Org</span>
+</a>
+
+
+<button
+class="menu-toggle"
+id="menuToggle"
+type="button"
+aria-label="Open menu"
+aria-expanded="false"
+>
+
+<i class="fa-solid fa-bars" aria-hidden="true"></i>
+
+</button>
+
+
+<nav
+class="nav"
+id="mainNav"
+>
+
+<a href="/">
+Home
+</a>
+
+<a href="/generator.html">
+QR Generator
+</a>
+
+<a href="/blog.html">
+Blog
+</a>
+
+<a href="/about.html">
+About
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<section class="article-shell">
+
+
+<article class="article-wrap">
+
+
+<header class="article-top">
+
+<span class="article-kicker">
+Mobile Barcode Guide
+</span>
+
+
+<h1>
+How to Scan Barcode from Image on Mobile Browsers
+</h1>
+
+
+<p class="article-intro">
+Learn how to scan a barcode or QR code from a saved image, screenshot,
+or phone gallery directly in a mobile browser. This workflow is useful
+when the code is already on your device and you cannot point the camera
+at it directly.
+</p>
+
+</header>
+
+
+
+<img
+class="feature-image"
+src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_LPXYvTGi6tqVv9ckKwCP16-Sf9817cHy9GYIn6cyGOQ9lPBTnRa-2A4hAX2Go8-yA0MkTDIajdOmT9FRKU6ljDriYHU4glsyCD7Uvv6LYiuioGmNxi9RSvOvHLj87Sp875GZUcUEAQ4xiVBr89RDQ_GO7tHqY4MyfP5YfTs_BWBxEF0YZ0wgKJSs9Huw/s1024/1000069979.webp"
+alt="How to scan a barcode from an image on a mobile browser"
+width="1280"
+height="720"
+fetchpriority="high"
+>
+
+
+<div class="article-body">
+
+
+<div class="quick-answer">
+
+<strong>Quick answer:</strong>
+
+Save the barcode or QR image to your phone, open the ZXing Org decoder
+in your mobile browser, upload the image, and review the decoded result.
+You do not need a second phone just to scan an image that is already
+stored on your device.
+
+</div>
+
+
+
+<h2>
+Why Scan a Barcode from an Image?
+</h2>
+
+
+<p>
+Not every barcode or QR code is available as a physical object in front
+of your camera. The code may already be inside your phone as a screenshot,
+downloaded image, photo, digital receipt or picture sent by another person.
+</p>
+
+
+<p>
+In those situations, using the camera to scan your own screen is awkward
+or impossible. A browser-based image workflow lets you work with the
+saved file directly.
+</p>
+
+
+<p>
+This can be useful for both ordinary barcodes and supported QR code images,
+especially when you need to extract text from a file rather than capture
+a new photograph.
+</p>
+
+
+<hr>
+
+
+<h2>
+Do You Need Another App?
+</h2>
+
+
+<p>
+A common solution is to install another barcode scanner from an app store.
+That can work, but it adds another application to the device when the
+only task may be decoding one saved image.
+</p>
+
+
+<p>
+A mobile browser can be a simpler alternative when the decoder supports
+image uploads. You open the site, select the image and review the returned
+data without changing the rest of your phone setup.
+</p>
+
+
+<p>
+If the image is a QR code and appears blurry, our
+<a href="/posts/decode-qr-code-blurred-image/">
+blurred QR code guide
+</a>
+has additional image-quality troubleshooting steps.
+</p>
+
+
+<hr>
+
+
+<h2>
+How to Scan a Barcode from an Image on Mobile
+</h2>
+
+
+<p>
+The process is straightforward when you already have the image saved
+in your gallery or downloads folder.
+</p>
+
+
+<ol>
+
+<li>
+<strong>Save the image:</strong>
+capture a screenshot or save the barcode image to your phone.
+</li>
+
+<li>
+<strong>Open the web decoder:</strong>
+visit the ZXing Org decoder in your mobile browser.
+</li>
+
+<li>
+<strong>Select the image:</strong>
+use the upload or choose-image control and pick the saved file.
+</li>
+
+<li>
+<strong>Process the image:</strong>
+allow the decoder to analyze the barcode or QR pattern.
+</li>
+
+<li>
+<strong>Check the result:</strong>
+review the decoded text, number, URL or other returned data.
+</li>
+
+</ol>
+
+
+<img
+class="article-image"
+src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqaSY7eLh4pZ7E0rtSQcbQ-IWj0o16NZ_Aui7U5P55Bl7hyphenhypheniFgXuyn6ixIQbiWR705uluNNSZ8eCgMKm66hmiyXTVr-A7utbHJS-YC4eaVQseyw4dXrEDfGbPGONezZ8JfI1aoTorkZCuk8Ni00wPnJ5JvoHmJPgWoStvbkSICtUkw2wIG2s1LfosSntqZ/s1024/1000069980.webp"
+alt="Uploading a saved barcode image in a mobile browser"
+width="1280"
+height="720"
+loading="lazy"
+>
+
+
+<p>
+If your saved image contains a Wi-Fi QR code, the decoded result can also
+show the network information stored inside the QR payload. Our
+<a href="/posts/decode-wifi-qr-code-from-image/">
+Wi-Fi QR decoding guide
+</a>
+explains that use case in more detail.
+</p>
+
+
+<hr>
+
+
+<h2>
+Why Image Quality Matters
+</h2>
+
+
+<p>
+Barcode readers need clear visual boundaries between the dark bars or
+modules and their surrounding background. Blur, compression, glare,
+cropping and low resolution can make the pattern harder to recognize.
+</p>
+
+
+<ul>
+
+<li>
+Use the original image when possible.
+</li>
+
+<li>
+Avoid heavily compressed screenshots.
+</li>
+
+<li>
+Keep the entire barcode visible.
+</li>
+
+<li>
+Avoid reflections and strong glare.
+</li>
+
+<li>
+Keep small barcode details sharp and readable.
+</li>
+
+</ul>
+
+
+<p>
+For a QR-specific failure, see our
+<a href="/posts/fix-qr-code-cannot-be-read-from-image/">
+QR image troubleshooting guide
+</a>.
+</p>
+
+
+<hr>
+
+
+<h2>
+Can a Mobile Browser Read a Barcode from Its Own Screen?
+</h2>
+
+
+<p>
+Yes, when the web tool supports image uploads. Instead of pointing the
+camera at the phone display, you choose the saved image from the gallery
+or file picker.
+</p>
+
+
+<p>
+This is especially useful for barcodes contained in digital receipts,
+web pages, screenshots, chat attachments and downloaded product images.
+</p>
+
+
+<hr>
+
+
+<h2>
+What Happens After the Barcode Is Decoded?
+</h2>
+
+
+<p>
+The output depends on the type of code and the data stored inside it.
+You may receive a product number, text string, website URL or another
+encoded value.
+</p>
+
+
+<p>
+Review the decoded value before opening links or using the information.
+A decoded result gives you an opportunity to inspect the destination
+instead of blindly following an unknown QR or barcode payload.
+</p>
+
+
+<hr>
+
+
+<h2>
+Mobile Browser Scanning Tips
+</h2>
+
+
+<h3>
+Use the clearest source
+</h3>
+
+<p>
+An original image is usually preferable to a screenshot of a screenshot.
+Each additional compression or resize can remove useful detail.
+</p>
+
+
+<h3>
+Keep the whole symbol visible
+</h3>
+
+<p>
+Avoid cropping away important edges. For QR codes, preserving a clean
+quiet zone around the symbol is also helpful.
+</p>
+
+
+<h3>
+Check the result
+</h3>
+
+<p>
+If the decoded output is a URL, inspect the domain before opening it.
+If it is a number or text value, verify that the output matches what
+you expected.
+</p>
+
+
+<hr>
+
+
+<h2>
+Create Your Own QR Codes on Mobile
+</h2>
+
+
+<p>
+If you are not trying to decode an existing barcode and instead want to
+create a new QR code, use the
+<a href="/generator.html">
+ZXing QR Generator
+</a>.
+</p>
+
+
+<p>
+You can create supported QR content and then test the resulting image
+with the decoder before sharing it.
+</p>
+
+
+<hr>
+
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+
+<h3>
+Can I scan a barcode from a screenshot on my phone?
+</h3>
+
+<p>
+Yes. Save the screenshot and use a browser-based image decoder that
+supports barcode or QR image uploads.
+</p>
+
+
+<h3>
+Do I need another phone to scan a barcode shown on my phone?
+</h3>
+
+<p>
+No. When the barcode is already stored as an image, you can usually
+upload that file directly through a supported mobile browser.
+</p>
+
+
+<h3>
+Can I scan a Wi-Fi QR code from my phone gallery?
+</h3>
+
+<p>
+Yes. Save the Wi-Fi QR image and decode it from the image upload workflow.
+The returned result can then be reviewed before using the network details.
+</p>
+
+
+<h3>
+What if my barcode image is blurry?
+</h3>
+
+<p>
+Try the original image or a clearer copy first. If it is a QR code,
+our
+<a href="/posts/decode-qr-code-blurred-image/">
+blurred QR code guide
+</a>
+can help with image-quality problems.
+</p>
+
+
+<hr>
+
+
+<h2>
+Conclusion
+</h2>
+
+
+<p>
+Scanning a barcode from an image on a mobile browser is useful whenever
+the code is already stored on your phone. Instead of using another camera
+or installing another app, you can upload the saved image and review the
+decoded result directly in the browser.
+</p>
+
+
+<p>
+For the best results, use a sharp image, keep the entire barcode visible,
+avoid compression and check the decoded output before following any
+unexpected link.
+</p>
+
+
+
+<div class="article-related">
+
+<h2>
+Related ZXing Org Guides
+</h2>
+
+
+<ul>
+
+<li>
+<a href="/posts/decode-qr-code-blurred-image/">
+How to Decode a QR Code Blurred Image with ZXing Org
+</a>
+</li>
+
+<li>
+<a href="/posts/decode-wifi-qr-code-from-image/">
+How to Decode WiFi QR Code from Image Safely
+</a>
+</li>
+
+<li>
+<a href="/posts/fix-qr-code-cannot-be-read-from-image/">
+How to Fix a QR Code Cannot Be Read from Image Error
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="article-cta">
+
+<h2>
+Ready to scan an image?
+</h2>
+
+
+<p>
+Upload your saved barcode or QR image and review the decoded result
+directly in your mobile browser.
+</p>
+
+
+<a href="/">
+Open ZXing Decoder
+
+<i
+class="fa-solid fa-arrow-right"
+aria-hidden="true">
+</i>
+
+</a>
+
+</div>
+
+
+</div>
+
+</article>
+
+</section>
+
+</main>
+
+
+
+<footer class="footer">
+
+<p>
+© 2026 ZXingOrg. All rights reserved.
+</p>
+
+</footer>
+
+
+
+<script>
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const mainNav =
+document.getElementById("mainNav");
+
+
+if(menuToggle && mainNav){
+
+menuToggle.addEventListener("click",()=>{
+
+const isOpen =
+mainNav.classList.toggle("show");
+
+menuToggle.setAttribute(
+"aria-expanded",
+isOpen ? "true" : "false"
+);
+
+menuToggle.querySelector("i").className =
+isOpen
+? "fa-solid fa-xmark"
+: "fa-solid fa-bars";
+
+});
+
+
+mainNav.querySelectorAll("a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+mainNav.classList.remove("show");
+
+menuToggle.setAttribute(
+"aria-expanded",
+"false"
+);
+
+menuToggle.querySelector("i").className =
+"fa-solid fa-bars";
+
+});
+
+});
+
+}
+
+</script>
+
+
+</body>
+</html>
