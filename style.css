@@ -1789,3 +1789,57 @@ if (menuToggle && mainNav) {
   display: block !important;
   margin: 0 auto !important;
 }
+/* ==========================================
+   Compact Wi-Fi & Smart Result Card CSS
+========================================== */
+
+.compact-card {
+  padding: 16px !important;
+  max-width: 420px !important;
+  margin: 0 auto !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05) !important;
+}
+
+.action-grid-compact {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+}
+
+.action-grid-compact .action-btn {
+  padding: 10px 12px !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Secondary / Scan Another QR Button Styling */
+.action-grid-compact .action-btn.secondary {
+  border: 1px solid #e2e8f0 !important;
+}
+
+.action-grid-compact .action-btn.secondary:hover {
+  background: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+/* Mobile Screen Fine-Tuning */
+@media (max-width: 380px) {
+  .compact-card {
+    padding: 12px !important;
+  }
+  
+  .action-grid-compact .action-btn {
+    font-size: 12.5px !important;
+    padding: 9px 8px !important;
+  }
+}
