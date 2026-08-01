@@ -1768,3 +1768,24 @@ if (menuToggle && mainNav) {
 
 </body>
 </html>
+/* Prevent Uploaded QR Image Overflow */
+#preview {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: hidden !important;
+  margin: 12px 0 !important;
+}
+
+#preview img,
+#preview video {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 280px !important; /* Max height setting to avoid huge images */
+  border-radius: 12px !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
