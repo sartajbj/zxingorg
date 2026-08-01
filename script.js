@@ -131,59 +131,181 @@ if(pasteBtn){
 }
 
 // ===============================
-// Smart Result
+// Smart Result (Safe Upgrade)
 // ===============================
 
 function showResult(text){
   result.style.display="block";
   let html="";
+  const bytes = new TextEncoder().encode(text).length;
 
+  // 1. Wi-Fi QR Code
   if(text.startsWith("WIFI:")){
-    const ssid=text.match(/S:([^;]*)/)?.[1]||"";
-    const pass=text.match(/P:([^;]*)/)?.[1]||"";
-    const sec=text.match(/T:([^;]*)/)?.[1]||"";
+    const ssid = text.match(/S:([^;]*)/)?.[1] || "";
+    const pass = text.match(/P:([^;]*)/)?.[1] || "";
+    const sec = text.match(/T:([^;]*)/)?.[1] || "WPA";
 
     renderWifiCard(ssid, pass, sec);
     return;
   }
-  else if(text.startsWith("http")){
-    html=`
-    <div class="result-card">
-      <div class="result-title">🌐 Website</div>
-      <p style="word-break:break-all;">${text}</p>
-      <a class="copy-btn" href="${text}" target="_blank">Open Website</a>
-    </div>
-    `;
-  }
+
+  // 2. Email QR Code
   else if(text.startsWith("mailto:")){
-    html=`
+    const emailClean = text.replace("mailto:", "");
+    const emailAddr = emailClean.split("?")[0];
+
+    html = `
     <div class="result-card">
-      <div class="result-title">📧 Email</div>
-      <p>${text.replace("mailto:","")}</p>
-    </div>
-    `;
-  }
-  else if(text.startsWith("tel:")){
-    html=`
-    <div class="result-card">
-      <div class="result-title">📞 Phone</div>
-      <p>${text.replace("tel:","")}</p>
-    </div>
-    `;
-  }
-  else{
-    html=`
-    <div class="result-card">
-      <div class="result-title">QR Result</div>
-      <p style="word-break:break-all;">${text}</p>
-      <button class="copy-btn" onclick="copyText(\`${text}\`)">Copy Result</button>
+      <div class="success-header">
+        <i class="fa-solid fa-circle-check"></i>
+        <div>
+          <div style="font-weight:700; font-size:18px;">Decode Succeeded</div>
+          <small style="color:#64748b; font-size:13px;">Email Address Detected</small>
+        </div>
+      </div>
+
+      <div class="result-box">
+        <div class="result-label">EMAIL ADDRESS</div>
+        <div class="result-value" style="word-break:break-all; font-weight:700;">${emailAddr}</div>
+      </div>
+
+      <div class="result-box">
+        <div class="result-label">RAW CONTENT</div>
+        <div class="result-value" style="word-break:break-all; font-size:13px; color:#475569;">${emailClean}</div>
+      </div>
+
+      <div class="action-grid" style="display:flex; flex-direction:column; gap:8px; margin-top:14px;">
+        <a class="action-btn success" href="${text}" style="text-decoration:none; text-align:center;">
+          ✉️ Send Email
+        </a>
+        <button class="action-btn primary" onclick="copyText('${emailAddr}')">
+          📋 Copy Email
+        </button>
+        <button class="action-btn" onclick="shareText('${emailAddr}')">
+          📤 Share
+        </button>
+        <button class="newscan-btn" onclick="newScan()" style="margin-top:4px;">
+          🔄 Scan Another QR
+        </button>
+      </div>
     </div>
     `;
   }
 
-  result.innerHTML=html;
+  // 3. Website / URL QR Code
+  else if(text.startsWith("http")){
+    html = `
+    <div class="result-card">
+      <div class="success-header">
+        <i class="fa-solid fa-circle-check"></i>
+        <div>
+          <div style="font-weight:700; font-size:18px;">Decode Succeeded</div>
+          <small style="color:#64748b; font-size:13px;">Website URL Detected</small>
+        </div>
+      </div>
+
+      <div class="result-box">
+        <div class="result-label">URL</div>
+        <div class="result-value" style="word-break:break-all; font-weight:600; color:#2563eb;">${text}</div>
+      </div>
+
+      <div class="result-box">
+        <div class="result-label">RAW BYTES</div>
+        <div class="result-value">${bytes} Bytes</div>
+      </div>
+
+      <div class="action-grid" style="display:flex; flex-direction:column; gap:8px; margin-top:14px;">
+        <a class="action-btn success" href="${text}" target="_blank" style="text-decoration:none; text-align:center;">
+          🌍 Open Link
+        </a>
+        <button class="action-btn primary" onclick="copyText('${text}')">
+          📋 Copy Link
+        </button>
+        <button class="action-btn" onclick="shareText('${text}')">
+          📤 Share
+        </button>
+        <button class="newscan-btn" onclick="newScan()" style="margin-top:4px;">
+          🔄 Scan Another QR
+        </button>
+      </div>
+    </div>
+    `;
+  }
+
+  // 4. Phone QR Code
+  else if(text.startsWith("tel:")){
+    const phoneNum = text.replace("tel:", "");
+    html = `
+    <div class="result-card">
+      <div class="success-header">
+        <i class="fa-solid fa-circle-check"></i>
+        <div>
+          <div style="font-weight:700; font-size:18px;">Decode Succeeded</div>
+          <small style="color:#64748b; font-size:13px;">Phone Number Detected</small>
+        </div>
+      </div>
+
+      <div class="result-box">
+        <div class="result-label">PHONE NUMBER</div>
+        <div class="result-value" style="font-weight:700;">${phoneNum}</div>
+      </div>
+
+      <div class="action-grid" style="display:flex; flex-direction:column; gap:8px; margin-top:14px;">
+        <a class="action-btn success" href="${text}" style="text-decoration:none; text-align:center;">
+          📞 Call Now
+        </a>
+        <button class="action-btn primary" onclick="copyText('${phoneNum}')">
+          📋 Copy Number
+        </button>
+        <button class="newscan-btn" onclick="newScan()" style="margin-top:4px;">
+          🔄 Scan Another QR
+        </button>
+      </div>
+    </div>
+    `;
+  }
+
+  // 5. Plain Text / Barcode QR Code
+  else{
+    html = `
+    <div class="result-card">
+      <div class="success-header">
+        <i class="fa-solid fa-circle-check"></i>
+        <div>
+          <div style="font-weight:700; font-size:18px;">Decode Succeeded</div>
+          <small style="color:#64748b; font-size:13px;">Text Data Detected</small>
+        </div>
+      </div>
+
+      <div class="result-box">
+        <div class="result-label">DECODED TEXT</div>
+        <div class="result-value" style="word-break:break-all; white-space:pre-wrap;">${text}</div>
+      </div>
+
+      <div class="result-box">
+        <div class="result-label">RAW BYTES</div>
+        <div class="result-value">${bytes} Bytes</div>
+      </div>
+
+      <div class="action-grid" style="display:flex; flex-direction:column; gap:8px; margin-top:14px;">
+        <button class="action-btn primary" onclick="copyText(\`${text}\`)">
+          📋 Copy Text
+        </button>
+        <button class="action-btn" onclick="shareText(\`${text}\`)">
+          📤 Share
+        </button>
+        <button class="newscan-btn" onclick="newScan()" style="margin-top:4px;">
+          🔄 Scan Another QR
+        </button>
+      </div>
+    </div>
+    `;
+  }
+
+  result.innerHTML = html;
   smoothToResult();
 }
+
 
 // ===== Premium Toast =====
 
