@@ -393,55 +393,58 @@ function togglePassword(){
   }
 }
 
-// ===== Wi-Fi Result Upgrade =====
+// ===== Wi-Fi Result Upgrade (Compact UX) =====
 
-function renderWifiCard(ssid,password,security){
-  result.style.display="block";
+function renderWifiCard(ssid, password, security){
+  result.style.display = "block";
  
-  result.innerHTML=`
-  <div class="result-card">
+  result.innerHTML = `
+  <div class="result-card compact-card">
 
-    <div class="success-header">
-      <i class="fa-solid fa-circle-check"></i>
+    <!-- Compact Header -->
+    <div class="success-header" style="margin-bottom: 12px; padding-bottom: 8px;">
+      <i class="fa-solid fa-circle-check" style="font-size: 20px;"></i>
       <div>
-        <div style="font-weight:700; font-size:18px;">Decode Succeeded</div>
-        <small style="color:#64748b;font-size:13px;">Wi-Fi QR Code Detected</small>
+        <div style="font-weight:700; font-size:16px; line-height: 1.2;">Decode Succeeded</div>
+        <small style="color:#64748b; font-size:12px;">Wi-Fi QR Code Detected</small>
       </div>
     </div>
 
-    <!-- Side by Side Network & Security to compact the card height -->
-    <div class="wifi-meta-row" style="display:flex; gap:10px; margin-bottom:10px;">
-      <div class="result-box" style="flex:1; margin-bottom:0;">
-        <div class="result-label">NETWORK NAME</div>
-        <div class="result-value" style="font-weight:700;">${ssid}</div>
+    <!-- Side-by-Side Compact Meta Box -->
+    <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+      <div class="result-box" style="flex: 2; padding: 8px 12px; margin: 0;">
+        <div class="result-label" style="font-size: 10px; margin-bottom: 2px;">NETWORK NAME</div>
+        <div class="result-value" style="font-weight:700; font-size: 14px;">${ssid}</div>
       </div>
 
-      <div class="result-box" style="flex:1; margin-bottom:0;">
-        <div class="result-label">SECURITY</div>
-        <div class="result-value">${security || "WPA"}</div>
+      <div class="result-box" style="flex: 1; padding: 8px 12px; margin: 0;">
+        <div class="result-label" style="font-size: 10px; margin-bottom: 2px;">SECURITY</div>
+        <div class="result-value" style="font-size: 13px;">${security || "WPA"}</div>
       </div>
     </div>
 
-    <div class="result-box" style="margin-top:10px;">
-      <div class="result-label">PASSWORD</div>
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px;">
-        <span id="wifiPassword" class="password-value" data-password="${password}" data-show="0" style="font-weight:700; letter-spacing:1px;">
+    <!-- Password Box -->
+    <div class="result-box" style="padding: 8px 12px; margin-bottom: 12px;">
+      <div class="result-label" style="font-size: 10px; margin-bottom: 2px;">PASSWORD</div>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+        <span id="wifiPassword" class="password-value" data-password="${password}" data-show="0" style="font-weight:700; font-size: 15px; letter-spacing:1px;">
           ••••••••••
         </span>
-        <i id="eyeIcon" class="fa-solid fa-eye eye-btn" style="cursor:pointer; padding:4px;" onclick="togglePassword()"></i>
+        <i id="eyeIcon" class="fa-solid fa-eye eye-btn" style="cursor:pointer; padding:4px; font-size: 14px;" onclick="togglePassword()"></i>
       </div>
     </div>
 
-    <div class="action-grid" style="display:flex; flex-direction:column; gap:8px; margin-top:14px;">
-      <button class="action-btn primary" onclick="copyText('${password}')">
+    <!-- Compact Action Grid -->
+    <div class="action-grid-compact" style="display: flex; gap: 6px; flex-wrap: wrap;">
+      <button class="action-btn primary" onclick="copyText('${password}')" style="flex: 1; min-width: 120px;">
         📋 Copy Password
       </button>
 
-      <button class="action-btn success" onclick="shareText('Wi-Fi Network: ${ssid}\\nPassword: ${password}')">
+      <button class="action-btn success" onclick="shareText('Wi-Fi Network: ${ssid}\\nPassword: ${password}')" style="flex: 1; min-width: 90px;">
         📤 Share
       </button>
 
-      <button class="newscan-btn" onclick="newScan()" style="margin-top:4px;">
+      <button class="action-btn secondary" onclick="newScan()" style="flex: 100%; margin-top: 4px; background: #f1f5f9; color: #475569; justify-content: center;">
         🔄 Scan Another QR
       </button>
     </div>
@@ -451,6 +454,7 @@ function renderWifiCard(ssid,password,security){
 
   smoothToResult();
 }
+
 
 // ===== Share Helper =====
 
