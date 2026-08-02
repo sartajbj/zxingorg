@@ -440,13 +440,23 @@ function renderWifiCard(ssid, password, security){
         📋 Copy Password
       </button>
 
-      <button class="action-btn success" onclick="shareText('Wi-Fi Network: ${ssid}\\nPassword: ${password}')" style="flex: 1; min-width: 90px;">
-        📤 Share
-      </button>
+          <button class="action-btn success" onclick="shareText('Wi-Fi Network: ${ssid}\nPassword: ${password}')">
+        📲 Share
+    </button>
 
-      <button class="action-btn secondary" onclick="newScan()" style="flex: 100%; margin-top: 4px; background: #f1f5f9; color: #475569; justify-content: center;">
+    <!-- ZXing Site Share Widget -->
+    <div style="margin: 10px 0; padding: 10px; border-top: 1px dashed #cbd5e1; border-bottom: 1px dashed #cbd5e1; text-align: center; background-color: #f8fafc; border-radius: 10px; width: 100%;">
+        <div style="font-size: 12px; margin-bottom: 2px;">⭐⭐⭐⭐⭐</div>
+        <div style="font-size: 12px; font-weight: 600; color: #334155; margin-bottom: 8px;">Loved this tool?</div>
+        <button type="button" onclick="if(navigator.share){navigator.share({title:'ZXing Org',text:'Decode QR codes instantly!',url:window.location.origin});}else{navigator.clipboard.writeText(window.location.origin);alert('Link copied!');}" style="background: #2563eb; color: #ffffff; border: none; padding: 8px 14px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            🌐 Share ZXing Org
+        </button>
+    </div>
+
+    <button class="action-btn secondary" onclick="newScan()" style="flex: 1;">
         🔄 Scan Another QR
-      </button>
+    </button>
+
     </div>
 
   </div>
