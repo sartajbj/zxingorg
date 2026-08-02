@@ -396,74 +396,77 @@ function togglePassword(){
 // ===== Wi-Fi Result Upgrade (Compact UX) =====
 
 function renderWifiCard(ssid, password, security){
-  result.style.display = "block";
- 
-  result.innerHTML = `
-  <div class="result-card compact-card">
+    result.style.display = "block";
 
-    <!-- Compact Header -->
-    <div class="success-header" style="margin-bottom: 12px; padding-bottom: 8px;">
-      <i class="fa-solid fa-circle-check" style="font-size: 20px;"></i>
-      <div>
-        <div style="font-weight:700; font-size:16px; line-height: 1.2;">Decode Succeeded</div>
-        <small style="color:#64748b; font-size:12px;">Wi-Fi QR Code Detected</small>
-      </div>
-    </div>
+    const safeSsid = ssid.replace(/'/g, "\\'");
+    const safePass = password.replace(/'/g, "\\'");
 
-    <!-- Side-by-Side Compact Meta Box -->
-    <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-      <div class="result-box" style="flex: 2; padding: 8px 12px; margin: 0;">
-        <div class="result-label" style="font-size: 10px; margin-bottom: 2px;">NETWORK NAME</div>
-        <div class="result-value" style="font-weight:700; font-size: 14px;">${ssid}</div>
-      </div>
+    result.innerHTML = `
+        <div class="result-card compact-card">
 
-      <div class="result-box" style="flex: 1; padding: 8px 12px; margin: 0;">
-        <div class="result-label" style="font-size: 10px; margin-bottom: 2px;">SECURITY</div>
-        <div class="result-value" style="font-size: 13px;">${security || "WPA"}</div>
-      </div>
-    </div>
+            <!-- Compact Header -->
+            <div class="success-header" style="margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #f1f5f9;">
+                <i class="fa-solid fa-circle-check" style="font-size: 20px; color: #16a34a;"></i>
+                <div>
+                    <div style="font-weight:700; font-size:16px; line-height: 1.2;">Decode Succeeded</div>
+                    <small style="color:#64748b; font-size:12px;">Wi-Fi QR Code Detected</small>
+                </div>
+            </div>
 
-    <!-- Password Box -->
-    <div class="result-box" style="padding: 8px 12px; margin-bottom: 12px;">
-      <div class="result-label" style="font-size: 10px; margin-bottom: 2px;">PASSWORD</div>
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
-        <span id="wifiPassword" class="password-value" data-password="${password}" data-show="0" style="font-weight:700; font-size: 15px; letter-spacing:1px;">
-          ••••••••••
-        </span>
-        <i id="eyeIcon" class="fa-solid fa-eye eye-btn" style="cursor:pointer; padding:4px; font-size: 14px;" onclick="togglePassword()"></i>
-      </div>
-    </div>
+            <!-- Side-by-Side Compact Meta Box -->
+            <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                <div class="result-box" style="flex: 2; padding: 8px 12px; margin: 0;">
+                    <div class="result-label" style="font-size: 10px; margin-bottom: 2px;">NETWORK NAME</div>
+                    <div class="result-value" style="font-weight:700; font-size: 14px;">${ssid}</div>
+                </div>
 
-    <!-- Compact Action Grid -->
-    <div class="action-grid-compact" style="display: flex; gap: 6px; flex-wrap: wrap;">
-      <button class="action-btn primary" onclick="copyText('${password}')" style="flex: 1; min-width: 120px;">
-        📋 Copy Password
-      </button>
+                <div class="result-box" style="flex: 1; padding: 8px 12px; margin: 0;">
+                    <div class="result-label" style="font-size: 10px; margin-bottom: 2px;">SECURITY</div>
+                    <div class="result-value" style="font-size: 13px;">${security || 'WPA'}</div>
+                </div>
+            </div>
 
-          <button class="action-btn success" onclick="shareText('Wi-Fi Network: ${ssid}\nPassword: ${password}')">
-        📲 Share
-    </button>
+            <!-- Password Box -->
+            <div class="result-box" style="padding: 8px 12px; margin-bottom: 12px;">
+                <div class="result-label" style="font-size: 10px; margin-bottom: 2px;">PASSWORD</div>
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                    <span id="wifiPassword" class="password-value" data-password="${safePass}" data-show="0" style="font-weight:700; font-size:14px;">
+                        •••••••••
+                    </span>
+                    <i id="eyeIcon" class="fa-solid fa-eye eye-btn" style="cursor:pointer; padding:4px; font-size:14px;" onclick="togglePassword()"></i>
+                </div>
+            </div>
 
-    <!-- ZXing Site Share Widget -->
-    <div style="margin: 10px 0; padding: 10px; border-top: 1px dashed #cbd5e1; border-bottom: 1px dashed #cbd5e1; text-align: center; background-color: #f8fafc; border-radius: 10px; width: 100%;">
-        <div style="font-size: 12px; margin-bottom: 2px;">⭐⭐⭐⭐⭐</div>
-        <div style="font-size: 12px; font-weight: 600; color: #334155; margin-bottom: 8px;">Loved this tool?</div>
-        <button type="button" onclick="if(navigator.share){navigator.share({title:'ZXing Org',text:'Decode QR codes instantly!',url:window.location.origin});}else{navigator.clipboard.writeText(window.location.origin);alert('Link copied!');}" style="background: #2563eb; color: #ffffff; border: none; padding: 8px 14px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px;">
-            🌐 Share ZXing Org
-        </button>
-    </div>
+            <!-- Compact Action Grid (Only Copy & Share) -->
+            <div class="action-grid-compact" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <button type="button" class="action-btn primary" onclick="copyText('${safePass}')" style="flex: 1; min-width: 120px;">
+                    📋 Copy Password
+                </button>
+                <button type="button" class="action-btn success" onclick="shareText('Network: ' + '${safeSsid}' + ' | Password: ' + '${safePass}')" style="flex: 1; min-width: 120px;">
+                    📲 Share
+                </button>
+            </div>
 
-    <button class="action-btn secondary" onclick="newScan()" style="flex: 1;">
-        🔄 Scan Another QR
-    </button>
+            <!-- ZXing Site Share Widget (Grid Ke Bahar Perfectly Aligned) -->
+            <div style="margin: 10px 0; padding: 10px; border-top: 1px dashed #cbd5e1; border-bottom: 1px dashed #cbd5e1; text-align: center; background-color: #f8fafc; border-radius: 10px; width: 100%;">
+                <div style="font-size: 12px; margin-bottom: 2px;">⭐⭐⭐⭐⭐</div>
+                <div style="font-size: 12px; font-weight: 600; color: #334155; margin-bottom: 8px;">Loved this tool?</div>
+                <button type="button" onclick="if(navigator.share){navigator.share({title:'ZXing Org',text:'Decode QR codes instantly!',url:window.location.origin});}else{navigator.clipboard.writeText(window.location.origin);alert('Link copied!');}" style="background: #2563eb; color: #ffffff; border: none; padding: 8px 14px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                    🌐 Share ZXing Org
+                </button>
+            </div>
 
-    </div>
+            <!-- Scan Another QR Button -->
+            <button type="button" class="action-btn secondary" onclick="newScan()" style="width: 100%; margin-top: 4px;">
+                🔄 Scan Another QR
+            </button>
 
-  </div>
-  `;
+        </div>
+    `;
 
-  smoothToResult();
+    smoothToResult();
 }
+
 
 
 // ===== Share Helper =====
