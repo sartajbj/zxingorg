@@ -1,13 +1,10 @@
-# ZXingOrg
+# ZXing Org
 
-The next-generation QR Code Decoder built for speed, privacy, and user experience.
+Free Online QR & Barcode Decoder
 
-## Features
+https://www.zxingorg.com/
 
-- QR Code Decoder
-- Smart Results
-- Camera Scan
-- Drag & Drop
-- Clipboard Paste
-
-Built with React + TypeScript + Vite.
+- Decode QR Codes
+- Decode WiFi QR
+- Barcode Scanner
+- QR Generator
