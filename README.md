@@ -1,10 +1,22 @@
 # ZXing Org
 
-Free Online QR & Barcode Decoder
+Free Online QR Code & Barcode Decoder powered by ZXing.
 
 https://www.zxingorg.com/
 
+## Features
+
 - Decode QR Codes
-- Decode WiFi QR
+- Decode Wi-Fi QR Codes
+- Decode Data Matrix
 - Barcode Scanner
-- QR Generator
+- QR Code Generator
+- Extract GPS Coordinates
+
+## Website
+
+https://www.zxingorg.com/
+
+## Documentation
+
+https://www.zxingorg.com/blog
