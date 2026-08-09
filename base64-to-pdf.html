@@ -1,56 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Base64 PDF Converter – PDF to Base64 &amp; Base64 to PDF</title>
+<title>Base64 PDF Converter – PDF to Base64 & Base64 to PDF | ZXing Org</title>
 
-<meta
-  name="description"
-  content="Convert PDF files to Base64 online or decode Base64 to PDF. Free, fast and private Base64 PDF converter that processes files directly in your browser."
->
-
+<meta name="description" content="Convert PDF files to Base64 or decode Base64 to PDF online. Free, fast and private Base64 PDF converter that processes your files directly in your browser.">
 <meta name="robots" content="index,follow">
-
 <link rel="canonical" href="https://www.zxingorg.com/base64-pdf">
-
 <meta name="theme-color" content="#2563eb">
 
-<link rel="icon" href="/favicon.ico" sizes="any">
-
-<!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Base64 PDF Converter – PDF to Base64">
-<meta
-  property="og:description"
-  content="Convert PDF to Base64 or decode Base64 back to a PDF directly in your browser."
->
+<meta property="og:title" content="Base64 PDF Converter – PDF to Base64 & Base64 to PDF">
+<meta property="og:description" content="Convert PDF to Base64 or decode Base64 back to PDF directly in your browser. Fast, free and private.">
 <meta property="og:url" content="https://www.zxingorg.com/base64-pdf">
 <meta property="og:site_name" content="ZXing Org">
 
-<!-- Twitter / X -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Base64 PDF Converter">
-<meta
-  name="twitter:description"
-  content="Free online PDF to Base64 and Base64 to PDF converter."
->
+<meta name="twitter:description" content="Free online PDF to Base64 and Base64 to PDF converter.">
 
-<!-- Performance -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-  rel="stylesheet"
->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
 /* =========================================================
-   BASE64 PDF CONVERTER
+   ZXing Org - Base64 PDF Converter
    Single File: HTML + CSS + JavaScript
 ========================================================= */
 
@@ -67,7 +44,7 @@ html{
 }
 
 body{
-  font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   background:#f5f9ff;
   color:#1e293b;
   line-height:1.6;
@@ -90,8 +67,12 @@ a{
 }
 
 .container{
-  width:min(1180px,92%);
+  width:min(1120px,92%);
   margin:0 auto;
+}
+
+.hidden{
+  display:none!important;
 }
 
 /* =========================================================
@@ -109,50 +90,51 @@ a{
 }
 
 .header-inner{
-  min-height:72px;
+  min-height:68px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:24px;
+  gap:20px;
 }
 
 .logo{
-  font-size:28px;
+  font-size:25px;
   font-weight:800;
   letter-spacing:-.7px;
   color:#111827;
+  white-space:nowrap;
 }
 
 .logo span{
   color:#2563eb;
 }
 
-.main-nav{
+.nav{
   display:flex;
   align-items:center;
   gap:26px;
 }
 
-.main-nav a{
-  color:#334155;
-  font-size:15px;
+.nav a{
+  font-size:14px;
   font-weight:600;
+  color:#334155;
   transition:.2s ease;
 }
 
-.main-nav a:hover{
+.nav a:hover{
   color:#2563eb;
 }
 
 .menu-toggle{
   display:none;
-  width:44px;
-  height:44px;
+  width:42px;
+  height:42px;
   border:1px solid #dbe3ef;
   background:#fff;
-  color:#1e293b;
-  border-radius:12px;
+  border-radius:11px;
   font-size:20px;
+  color:#1e293b;
 }
 
 /* =========================================================
@@ -161,443 +143,589 @@ a{
 
 .hero{
   text-align:center;
-  padding:54px 0 28px;
+  padding:48px 0 26px;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 13px;
+  border:1px solid #bfdbfe;
+  border-radius:999px;
+  background:#eff6ff;
+  color:#2563eb;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:16px;
+}
+
+.hero-badge-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#22c55e;
 }
 
 .hero h1{
-  max-width:850px;
-  margin:0 auto 14px;
-  font-size:clamp(2rem,5vw,3.15rem);
-  line-height:1.15;
-  letter-spacing:-.035em;
-  font-weight:800;
+  max-width:820px;
+  margin:0 auto 13px;
   color:#0f172a;
-}
-
-.hero h1 span{
-  color:#2563eb;
+  font-size:clamp(2rem,5vw,3rem);
+  line-height:1.12;
+  letter-spacing:-1.3px;
+  font-weight:800;
 }
 
 .hero p{
-  max-width:760px;
+  max-width:710px;
   margin:0 auto;
   color:#64748b;
   font-size:16px;
-  line-height:1.75;
-}
-
-.badges{
-  margin-top:18px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:8px;
-  color:#2563eb;
-  font-size:13px;
-  font-weight:600;
-}
-
-.badges .dot{
-  color:#cbd5e1;
+  line-height:1.7;
 }
 
 /* =========================================================
-   MAIN TOOL
+   TOOL
 ========================================================= */
 
 .tool-section{
-  padding:24px 0 54px;
+  padding:14px 0 42px;
 }
 
 .tool-card{
-  max-width:900px;
+  max-width:850px;
   margin:0 auto;
   background:#fff;
   border:1px solid #e2e8f0;
-  border-radius:26px;
-  padding:32px;
-  box-shadow:0 18px 50px rgba(15,23,42,.07);
+  border-radius:24px;
+  box-shadow:0 18px 55px rgba(15,23,42,.08);
+  overflow:hidden;
 }
 
-.tool-tabs{
+/* Tabs */
+
+.tabs{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:8px;
-  padding:6px;
+  padding:8px;
+  margin:18px;
   background:#f1f5f9;
-  border-radius:15px;
-  margin-bottom:28px;
+  border-radius:14px;
+  gap:6px;
 }
 
-.tab-btn{
+.tab{
+  min-height:48px;
   border:0;
+  border-radius:10px;
   background:transparent;
   color:#64748b;
-  padding:13px 16px;
-  border-radius:11px;
-  font-size:15px;
+  font-size:14px;
   font-weight:700;
   transition:.2s ease;
 }
 
-.tab-btn:hover{
+.tab:hover{
   color:#2563eb;
 }
 
-.tab-btn.active{
+.tab.active{
   background:#fff;
   color:#2563eb;
   box-shadow:0 3px 12px rgba(15,23,42,.08);
 }
 
-.tool-panel{
-  display:none;
+/* Panel */
+
+.panel{
+  padding:4px 28px 30px;
 }
 
-.tool-panel.active{
-  display:block;
-}
-
-.panel-heading{
+.panel-title{
   text-align:center;
-  margin-bottom:22px;
-}
-
-.panel-heading h2{
+  font-size:21px;
   color:#0f172a;
-  font-size:24px;
-  line-height:1.3;
-  margin-bottom:7px;
+  font-weight:800;
+  margin:4px 0 7px;
 }
 
-.panel-heading p{
+.panel-description{
+  max-width:600px;
+  margin:0 auto 22px;
+  text-align:center;
   color:#64748b;
   font-size:14px;
+  line-height:1.6;
 }
 
-/* =========================================================
-   DROP ZONE
-========================================================= */
+/* Drop Zone */
 
 .drop-zone{
+  position:relative;
+  min-height:235px;
   border:2px dashed #bfdbfe;
+  border-radius:19px;
   background:#f8fbff;
-  border-radius:20px;
-  padding:38px 22px;
-  text-align:center;
-  transition:.2s ease;
-}
-
-.drop-zone.dragover{
-  border-color:#2563eb;
-  background:#eff6ff;
-  transform:scale(1.005);
-}
-
-.upload-icon{
-  width:62px;
-  height:62px;
-  margin:0 auto 15px;
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:18px;
+  text-align:center;
+  padding:30px 20px;
+  transition:.2s ease;
+}
+
+.drop-zone:hover,
+.drop-zone.dragover{
+  border-color:#2563eb;
+  background:#eff6ff;
+}
+
+.drop-content{
+  width:100%;
+}
+
+.upload-icon{
+  width:58px;
+  height:58px;
+  margin:0 auto 13px;
+  border-radius:16px;
   background:#dbeafe;
   color:#2563eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   font-size:27px;
+  font-weight:800;
 }
 
 .drop-zone h3{
+  font-size:17px;
   color:#0f172a;
-  font-size:18px;
-  margin-bottom:6px;
+  margin-bottom:5px;
 }
 
 .drop-zone p{
+  margin:0 0 16px;
   color:#64748b;
-  font-size:14px;
-  margin-bottom:18px;
+  font-size:13px;
 }
 
 .file-input{
   display:none;
 }
 
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.primary-btn,
-.secondary-btn,
-.danger-btn{
+.choose-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:46px;
+  padding:11px 22px;
   border:0;
-  border-radius:12px;
-  min-height:48px;
-  padding:12px 20px;
+  border-radius:11px;
+  background:#2563eb;
+  color:#fff;
   font-size:14px;
   font-weight:700;
   transition:.2s ease;
 }
 
-.primary-btn{
-  background:#2563eb;
-  color:#fff;
-  box-shadow:0 8px 18px rgba(37,99,235,.18);
-}
-
-.primary-btn:hover{
+.choose-btn:hover{
   background:#1d4ed8;
   transform:translateY(-1px);
 }
 
-.secondary-btn{
-  background:#eef4ff;
-  color:#2563eb;
+/* Selected File */
+
+.file-info{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:14px;
+  padding:13px 15px;
+  border:1px solid #dbeafe;
+  border-radius:13px;
+  background:#f8fbff;
 }
 
-.secondary-btn:hover{
-  background:#dbeafe;
+.file-meta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
 }
 
-.danger-btn{
-  background:#fef2f2;
+.file-icon{
+  width:38px;
+  height:38px;
+  flex:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  background:#fee2e2;
+  color:#dc2626;
+  font-size:13px;
+  font-weight:800;
+}
+
+.file-name{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:13px;
+  font-weight:700;
+  color:#334155;
+}
+
+.file-size{
+  color:#94a3b8;
+  font-size:11px;
+}
+
+.remove-file{
+  flex:none;
+  border:0;
+  background:#fff;
+  color:#64748b;
+  width:34px;
+  height:34px;
+  border-radius:8px;
+  font-size:18px;
+}
+
+.remove-file:hover{
+  background:#fee2e2;
   color:#dc2626;
 }
 
-.danger-btn:hover{
-  background:#fee2e2;
-}
+/* Convert Button */
 
-.button-row{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:18px;
-}
-
-/* =========================================================
-   FILE INFO
-========================================================= */
-
-.file-info{
-  display:none;
-  margin-top:20px;
-  padding:15px;
-  background:#f8fafc;
-  border:1px solid #e2e8f0;
-  border-radius:14px;
-}
-
-.file-info.show{
-  display:block;
-}
-
-.file-info-row{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  padding:5px 0;
-  font-size:13px;
-}
-
-.file-info-row span:first-child{
-  color:#64748b;
-}
-
-.file-info-row span:last-child{
-  color:#0f172a;
-  font-weight:700;
-  word-break:break-word;
-  text-align:right;
-}
-
-/* =========================================================
-   OUTPUT
-========================================================= */
-
-.output-card{
-  display:none;
-  margin-top:24px;
-  border:1px solid #dbeafe;
-  background:#fff;
-  border-radius:18px;
-  overflow:hidden;
-}
-
-.output-card.show{
-  display:block;
-  animation:fadeUp .25s ease;
-}
-
-.output-header{
-  padding:14px 17px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  background:#f8fbff;
-  border-bottom:1px solid #e2e8f0;
-}
-
-.output-header strong{
-  color:#0f172a;
-  font-size:14px;
-}
-
-.status{
-  color:#16a34a;
-  font-size:12px;
-  font-weight:700;
-}
-
-.base64-output{
+.primary-action{
   width:100%;
-  min-height:190px;
-  resize:vertical;
+  min-height:52px;
+  margin-top:16px;
   border:0;
-  outline:0;
-  padding:18px;
-  background:#fff;
-  color:#334155;
-  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
-  font-size:12px;
-  line-height:1.65;
+  border-radius:13px;
+  background:#2563eb;
+  color:#fff;
+  font-weight:800;
+  font-size:15px;
+  transition:.2s ease;
 }
 
-.output-actions{
+.primary-action:hover:not(:disabled){
+  background:#1d4ed8;
+  transform:translateY(-1px);
+}
+
+.primary-action:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+/* Privacy */
+
+.privacy-note{
   display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  padding:14px;
-  border-top:1px solid #e2e8f0;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin-top:14px;
+  color:#64748b;
+  font-size:12px;
+  text-align:center;
+}
+
+.privacy-note strong{
+  color:#16a34a;
 }
 
 /* =========================================================
    BASE64 INPUT
 ========================================================= */
 
-.base64-input-wrap{
+.base64-area{
+  width:100%;
+  min-height:225px;
+  resize:vertical;
+  padding:15px;
+  border:1px solid #dbe3ef;
+  border-radius:15px;
+  background:#f8fafc;
+  color:#334155;
+  outline:none;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+  font-size:12px;
+  line-height:1.65;
+}
+
+.base64-area:focus{
+  border-color:#2563eb;
+  background:#fff;
+  box-shadow:0 0 0 3px rgba(37,99,235,.1);
+}
+
+.base64-area::placeholder{
+  color:#94a3b8;
+}
+
+.input-tools{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
   margin-top:10px;
 }
 
-.base64-input{
-  width:100%;
-  min-height:220px;
-  resize:vertical;
-  border:1px solid #d1d5db;
-  border-radius:16px;
-  outline:0;
-  padding:17px;
-  color:#1e293b;
+.small-btn{
+  border:1px solid #dbe3ef;
   background:#fff;
-  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
-  font-size:13px;
-  line-height:1.65;
-  transition:.2s ease;
-}
-
-.base64-input:focus{
-  border-color:#2563eb;
-  box-shadow:0 0 0 4px rgba(37,99,235,.1);
-}
-
-.input-hint{
-  margin-top:8px;
-  color:#94a3b8;
-  font-size:12px;
-}
-
-/* =========================================================
-   DECODE RESULT
-========================================================= */
-
-.decode-result{
-  display:none;
-  margin-top:22px;
-  padding:18px;
-  border-radius:16px;
-  border:1px solid #bbf7d0;
-  background:#f0fdf4;
-}
-
-.decode-result.show{
-  display:block;
-  animation:fadeUp .25s ease;
-}
-
-.success-line{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  color:#15803d;
-  font-weight:800;
-  font-size:15px;
-  margin-bottom:8px;
-}
-
-.decode-result p{
   color:#475569;
-  font-size:13px;
-  margin:0;
+  min-height:38px;
+  padding:7px 13px;
+  border-radius:9px;
+  font-size:12px;
+  font-weight:700;
 }
 
-/* =========================================================
-   TRUST / INFO
-========================================================= */
-
-.info-section{
-  padding:54px 0;
+.small-btn:hover{
+  border-color:#bfdbfe;
+  color:#2563eb;
   background:#f8fbff;
 }
 
-.section-heading{
-  max-width:720px;
-  margin:0 auto 30px;
-  text-align:center;
+.char-count{
+  color:#94a3b8;
+  font-size:11px;
 }
 
-.section-heading h2{
-  color:#0f172a;
-  font-size:26px;
-  margin-bottom:9px;
+/* =========================================================
+   RESULT
+========================================================= */
+
+.result-area{
+  margin-top:18px;
 }
 
-.section-heading p{
+.success-card{
+  padding:18px;
+  border:1px solid #bbf7d0;
+  background:#f0fdf4;
+  border-radius:15px;
+}
+
+.success-top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.success-icon{
+  width:38px;
+  height:38px;
+  flex:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#dcfce7;
+  color:#16a34a;
+  font-weight:900;
+}
+
+.success-top h3{
+  color:#166534;
+  font-size:16px;
+  margin:0;
+}
+
+.success-top p{
   color:#64748b;
-  font-size:15px;
+  font-size:12px;
+  margin:2px 0 0;
 }
 
-.info-grid{
+.result-stat{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:14px;
+}
+
+.stat{
+  padding:7px 10px;
+  background:#fff;
+  border:1px solid #dcfce7;
+  border-radius:8px;
+  color:#475569;
+  font-size:11px;
+}
+
+.result-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+  margin-top:13px;
+}
+
+.result-btn{
+  min-height:45px;
+  border:0;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.result-btn.blue{
+  background:#2563eb;
+  color:#fff;
+}
+
+.result-btn.green{
+  background:#16a34a;
+  color:#fff;
+}
+
+.result-btn.gray{
+  background:#fff;
+  color:#475569;
+  border:1px solid #dbe3ef;
+}
+
+.result-btn:hover{
+  filter:brightness(.97);
+  transform:translateY(-1px);
+}
+
+.output-wrap{
+  margin-top:14px;
+  background:#fff;
+  border:1px solid #dbe3ef;
+  border-radius:13px;
+  overflow:hidden;
+}
+
+.output-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 12px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.output-head strong{
+  font-size:12px;
+  color:#334155;
+}
+
+.copy-output{
+  border:0;
+  background:#eff6ff;
+  color:#2563eb;
+  padding:6px 10px;
+  border-radius:7px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.base64-output{
+  display:block;
+  width:100%;
+  max-height:250px;
+  overflow:auto;
+  padding:13px;
+  color:#475569;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+  font-size:11px;
+  line-height:1.6;
+  word-break:break-all;
+  white-space:pre-wrap;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:18px;
+  color:#64748b;
+  font-size:13px;
+}
+
+.spinner{
+  width:18px;
+  height:18px;
+  border:3px solid #dbeafe;
+  border-top-color:#2563eb;
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg);}
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.error-box{
+  margin-top:14px;
+  padding:12px 14px;
+  border:1px solid #fecaca;
+  border-radius:11px;
+  background:#fef2f2;
+  color:#b91c1c;
+  font-size:12px;
+  line-height:1.5;
+}
+
+/* =========================================================
+   TRUST
+========================================================= */
+
+.trust-section{
+  padding:30px 0 44px;
+}
+
+.trust-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  gap:14px;
 }
 
-.info-card{
+.trust-item{
+  padding:19px;
+  text-align:center;
   background:#fff;
   border:1px solid #e5e7eb;
-  border-radius:18px;
-  padding:24px;
-  text-align:center;
+  border-radius:15px;
 }
 
-.info-icon{
-  font-size:30px;
-  margin-bottom:12px;
+.trust-icon{
+  font-size:23px;
+  margin-bottom:7px;
 }
 
-.info-card h3{
-  color:#0f172a;
-  font-size:17px;
-  margin-bottom:8px;
-}
-
-.info-card p{
-  color:#64748b;
+.trust-item h3{
   font-size:14px;
-  line-height:1.7;
+  color:#0f172a;
+  margin-bottom:4px;
+}
+
+.trust-item p{
+  color:#64748b;
+  font-size:12px;
+  line-height:1.5;
   margin:0;
 }
 
@@ -606,50 +734,94 @@ a{
 ========================================================= */
 
 .content-section{
-  padding:56px 0;
+  padding:44px 0;
 }
 
 .content-card{
-  max-width:900px;
+  max-width:850px;
   margin:0 auto;
 }
 
-.content-card h2{
+.section-title{
+  text-align:center;
   color:#0f172a;
-  font-size:26px;
-  margin-bottom:15px;
+  font-size:clamp(1.6rem,4vw,2.15rem);
+  line-height:1.25;
+  margin-bottom:12px;
+  font-weight:800;
+}
+
+.section-intro{
+  max-width:720px;
+  margin:0 auto 28px;
+  text-align:center;
+  color:#64748b;
+  font-size:14px;
+  line-height:1.7;
 }
 
 .content-card h3{
   color:#0f172a;
-  font-size:20px;
-  margin:28px 0 10px;
+  font-size:18px;
+  margin:25px 0 9px;
 }
 
 .content-card p{
   color:#475569;
-  font-size:15px;
+  font-size:14px;
   line-height:1.8;
-  margin-bottom:15px;
+  margin-bottom:13px;
 }
 
 .content-card ul{
-  padding-left:22px;
-  color:#475569;
+  padding-left:20px;
+  margin:12px 0;
 }
 
 .content-card li{
-  margin-bottom:9px;
+  color:#475569;
+  font-size:14px;
   line-height:1.7;
+  margin-bottom:7px;
 }
 
-.inline-link{
+/* =========================================================
+   INTERNAL LINKS
+========================================================= */
+
+.related-box{
+  margin-top:28px;
+  padding:20px;
+  background:#f8fbff;
+  border:1px solid #dbeafe;
+  border-radius:15px;
+}
+
+.related-box h3{
+  margin-top:0;
+}
+
+.related-links{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.related-links a{
+  display:block;
+  padding:12px 13px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
   color:#2563eb;
+  font-size:13px;
   font-weight:700;
+  transition:.2s ease;
 }
 
-.inline-link:hover{
-  text-decoration:underline;
+.related-links a:hover{
+  border-color:#93c5fd;
+  transform:translateY(-1px);
 }
 
 /* =========================================================
@@ -657,32 +829,32 @@ a{
 ========================================================= */
 
 .faq-section{
-  padding:54px 0;
+  padding:44px 0;
   background:#f8fbff;
 }
 
 .faq-list{
-  max-width:900px;
+  max-width:850px;
   margin:0 auto;
 }
 
 .faq-item{
   background:#fff;
   border:1px solid #e5e7eb;
-  border-radius:15px;
-  padding:20px 22px;
-  margin-bottom:12px;
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:10px;
 }
 
 .faq-item h3{
   color:#0f172a;
-  font-size:16px;
+  font-size:15px;
   margin-bottom:7px;
 }
 
 .faq-item p{
   color:#64748b;
-  font-size:14px;
+  font-size:13px;
   line-height:1.7;
   margin:0;
 }
@@ -692,62 +864,58 @@ a{
 ========================================================= */
 
 .footer{
+  margin-top:25px;
+  padding:42px 0 20px;
   background:#0f172a;
   color:#cbd5e1;
-  padding:48px 0 22px;
 }
 
 .footer-grid{
   display:grid;
-  grid-template-columns:1.4fr 1fr;
-  gap:45px;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:35px;
 }
 
-.footer-brand h3{
+.footer h3,
+.footer h4{
   color:#fff;
-  font-size:23px;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
-.footer-brand p{
-  max-width:470px;
-  color:#94a3b8;
+.footer h3{
+  font-size:20px;
+}
+
+.footer h4{
   font-size:14px;
+}
+
+.footer p{
+  color:#94a3b8;
+  font-size:13px;
   line-height:1.7;
+  margin:0;
 }
 
-.footer-links{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-}
-
-.footer-col h4{
-  color:#fff;
-  font-size:15px;
-  margin-bottom:14px;
-}
-
-.footer-col a{
+.footer a{
   display:block;
   color:#cbd5e1;
-  font-size:14px;
-  margin-bottom:9px;
+  font-size:13px;
+  margin-bottom:8px;
   transition:.2s ease;
 }
 
-.footer-col a:hover{
+.footer a:hover{
   color:#60a5fa;
-  transform:translateX(2px);
 }
 
 .footer-bottom{
-  margin-top:34px;
+  margin-top:30px;
   padding-top:18px;
-  border-top:1px solid rgba(255,255,255,.09);
+  border-top:1px solid rgba(255,255,255,.08);
   text-align:center;
   color:#94a3b8;
-  font-size:12px;
+  font-size:11px;
 }
 
 /* =========================================================
@@ -757,59 +925,17 @@ a{
 .toast{
   position:fixed;
   left:50%;
-  bottom:25px;
+  bottom:22px;
+  z-index:9999;
   transform:translateX(-50%);
-  z-index:99999;
-  max-width:calc(100% - 30px);
-  padding:12px 18px;
-  border-radius:12px;
-  background:#16a34a;
+  padding:11px 17px;
+  border-radius:10px;
+  background:#0f172a;
   color:#fff;
-  font-size:13px;
+  font-size:12px;
   font-weight:700;
-  box-shadow:0 12px 30px rgba(0,0,0,.18);
-  animation:toastIn .25s ease;
-}
-
-/* =========================================================
-   LOADING
-========================================================= */
-
-.loading{
-  display:none;
-  margin-top:18px;
-  text-align:center;
-  color:#64748b;
-  font-size:13px;
-}
-
-.loading.show{
-  display:block;
-}
-
-.spinner{
-  width:25px;
-  height:25px;
-  margin:0 auto 8px;
-  border:3px solid #dbeafe;
-  border-top-color:#2563eb;
-  border-radius:50%;
-  animation:spin .7s linear infinite;
-}
-
-/* =========================================================
-   ANIMATIONS
-========================================================= */
-
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(10px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+  animation:toastIn .2s ease;
 }
 
 @keyframes toastIn{
@@ -823,127 +949,122 @@ a{
   }
 }
 
-@keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
-}
-
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
-@media(max-width:800px){
-
-  .menu-toggle{
-    display:block;
-  }
+@media(max-width:768px){
 
   .header-inner{
-    min-height:64px;
+    min-height:62px;
   }
 
-  .main-nav{
+  .menu-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .nav{
     display:none;
     position:absolute;
+    top:62px;
     left:4%;
     right:4%;
-    top:64px;
-    padding:10px;
     flex-direction:column;
     align-items:stretch;
-    gap:3px;
+    gap:2px;
+    padding:8px;
     background:#fff;
     border:1px solid #e5e7eb;
-    border-radius:14px;
+    border-radius:13px;
     box-shadow:0 15px 35px rgba(15,23,42,.12);
   }
 
-  .main-nav.show{
+  .nav.show{
     display:flex;
   }
 
-  .main-nav a{
-    padding:12px 14px;
-    border-radius:9px;
+  .nav a{
+    padding:12px 13px;
+    border-radius:8px;
   }
 
-  .main-nav a:hover{
+  .nav a:hover{
     background:#eff6ff;
   }
 
-  .tool-card{
-    padding:22px;
-    border-radius:21px;
-  }
-
-  .info-grid{
-    grid-template-columns:1fr;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr;
-    gap:28px;
-  }
-}
-
-@media(max-width:520px){
-
   .hero{
-    padding:38px 0 22px;
+    padding:35px 0 20px;
   }
 
   .hero h1{
-    font-size:29px;
+    font-size:28px;
   }
 
   .hero p{
     font-size:14px;
   }
 
-  .badges{
-    font-size:11px;
-    gap:5px;
+  .panel{
+    padding:4px 18px 22px;
   }
 
-  .tool-section{
-    padding-top:18px;
+  .tabs{
+    margin:13px;
   }
 
-  .tool-card{
-    padding:16px;
-  }
-
-  .tool-tabs{
+  .trust-grid{
     grid-template-columns:1fr;
   }
 
-  .drop-zone{
-    padding:28px 15px;
-  }
-
-  .button-row{
-    flex-direction:column;
-  }
-
-  .button-row button{
-    width:100%;
-  }
-
-  .output-actions{
-    flex-direction:column;
-  }
-
-  .output-actions button{
-    width:100%;
-  }
-
-  .footer-links{
-    grid-template-columns:1fr 1fr;
-    gap:20px;
+  .footer-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+    gap:25px;
   }
 }
 
+@media(max-width:480px){
+
+  .container{
+    width:92%;
+  }
+
+  .logo{
+    font-size:22px;
+  }
+
+  .hero h1{
+    font-size:25px;
+  }
+
+  .tool-card{
+    border-radius:19px;
+  }
+
+  .drop-zone{
+    min-height:220px;
+    padding:25px 13px;
+  }
+
+  .drop-zone h3{
+    font-size:15px;
+  }
+
+  .result-actions{
+    grid-template-columns:1fr;
+  }
+
+  .related-links{
+    grid-template-columns:1fr;
+  }
+
+  .input-tools{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
 </style>
 </head>
 
@@ -954,7 +1075,6 @@ a{
 ======================================================= -->
 
 <header class="header">
-
   <div class="container header-inner">
 
     <a href="/" class="logo" aria-label="ZXing Org Home">
@@ -962,65 +1082,48 @@ a{
     </a>
 
     <button
-      type="button"
       class="menu-toggle"
       id="menuToggle"
+      type="button"
       aria-label="Open menu"
-      aria-expanded="false"
-    >
+      aria-expanded="false">
       ☰
     </button>
 
-    <nav class="main-nav" id="mainNav">
-
+    <nav class="nav" id="mainNav">
       <a href="/">Home</a>
-
-      <a href="/generator">QR Generator</a>
-
+      <a href="/qr-generator">QR Generator</a>
       <a href="/base64-image">Base64 Image</a>
-
       <a href="/base64-pdf">Base64 PDF</a>
-
-      <a href="/blog">Blog</a>
-
-      <a href="/about">About</a>
-
     </nav>
 
   </div>
-
 </header>
 
-
-<main>
 
 <!-- =======================================================
      HERO
 ======================================================= -->
 
-<section class="hero">
+<main>
 
+<section class="hero">
   <div class="container">
 
-    <h1>
-      Base64 <span>PDF Converter</span>
-    </h1>
-
-    <p>
-      Convert PDF files to Base64 or decode Base64 back to a PDF directly
-      in your browser. Fast, free and privacy-focused.
-    </p>
-
-    <div class="badges">
-      <span>⚡ Fast</span>
-      <span class="dot">•</span>
-      <span>🔒 Browser Processing</span>
-      <span class="dot">•</span>
-      <span>🆓 Free</span>
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Free Browser-Based Converter
     </div>
 
-  </div>
+    <h1>Base64 PDF Converter</h1>
 
+    <p>
+      Convert PDF files to Base64 or decode Base64 back into a PDF.
+      Everything is processed directly in your browser for a fast,
+      simple and privacy-friendly experience.
+    </p>
+
+  </div>
 </section>
 
 
@@ -1029,354 +1132,237 @@ a{
 ======================================================= -->
 
 <section class="tool-section" id="converter">
-
   <div class="container">
 
     <div class="tool-card">
 
       <!-- Tabs -->
 
-      <div class="tool-tabs">
+      <div class="tabs">
 
         <button
           type="button"
-          class="tab-btn active"
-          data-tab="pdfToBase64"
-        >
-          📄 PDF → Base64
+          class="tab active"
+          id="pdfToBase64Tab">
+          PDF → Base64
         </button>
 
         <button
           type="button"
-          class="tab-btn"
-          data-tab="base64ToPdf"
-        >
-          🔤 Base64 → PDF
+          class="tab"
+          id="base64ToPdfTab">
+          Base64 → PDF
         </button>
 
       </div>
 
 
       <!-- =================================================
-           PDF TO BASE64
+           PDF TO BASE64 PANEL
       ================================================== -->
 
-      <div
-        class="tool-panel active"
-        id="pdfToBase64"
-      >
+      <div class="panel" id="pdfToBase64Panel">
 
-        <div class="panel-heading">
+        <h2 class="panel-title">
+          Convert PDF to Base64
+        </h2>
 
-          <h2>Convert PDF to Base64</h2>
+        <p class="panel-description">
+          Select a PDF file or drag it into the box below.
+          Your file stays in your browser while it is converted.
+        </p>
 
-          <p>
-            Upload a PDF file and instantly convert it into a Base64 string.
-          </p>
+        <div class="drop-zone" id="dropZone">
+
+          <div class="drop-content">
+
+            <div class="upload-icon">
+              PDF
+            </div>
+
+            <h3>
+              Drop your PDF here
+            </h3>
+
+            <p>
+              or choose a PDF file from your device
+            </p>
+
+            <input
+              type="file"
+              id="pdfInput"
+              class="file-input"
+              accept="application/pdf,.pdf">
+
+            <button
+              type="button"
+              class="choose-btn"
+              id="choosePdfBtn">
+              Choose PDF
+            </button>
+
+          </div>
 
         </div>
 
 
-        <div
-          class="drop-zone"
-          id="dropZone"
-        >
+        <div class="file-info hidden" id="fileInfo">
 
-          <div class="upload-icon">
-            📄
+          <div class="file-meta">
+
+            <div class="file-icon">
+              PDF
+            </div>
+
+            <div>
+              <div class="file-name" id="fileName">
+                document.pdf
+              </div>
+
+              <div class="file-size" id="fileSize">
+                0 KB
+              </div>
+            </div>
+
           </div>
-
-          <h3>Drop your PDF here</h3>
-
-          <p>
-            or choose a PDF file from your device
-          </p>
-
-          <input
-            type="file"
-            id="pdfInput"
-            class="file-input"
-            accept="application/pdf,.pdf"
-          >
 
           <button
             type="button"
-            class="primary-btn"
-            id="choosePdfBtn"
-          >
-            Choose PDF File
+            class="remove-file"
+            id="removeFileBtn"
+            aria-label="Remove PDF">
+            ×
           </button>
 
         </div>
 
 
-        <div
-          class="file-info"
-          id="fileInfo"
-        >
+        <button
+          type="button"
+          class="primary-action"
+          id="convertPdfBtn"
+          disabled>
+          Convert PDF to Base64
+        </button>
 
-          <div class="file-info-row">
-            <span>File</span>
-            <span id="fileName">—</span>
-          </div>
-
-          <div class="file-info-row">
-            <span>Size</span>
-            <span id="fileSize">—</span>
-          </div>
-
-          <div class="file-info-row">
-            <span>Type</span>
-            <span id="fileType">PDF</span>
-          </div>
-
+        <div class="privacy-note">
+          🔒 <strong>Private:</strong>
+          Your PDF is processed locally in your browser.
         </div>
 
 
-        <div
-          class="loading"
-          id="encodeLoading"
-        >
+        <div id="pdfResult" class="result-area"></div>
 
-          <div class="spinner"></div>
-
-          Converting PDF to Base64...
-
-        </div>
+      </div>
 
 
-        <div
-          class="output-card"
-          id="base64OutputCard"
-        >
+      <!-- =================================================
+           BASE64 TO PDF PANEL
+      ================================================== -->
 
-          <div class="output-header">
+      <div class="panel hidden" id="base64ToPdfPanel">
 
-            <strong>Base64 Output</strong>
+        <h2 class="panel-title">
+          Convert Base64 to PDF
+        </h2>
 
-            <span
-              class="status"
-              id="encodeStatus"
-            >
-              ✓ Converted
-            </span>
+        <p class="panel-description">
+          Paste your Base64 data below and decode it into a
+          downloadable PDF file directly in your browser.
+        </p>
 
-          </div>
+        <textarea
+          id="base64Input"
+          class="base64-area"
+          spellcheck="false"
+          autocomplete="off"
+          placeholder="Paste Base64 PDF data here..."></textarea>
 
-          <textarea
-            class="base64-output"
-            id="base64Output"
-            readonly
-            spellcheck="false"
-            aria-label="Base64 encoded PDF"
-          ></textarea>
+        <div class="input-tools">
 
-          <div class="output-actions">
+          <span class="char-count" id="charCount">
+            0 characters
+          </span>
 
+          <div>
             <button
               type="button"
-              class="primary-btn"
-              id="copyBase64Btn"
-            >
-              📋 Copy Base64
+              class="small-btn"
+              id="pasteBtn">
+              Paste
             </button>
 
             <button
               type="button"
-              class="secondary-btn"
-              id="selectBase64Btn"
-            >
-              Select All
-            </button>
-
-            <button
-              type="button"
-              class="danger-btn"
-              id="clearEncodeBtn"
-            >
+              class="small-btn"
+              id="clearBase64Btn">
               Clear
             </button>
-
           </div>
 
         </div>
 
-      </div>
+        <button
+          type="button"
+          class="primary-action"
+          id="convertBase64Btn">
+          Decode Base64 to PDF
+        </button>
 
-
-      <!-- =================================================
-           BASE64 TO PDF
-      ================================================== -->
-
-      <div
-        class="tool-panel"
-        id="base64ToPdf"
-      >
-
-        <div class="panel-heading">
-
-          <h2>Convert Base64 to PDF</h2>
-
-          <p>
-            Paste a Base64 PDF string and decode it into a downloadable PDF file.
-          </p>
-
+        <div class="privacy-note">
+          🔒 <strong>Private:</strong>
+          Decoding happens locally in your browser.
         </div>
 
-
-        <div class="base64-input-wrap">
-
-          <textarea
-            id="base64Input"
-            class="base64-input"
-            placeholder="Paste your Base64 PDF data here..."
-            spellcheck="false"
-            aria-label="Base64 PDF input"
-          ></textarea>
-
-          <div class="input-hint">
-            Supports raw Base64 and common data URLs such as
-            data:application/pdf;base64,...
-          </div>
-
-        </div>
-
-
-        <div class="button-row">
-
-          <button
-            type="button"
-            class="primary-btn"
-            id="decodePdfBtn"
-          >
-            📥 Convert to PDF
-          </button>
-
-          <button
-            type="button"
-            class="danger-btn"
-            id="clearDecodeBtn"
-          >
-            Clear
-          </button>
-
-        </div>
-
-
-        <div
-          class="loading"
-          id="decodeLoading"
-        >
-
-          <div class="spinner"></div>
-
-          Creating PDF...
-
-        </div>
-
-
-        <div
-          class="decode-result"
-          id="decodeResult"
-        >
-
-          <div class="success-line">
-            ✓ PDF Ready
-          </div>
-
-          <p id="decodeMessage">
-            Your PDF has been decoded successfully.
-          </p>
-
-          <div class="button-row">
-
-            <button
-              type="button"
-              class="primary-btn"
-              id="downloadPdfBtn"
-            >
-              ⬇ Download PDF
-            </button>
-
-          </div>
-
-        </div>
+        <div id="base64Result" class="result-area"></div>
 
       </div>
 
     </div>
 
   </div>
-
 </section>
 
 
 <!-- =======================================================
-     TRUST SECTION
+     TRUST
 ======================================================= -->
 
-<section class="info-section">
-
+<section class="trust-section">
   <div class="container">
 
-    <div class="section-heading">
+    <div class="trust-grid">
 
-      <h2>Simple, Private &amp; Browser-Based</h2>
-
-      <p>
-        Convert PDF and Base64 data without installing software or uploading
-        your files to a remote server.
-      </p>
-
-    </div>
-
-
-    <div class="info-grid">
-
-      <article class="info-card">
-
-        <div class="info-icon">🔒</div>
-
-        <h3>Private Processing</h3>
-
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <h3>Browser Processing</h3>
         <p>
-          PDF files are processed directly in your browser during conversion.
+          Files are processed locally instead of being uploaded
+          to a conversion server.
         </p>
+      </div>
 
-      </article>
-
-
-      <article class="info-card">
-
-        <div class="info-icon">⚡</div>
-
+      <div class="trust-item">
+        <div class="trust-icon">⚡</div>
         <h3>Fast Conversion</h3>
-
         <p>
-          Convert supported PDF files to Base64 without unnecessary uploads
-          or waiting for a server.
+          Convert PDF and Base64 data directly in your browser
+          without unnecessary server processing.
         </p>
+      </div>
 
-      </article>
-
-
-      <article class="info-card">
-
-        <div class="info-icon">📱</div>
-
-        <h3>Works on Mobile</h3>
-
+      <div class="trust-item">
+        <div class="trust-icon">📱</div>
+        <h3>Mobile Friendly</h3>
         <p>
-          Use the converter on modern Android, iPhone, tablet and desktop
-          browsers.
+          The converter is designed to work comfortably on
+          phones, tablets and desktop devices.
         </p>
-
-      </article>
+      </div>
 
     </div>
 
   </div>
-
 </section>
 
 
@@ -1385,79 +1371,124 @@ a{
 ======================================================= -->
 
 <section class="content-section">
-
   <div class="container">
-
     <div class="content-card">
 
-      <h2>Base64 PDF Converter</h2>
+      <h2 class="section-title">
+        Free PDF to Base64 Converter
+      </h2>
 
-      <p>
-        A Base64 PDF converter changes the binary contents of a PDF file
-        into a text-based Base64 representation. This can be useful when
-        PDF data needs to be stored or transferred through systems that
-        work with text rather than binary files.
-      </p>
-
-      <p>
-        With this tool, you can convert a PDF to Base64 directly in your
-        browser. You can also use the reverse function to convert Base64
-        PDF data back into a downloadable PDF file.
+      <p class="section-intro">
+        A Base64 PDF converter changes the binary data of a PDF
+        document into Base64 text. This can be useful when PDF
+        data needs to be stored or transferred inside text-based
+        formats such as JSON, XML, HTML or application data.
       </p>
 
 
-      <h3>PDF to Base64</h3>
+      <h3>What is Base64 PDF?</h3>
 
       <p>
-        To convert PDF to Base64, choose a PDF file or drag it into the
-        upload area. The converter reads the file locally and produces
-        a Base64 encoded string that you can copy.
+        Base64 is an encoding method that represents binary data
+        using text characters. A PDF can therefore be converted
+        into a long Base64 string that can be stored or transmitted
+        in systems that primarily work with text.
+      </p>
+
+      <p>
+        The Base64 representation is not a different type of PDF.
+        It is simply another representation of the same underlying
+        file data. Decoding the Base64 data restores the original
+        binary PDF content.
       </p>
 
 
-      <h3>Base64 to PDF</h3>
+      <h3>How to Convert PDF to Base64</h3>
 
       <p>
-        If you already have Base64 PDF data, switch to the Base64 to PDF
-        tab and paste the encoded data. The converter decodes the data
-        in your browser and creates a PDF that you can download.
+        Converting a PDF to Base64 with this tool takes only a few
+        steps:
       </p>
 
+      <ul>
+        <li>Open the PDF to Base64 tab.</li>
+        <li>Choose a PDF file or drag it into the upload area.</li>
+        <li>Click “Convert PDF to Base64”.</li>
+        <li>Copy the generated Base64 data or download it as a text file.</li>
+      </ul>
 
-      <h3>Need to Convert an Image?</h3>
+
+      <h3>How to Convert Base64 to PDF</h3>
 
       <p>
-        If your file is an image rather than a PDF, use our
-        <a class="inline-link" href="/base64-image">
-          Base64 Image Converter
-        </a>
-        to convert images to Base64 or decode Base64 image data.
+        You can also reverse the process. Select the Base64 to PDF
+        tab, paste your Base64 data and choose the decode option.
+        The browser converts the encoded data back into PDF bytes
+        and creates a downloadable PDF file.
       </p>
 
 
       <h3>Why Use Base64 for PDF Files?</h3>
 
       <p>
-        Base64 represents binary data using printable characters. It is
-        commonly useful when an application, API, database or document
-        format needs PDF data represented as text. Base64 does increase
-        the size of encoded data, so it is not normally a replacement
-        for the original PDF file when compact storage is the priority.
+        Base64 can be useful when an application needs to include
+        PDF data inside a text-based payload. Common examples
+        include API requests, JSON objects, database fields,
+        application configuration and document transmission.
       </p>
-
-
-      <h3>Private Browser-Based Conversion</h3>
 
       <p>
-        This converter is designed to perform PDF encoding and decoding
-        locally in your browser. Your PDF does not need to be uploaded to
-        a conversion server for the core conversion process.
+        Base64 normally increases the size of binary data compared
+        with the original file, so it is not generally a replacement
+        for normal PDF file storage. It is primarily useful when a
+        text representation is required.
       </p>
 
+
+      <h3>Is This Base64 PDF Converter Private?</h3>
+
+      <p>
+        Yes. The conversion logic on this page runs inside your
+        browser using JavaScript. The selected PDF is read locally
+        by the browser and converted into Base64 without requiring
+        a file upload to a conversion server.
+      </p>
+
+      <p>
+        As with any browser-based tool, you should still use a
+        trusted device and browser when working with confidential
+        documents.
+      </p>
+
+
+      <div class="related-box">
+
+        <h3>More Useful ZXing Org Tools</h3>
+
+        <div class="related-links">
+
+          <a href="/">
+            QR & Barcode Decoder
+          </a>
+
+          <a href="/qr-generator">
+            QR Code Generator
+          </a>
+
+          <a href="/base64-image">
+            Base64 Image Converter
+          </a>
+
+          <a href="/base64-pdf">
+            Base64 PDF Converter
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
-
   </div>
-
 </section>
 
 
@@ -1465,93 +1496,72 @@ a{
      FAQ
 ======================================================= -->
 
-<section class="faq-section">
+<section class="faq-section" id="faq">
 
   <div class="container">
 
-    <div class="section-heading">
+    <h2 class="section-title">
+      Base64 PDF Converter FAQ
+    </h2>
 
-      <h2>Frequently Asked Questions</h2>
-
-      <p>
-        Common questions about converting PDF files and Base64 data.
-      </p>
-
-    </div>
-
+    <p class="section-intro">
+      Common questions about converting PDF files to Base64
+      and decoding Base64 back into PDF.
+    </p>
 
     <div class="faq-list">
 
-      <article class="faq-item">
-
+      <div class="faq-item">
         <h3>What is a Base64 PDF?</h3>
-
         <p>
-          A Base64 PDF is the binary data of a PDF represented as a Base64
-          encoded text string.
+          A Base64 PDF is PDF file data represented as Base64 text.
+          The encoded text can later be decoded to reconstruct the
+          original PDF bytes.
         </p>
+      </div>
 
-      </article>
-
-
-      <article class="faq-item">
-
-        <h3>How do I convert PDF to Base64?</h3>
-
+      <div class="faq-item">
+        <h3>Can I convert a PDF to Base64 online?</h3>
         <p>
-          Choose a PDF file in the PDF to Base64 section. The converter
-          reads the file in your browser and generates the Base64 string.
+          Yes. This page provides a browser-based PDF to Base64
+          converter that reads the selected PDF and generates
+          Base64 data locally.
         </p>
+      </div>
 
-      </article>
-
-
-      <article class="faq-item">
-
-        <h3>Can I convert Base64 to PDF?</h3>
-
+      <div class="faq-item">
+        <h3>Can Base64 be converted back to PDF?</h3>
         <p>
-          Yes. Paste the Base64 PDF data into the Base64 to PDF section
-          and select Convert to PDF.
+          Yes. Paste valid Base64 PDF data into the Base64 to PDF
+          converter and the tool can decode it into a PDF file.
         </p>
+      </div>
 
-      </article>
-
-
-      <article class="faq-item">
-
-        <h3>Does the Base64 PDF converter upload my file?</h3>
-
+      <div class="faq-item">
+        <h3>Does the PDF get uploaded to a server?</h3>
         <p>
-          The core conversion runs locally in your browser, so the PDF
-          does not need to be uploaded to a conversion server.
+          The conversion on this page is performed locally in the
+          browser. The tool does not need to upload the selected
+          PDF to a conversion server.
         </p>
+      </div>
 
-      </article>
-
-
-      <article class="faq-item">
-
-        <h3>Can I use this converter on Android or iPhone?</h3>
-
+      <div class="faq-item">
+        <h3>Does Base64 make a PDF smaller?</h3>
         <p>
-          Yes. The interface is responsive and works with modern mobile
-          browsers that support the required browser APIs.
+          No. Base64 generally makes binary data larger. Its main
+          advantage is that binary content can be represented as
+          text for systems that require text-based data.
         </p>
+      </div>
 
-      </article>
-
-
-      <article class="faq-item">
-
-        <h3>Does it support a Base64 data URL?</h3>
-
+      <div class="faq-item">
+        <h3>Can I use the Base64 PDF output in JSON?</h3>
         <p>
-          Yes. The decoder accepts raw Base64 as well as common
-          application/pdf Base64 data URLs.
+          Yes. A Base64 string can be placed in a JSON value when
+          an application needs to transfer PDF data as text.
         </p>
-
-      </article>
+      </div>
 
     </div>
 
@@ -1572,60 +1582,35 @@ a{
 
     <div class="footer-grid">
 
-      <div class="footer-brand">
-
-        <h3>ZXingOrg</h3>
-
+      <div>
+        <h3>ZXing Org</h3>
         <p>
-          Fast, secure and privacy-focused browser tools for QR codes,
-          barcodes, Base64 images and PDF data.
+          Free browser-based tools for QR codes, barcodes and
+          useful data conversion tasks.
         </p>
-
       </div>
 
+      <div>
+        <h4>Quick Links</h4>
 
-      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/qr-generator">QR Generator</a>
+        <a href="/base64-image">Base64 Image</a>
+        <a href="/base64-pdf">Base64 PDF</a>
+      </div>
 
-        <div class="footer-col">
+      <div>
+        <h4>Information</h4>
 
-          <h4>Quick Links</h4>
-
-          <a href="/">Home</a>
-
-          <a href="/generator">QR Generator</a>
-
-          <a href="/base64-image">Base64 Image</a>
-
-          <a href="/base64-pdf">Base64 PDF</a>
-
-          <a href="/blog">Blog</a>
-
-          <a href="/about">About</a>
-
-        </div>
-
-
-        <div class="footer-col">
-
-          <h4>Legal</h4>
-
-          <a href="/privacy-policy">Privacy Policy</a>
-
-          <a href="/terms-and-conditions">Terms</a>
-
-          <a href="/contact-us">Contact</a>
-
-        </div>
-
+        <a href="/about">About</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/disclaimer">Disclaimer</a>
       </div>
 
     </div>
 
-
     <div class="footer-bottom">
-
-      © 2026 ZXingOrg. All rights reserved.
-
+      © 2026 ZXing Org. All rights reserved.
     </div>
 
   </div>
@@ -1633,50 +1618,83 @@ a{
 </footer>
 
 
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
+
 <script>
-
-/* =========================================================
-   BASE64 PDF CONVERTER JAVASCRIPT
-========================================================= */
-
 "use strict";
 
 /* =========================================================
    ELEMENTS
 ========================================================= */
 
-const tabButtons = document.querySelectorAll(".tab-btn");
-const toolPanels = document.querySelectorAll(".tool-panel");
+const pdfToBase64Tab =
+  document.getElementById("pdfToBase64Tab");
 
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("mainNav");
+const base64ToPdfTab =
+  document.getElementById("base64ToPdfTab");
 
-const pdfInput = document.getElementById("pdfInput");
-const choosePdfBtn = document.getElementById("choosePdfBtn");
-const dropZone = document.getElementById("dropZone");
+const pdfToBase64Panel =
+  document.getElementById("pdfToBase64Panel");
 
-const fileInfo = document.getElementById("fileInfo");
-const fileName = document.getElementById("fileName");
-const fileSize = document.getElementById("fileSize");
+const base64ToPdfPanel =
+  document.getElementById("base64ToPdfPanel");
 
-const encodeLoading = document.getElementById("encodeLoading");
-const base64OutputCard = document.getElementById("base64OutputCard");
-const base64Output = document.getElementById("base64Output");
+const pdfInput =
+  document.getElementById("pdfInput");
 
-const copyBase64Btn = document.getElementById("copyBase64Btn");
-const selectBase64Btn = document.getElementById("selectBase64Btn");
-const clearEncodeBtn = document.getElementById("clearEncodeBtn");
+const choosePdfBtn =
+  document.getElementById("choosePdfBtn");
 
-const base64Input = document.getElementById("base64Input");
-const decodePdfBtn = document.getElementById("decodePdfBtn");
-const clearDecodeBtn = document.getElementById("clearDecodeBtn");
+const dropZone =
+  document.getElementById("dropZone");
 
-const decodeLoading = document.getElementById("decodeLoading");
-const decodeResult = document.getElementById("decodeResult");
-const decodeMessage = document.getElementById("decodeMessage");
-const downloadPdfBtn = document.getElementById("downloadPdfBtn");
+const fileInfo =
+  document.getElementById("fileInfo");
 
-let decodedPdfBlob = null;
+const fileName =
+  document.getElementById("fileName");
+
+const fileSize =
+  document.getElementById("fileSize");
+
+const removeFileBtn =
+  document.getElementById("removeFileBtn");
+
+const convertPdfBtn =
+  document.getElementById("convertPdfBtn");
+
+const pdfResult =
+  document.getElementById("pdfResult");
+
+const base64Input =
+  document.getElementById("base64Input");
+
+const charCount =
+  document.getElementById("charCount");
+
+const pasteBtn =
+  document.getElementById("pasteBtn");
+
+const clearBase64Btn =
+  document.getElementById("clearBase64Btn");
+
+const convertBase64Btn =
+  document.getElementById("convertBase64Btn");
+
+const base64Result =
+  document.getElementById("base64Result");
+
+const menuToggle =
+  document.getElementById("menuToggle");
+
+const mainNav =
+  document.getElementById("mainNav");
+
+
+let selectedPdf = null;
+let generatedBase64 = "";
 
 
 /* =========================================================
@@ -1685,23 +1703,24 @@ let decodedPdfBlob = null;
 
 if(menuToggle && mainNav){
 
-  menuToggle.addEventListener("click", () => {
+  menuToggle.addEventListener("click", function(){
 
-    const open = mainNav.classList.toggle("show");
+    const opened =
+      mainNav.classList.toggle("show");
 
     menuToggle.setAttribute(
       "aria-expanded",
-      open ? "true" : "false"
+      opened ? "true" : "false"
     );
 
-    menuToggle.textContent = open ? "✕" : "☰";
+    menuToggle.textContent =
+      opened ? "×" : "☰";
 
   });
 
+  mainNav.querySelectorAll("a").forEach(function(link){
 
-  mainNav.querySelectorAll("a").forEach(link => {
-
-    link.addEventListener("click", () => {
+    link.addEventListener("click", function(){
 
       mainNav.classList.remove("show");
 
@@ -1720,492 +1739,856 @@ if(menuToggle && mainNav){
 
 
 /* =========================================================
-   TABS
+   TAB SWITCHING
 ========================================================= */
 
-tabButtons.forEach(button => {
+pdfToBase64Tab.addEventListener(
+  "click",
+  function(){
 
-  button.addEventListener("click", () => {
+    pdfToBase64Tab.classList.add("active");
+    base64ToPdfTab.classList.remove("active");
 
-    const target = button.dataset.tab;
+    pdfToBase64Panel.classList.remove("hidden");
+    base64ToPdfPanel.classList.add("hidden");
 
-    tabButtons.forEach(btn => {
-      btn.classList.remove("active");
-    });
+  }
+);
 
-    toolPanels.forEach(panel => {
-      panel.classList.remove("active");
-    });
 
-    button.classList.add("active");
+base64ToPdfTab.addEventListener(
+  "click",
+  function(){
 
-    const targetPanel = document.getElementById(target);
+    base64ToPdfTab.classList.add("active");
+    pdfToBase64Tab.classList.remove("active");
 
-    if(targetPanel){
-      targetPanel.classList.add("active");
-    }
+    base64ToPdfPanel.classList.remove("hidden");
+    pdfToBase64Panel.classList.add("hidden");
 
-  });
-
-});
+  }
+);
 
 
 /* =========================================================
-   PDF FILE PICKER
+   CHOOSE PDF
 ========================================================= */
 
-if(choosePdfBtn && pdfInput){
+choosePdfBtn.addEventListener(
+  "click",
+  function(){
 
-  choosePdfBtn.addEventListener("click", () => {
     pdfInput.click();
-  });
 
-}
+  }
+);
 
 
-if(pdfInput){
+pdfInput.addEventListener(
+  "change",
+  function(event){
 
-  pdfInput.addEventListener("change", event => {
-
-    const file = event.target.files && event.target.files[0];
+    const file =
+      event.target.files &&
+      event.target.files[0];
 
     if(file){
-      handlePdfFile(file);
+      selectPdf(file);
     }
 
-  });
+  }
+);
+
+
+/* =========================================================
+   SELECT PDF
+========================================================= */
+
+function selectPdf(file){
+
+  const isPdf =
+    file.type === "application/pdf" ||
+    file.name.toLowerCase().endsWith(".pdf");
+
+  if(!isPdf){
+
+    showPdfError(
+      "Please select a valid PDF file."
+    );
+
+    return;
+  }
+
+  selectedPdf = file;
+
+  fileName.textContent =
+    file.name;
+
+  fileSize.textContent =
+    formatBytes(file.size);
+
+  fileInfo.classList.remove("hidden");
+
+  convertPdfBtn.disabled = false;
+
+  pdfResult.innerHTML = "";
 
 }
+
+
+/* =========================================================
+   REMOVE PDF
+========================================================= */
+
+removeFileBtn.addEventListener(
+  "click",
+  function(){
+
+    selectedPdf = null;
+
+    pdfInput.value = "";
+
+    fileInfo.classList.add("hidden");
+
+    convertPdfBtn.disabled = true;
+
+    pdfResult.innerHTML = "";
+
+  }
+);
 
 
 /* =========================================================
    DRAG & DROP
 ========================================================= */
 
-if(dropZone){
+["dragenter","dragover"].forEach(function(eventName){
 
-  ["dragenter","dragover"].forEach(eventName => {
-
-    dropZone.addEventListener(eventName, event => {
+  dropZone.addEventListener(
+    eventName,
+    function(event){
 
       event.preventDefault();
       event.stopPropagation();
 
       dropZone.classList.add("dragover");
 
-    });
+    }
+  );
 
-  });
+});
 
 
-  ["dragleave","drop"].forEach(eventName => {
+["dragleave","drop"].forEach(function(eventName){
 
-    dropZone.addEventListener(eventName, event => {
+  dropZone.addEventListener(
+    eventName,
+    function(event){
 
       event.preventDefault();
       event.stopPropagation();
 
       dropZone.classList.remove("dragover");
 
-    });
+    }
+  );
 
-  });
+});
 
 
-  dropZone.addEventListener("drop", event => {
+dropZone.addEventListener(
+  "drop",
+  function(event){
 
-    const files = event.dataTransfer.files;
+    const files =
+      event.dataTransfer.files;
 
     if(files && files.length){
 
-      const file = files[0];
-
-      handlePdfFile(file);
+      selectPdf(files[0]);
 
     }
 
-  });
-
-}
-
-
-/* =========================================================
-   HANDLE PDF
-========================================================= */
-
-function handlePdfFile(file){
-
-  if(!file){
-    return;
   }
-
-
-  const isPdf =
-    file.type === "application/pdf" ||
-    file.name.toLowerCase().endsWith(".pdf");
-
-
-  if(!isPdf){
-
-    showToast("Please choose a PDF file.");
-
-    return;
-  }
-
-
-  fileInfo.classList.add("show");
-
-  fileName.textContent = file.name;
-
-  fileSize.textContent = formatBytes(file.size);
-
-
-  encodePdf(file);
-
-}
+);
 
 
 /* =========================================================
-   PDF TO BASE64
+   PDF → BASE64
 ========================================================= */
 
-function encodePdf(file){
+convertPdfBtn.addEventListener(
+  "click",
+  function(){
 
-  encodeLoading.classList.add("show");
+    if(!selectedPdf){
 
-  base64OutputCard.classList.remove("show");
-
-  const reader = new FileReader();
-
-
-  reader.onload = function(){
-
-    try{
-
-      const dataUrl = reader.result;
-
-      /*
-       * Keep the complete Data URL.
-       * This is useful when Base64 is being used directly
-       * inside HTML, CSS, APIs or applications.
-       */
-
-      base64Output.value = dataUrl;
-
-      base64OutputCard.classList.add("show");
-
-      encodeLoading.classList.remove("show");
-
-      showToast("PDF converted to Base64.");
-
-      setTimeout(() => {
-
-        base64OutputCard.scrollIntoView({
-          behavior:"smooth",
-          block:"center"
-        });
-
-      },100);
-
-    }catch(error){
-
-      encodeLoading.classList.remove("show");
-
-      showToast("Could not convert this PDF.");
-
-    }
-
-  };
-
-
-  reader.onerror = function(){
-
-    encodeLoading.classList.remove("show");
-
-    showToast("Could not read the PDF file.");
-
-  };
-
-
-  reader.readAsDataURL(file);
-
-}
-
-
-/* =========================================================
-   COPY BASE64
-========================================================= */
-
-if(copyBase64Btn){
-
-  copyBase64Btn.addEventListener("click", async () => {
-
-    const value = base64Output.value.trim();
-
-    if(!value){
-
-      showToast("Nothing to copy.");
+      showPdfError(
+        "Please select a PDF file first."
+      );
 
       return;
     }
 
+    convertPdfBtn.disabled = true;
+
+    pdfResult.innerHTML = `
+      <div class="loading">
+        <span class="spinner"></span>
+        Converting PDF to Base64...
+      </div>
+    `;
+
+    const reader =
+      new FileReader();
+
+    reader.onload = function(){
+
+      try{
+
+        const dataUrl =
+          reader.result;
+
+        const commaIndex =
+          dataUrl.indexOf(",");
+
+        if(commaIndex === -1){
+
+          throw new Error(
+            "Unable to read the PDF data."
+          );
+
+        }
+
+        generatedBase64 =
+          dataUrl.slice(commaIndex + 1);
+
+        renderPdfResult(
+          generatedBase64,
+          selectedPdf
+        );
+
+      }catch(error){
+
+        showPdfError(
+          "The PDF could not be converted. Please try another file."
+        );
+
+      }
+
+      convertPdfBtn.disabled = false;
+
+    };
+
+    reader.onerror = function(){
+
+      showPdfError(
+        "The browser could not read this PDF file."
+      );
+
+      convertPdfBtn.disabled = false;
+
+    };
+
+    reader.readAsDataURL(selectedPdf);
+
+  }
+);
+
+
+/* =========================================================
+   PDF RESULT
+========================================================= */
+
+function renderPdfResult(base64, file){
+
+  const preview =
+    makePreviewBase64(base64);
+
+  pdfResult.innerHTML = `
+    <div class="success-card">
+
+      <div class="success-top">
+
+        <div class="success-icon">
+          ✓
+        </div>
+
+        <div>
+          <h3>PDF Converted Successfully</h3>
+          <p>
+            Your PDF has been encoded as Base64 text.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="result-stat">
+
+        <span class="stat">
+          File: ${escapeHtml(file.name)}
+        </span>
+
+        <span class="stat">
+          Original: ${formatBytes(file.size)}
+        </span>
+
+        <span class="stat">
+          Base64: ${formatBytes(base64.length)}
+        </span>
+
+      </div>
+
+      <div class="output-wrap">
+
+        <div class="output-head">
+
+          <strong>Base64 Output</strong>
+
+          <button
+            type="button"
+            class="copy-output"
+            id="copyBase64Output">
+            Copy
+          </button>
+
+        </div>
+
+        <div class="base64-output" id="base64Output">
+          ${escapeHtml(preview)}
+        </div>
+
+      </div>
+
+      <div class="result-actions">
+
+        <button
+          type="button"
+          class="result-btn blue"
+          id="copyResultBtn">
+          📋 Copy Base64
+        </button>
+
+        <button
+          type="button"
+          class="result-btn green"
+          id="downloadTxtBtn">
+          ↓ Download TXT
+        </button>
+
+        <button
+          type="button"
+          class="result-btn gray"
+          id="newPdfBtn">
+          ↻ Convert Another
+        </button>
+
+        <button
+          type="button"
+          class="result-btn gray"
+          id="sendToDecoderBtn">
+          Open ZXing Decoder
+        </button>
+
+      </div>
+
+    </div>
+  `;
+
+
+  document
+    .getElementById("copyBase64Output")
+    .addEventListener(
+      "click",
+      function(){
+        copyText(generatedBase64);
+      }
+    );
+
+
+  document
+    .getElementById("copyResultBtn")
+    .addEventListener(
+      "click",
+      function(){
+        copyText(generatedBase64);
+      }
+    );
+
+
+  document
+    .getElementById("downloadTxtBtn")
+    .addEventListener(
+      "click",
+      function(){
+
+        downloadText(
+          generatedBase64,
+          "pdf-base64.txt"
+        );
+
+        showToast(
+          "Base64 downloaded successfully"
+        );
+
+      }
+    );
+
+
+  document
+    .getElementById("newPdfBtn")
+    .addEventListener(
+      "click",
+      function(){
+
+        selectedPdf = null;
+        generatedBase64 = "";
+
+        pdfInput.value = "";
+
+        fileInfo.classList.add("hidden");
+
+        convertPdfBtn.disabled = true;
+
+        pdfResult.innerHTML = "";
+
+        window.scrollTo({
+          top:
+            document
+              .getElementById("converter")
+              .offsetTop - 80,
+          behavior:"smooth"
+        });
+
+      }
+    );
+
+
+  document
+    .getElementById("sendToDecoderBtn")
+    .addEventListener(
+      "click",
+      function(){
+        window.location.href = "/";
+      }
+    );
+
+
+  pdfResult.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
+}
+
+
+/* =========================================================
+   BASE64 CHARACTER COUNT
+========================================================= */
+
+base64Input.addEventListener(
+  "input",
+  function(){
+
+    const count =
+      base64Input.value.length;
+
+    charCount.textContent =
+      count.toLocaleString() +
+      " characters";
+
+  }
+);
+
+
+/* =========================================================
+   PASTE
+========================================================= */
+
+pasteBtn.addEventListener(
+  "click",
+  async function(){
 
     try{
 
-      await navigator.clipboard.writeText(value);
+      const text =
+        await navigator.clipboard.readText();
 
-      showToast("Base64 copied successfully.");
+      if(!text){
+
+        showBase64Error(
+          "Your clipboard is empty."
+        );
+
+        return;
+      }
+
+      base64Input.value = text;
+
+      updateCharCount();
+
+      showToast(
+        "Base64 pasted successfully"
+      );
 
     }catch(error){
 
-      base64Output.select();
-
-      document.execCommand("copy");
-
-      showToast("Base64 copied successfully.");
+      showBase64Error(
+        "Clipboard access was unavailable. Please paste manually."
+      );
 
     }
 
-  });
-
-}
-
-
-/* =========================================================
-   SELECT ALL
-========================================================= */
-
-if(selectBase64Btn){
-
-  selectBase64Btn.addEventListener("click", () => {
-
-    base64Output.focus();
-
-    base64Output.select();
-
-    showToast("Base64 selected.");
-
-  });
-
-}
-
-
-/* =========================================================
-   CLEAR ENCODE
-========================================================= */
-
-if(clearEncodeBtn){
-
-  clearEncodeBtn.addEventListener("click", clearEncodeTool);
-
-}
-
-
-function clearEncodeTool(){
-
-  if(pdfInput){
-    pdfInput.value = "";
   }
+);
 
-  fileInfo.classList.remove("show");
 
-  base64OutputCard.classList.remove("show");
+/* =========================================================
+   CLEAR BASE64
+========================================================= */
 
-  base64Output.value = "";
+clearBase64Btn.addEventListener(
+  "click",
+  function(){
 
-  fileName.textContent = "—";
+    base64Input.value = "";
 
-  fileSize.textContent = "—";
+    updateCharCount();
 
-}
+    base64Result.innerHTML = "";
+
+  }
+);
 
 
 /* =========================================================
    BASE64 → PDF
 ========================================================= */
 
-if(decodePdfBtn){
+convertBase64Btn.addEventListener(
+  "click",
+  function(){
 
-  decodePdfBtn.addEventListener("click", decodeBase64Pdf);
+    const raw =
+      base64Input.value.trim();
 
-}
+    if(!raw){
 
+      showBase64Error(
+        "Please paste Base64 PDF data first."
+      );
 
-function decodeBase64Pdf(){
+      return;
+    }
 
-  const input = base64Input.value.trim();
+    base64Result.innerHTML = `
+      <div class="loading">
+        <span class="spinner"></span>
+        Decoding Base64 to PDF...
+      </div>
+    `;
 
-  if(!input){
+    setTimeout(function(){
 
-    showToast("Paste Base64 PDF data first.");
+      try{
 
-    base64Input.focus();
+        const cleanBase64 =
+          cleanBase64Data(raw);
 
-    return;
-  }
+        const bytes =
+          base64ToUint8Array(cleanBase64);
 
+        if(bytes.length < 4){
 
-  decodeLoading.classList.add("show");
+          throw new Error(
+            "The Base64 data is too short."
+          );
 
-  decodeResult.classList.remove("show");
+        }
 
+        const isPdf =
+          bytes[0] === 0x25 &&
+          bytes[1] === 0x50 &&
+          bytes[2] === 0x44 &&
+          bytes[3] === 0x46;
 
-  /*
-   * Small timeout lets the browser paint the loading state
-   * before processing a large Base64 string.
-   */
+        if(!isPdf){
 
-  setTimeout(() => {
+          throw new Error(
+            "The decoded data does not appear to be a PDF."
+          );
 
-    try{
+        }
 
-      const bytes = base64ToUint8Array(input);
+        const blob =
+          new Blob(
+            [bytes],
+            {type:"application/pdf"}
+          );
 
-      if(!bytes || !bytes.length){
+        renderBase64Result(
+          blob,
+          bytes.length
+        );
 
-        throw new Error("Empty PDF data.");
+      }catch(error){
 
-      }
-
-
-      /*
-       * Basic PDF signature check.
-       * Valid PDF files normally start with %PDF.
-       */
-
-      if(
-        bytes.length < 4 ||
-        bytes[0] !== 0x25 ||
-        bytes[1] !== 0x50 ||
-        bytes[2] !== 0x44 ||
-        bytes[3] !== 0x46
-      ){
-
-        throw new Error(
-          "The decoded data does not appear to be a valid PDF."
+        showBase64Error(
+          "Invalid Base64 PDF data. Please make sure you pasted the complete Base64 content."
         );
 
       }
 
+    },30);
 
-      decodedPdfBlob = new Blob(
-        [bytes],
-        {type:"application/pdf"}
-      );
-
-
-      decodeMessage.textContent =
-        "Your Base64 data was decoded successfully. The PDF is ready to download.";
+  }
+);
 
 
-      decodeLoading.classList.remove("show");
+/* =========================================================
+   BASE64 RESULT
+========================================================= */
 
-      decodeResult.classList.add("show");
+function renderBase64Result(blob, size){
 
-      showToast("PDF created successfully.");
+  const url =
+    URL.createObjectURL(blob);
+
+  base64Result.innerHTML = `
+    <div class="success-card">
+
+      <div class="success-top">
+
+        <div class="success-icon">
+          ✓
+        </div>
+
+        <div>
+          <h3>PDF Created Successfully</h3>
+          <p>
+            The Base64 data was decoded into a valid PDF.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="result-stat">
+
+        <span class="stat">
+          PDF Size: ${formatBytes(size)}
+        </span>
+
+        <span class="stat">
+          Type: application/pdf
+        </span>
+
+      </div>
+
+      <div class="result-actions">
+
+        <button
+          type="button"
+          class="result-btn green"
+          id="downloadPdfBtn">
+          ↓ Download PDF
+        </button>
+
+        <button
+          type="button"
+          class="result-btn gray"
+          id="openPdfBtn">
+          Open PDF
+        </button>
+
+        <button
+          type="button"
+          class="result-btn gray"
+          id="clearDecodedBtn">
+          Clear
+        </button>
+
+        <button
+          type="button"
+          class="result-btn blue"
+          id="convertAnotherBtn">
+          PDF → Base64
+        </button>
+
+      </div>
+
+    </div>
+  `;
 
 
-      setTimeout(() => {
+  document
+    .getElementById("downloadPdfBtn")
+    .addEventListener(
+      "click",
+      function(){
 
-        decodeResult.scrollIntoView({
-          behavior:"smooth",
-          block:"center"
+        downloadBlob(
+          blob,
+          "decoded-base64.pdf"
+        );
+
+        showToast(
+          "PDF downloaded successfully"
+        );
+
+      }
+    );
+
+
+  document
+    .getElementById("openPdfBtn")
+    .addEventListener(
+      "click",
+      function(){
+
+        window.open(
+          url,
+          "_blank",
+          "noopener"
+        );
+
+      }
+    );
+
+
+  document
+    .getElementById("clearDecodedBtn")
+    .addEventListener(
+      "click",
+      function(){
+
+        URL.revokeObjectURL(url);
+
+        base64Input.value = "";
+
+        updateCharCount();
+
+        base64Result.innerHTML = "";
+
+      }
+    );
+
+
+  document
+    .getElementById("convertAnotherBtn")
+    .addEventListener(
+      "click",
+      function(){
+
+        pdfToBase64Tab.click();
+
+        window.scrollTo({
+          top:
+            document
+              .getElementById("converter")
+              .offsetTop - 80,
+          behavior:"smooth"
         });
 
-      },100);
+      }
+    );
 
 
-    }catch(error){
-
-      decodeLoading.classList.remove("show");
-
-      decodedPdfBlob = null;
-
-      showToast(
-        "Invalid Base64 PDF data. Please check your input."
-      );
-
-    }
-
-  },50);
+  base64Result.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
 
 }
 
 
 /* =========================================================
-   BASE64 NORMALIZATION
+   CLEAN BASE64
 ========================================================= */
 
-function base64ToUint8Array(input){
+function cleanBase64Data(value){
 
-  let clean = input.trim();
-
+  let clean =
+    value.trim();
 
   /*
-   * Support:
-   * data:application/pdf;base64,JVBER...
-   */
+   Supports:
+   data:application/pdf;base64,XXXX
+   and plain XXXX
+  */
 
-  if(clean.startsWith("data:")){
+  if(
+    clean.toLowerCase()
+      .startsWith("data:")
+  ){
 
-    const commaIndex = clean.indexOf(",");
+    const comma =
+      clean.indexOf(",");
 
-    if(commaIndex === -1){
-      throw new Error("Invalid data URL.");
+    if(comma !== -1){
+
+      clean =
+        clean.slice(comma + 1);
+
     }
 
-    clean = clean.slice(commaIndex + 1);
+  }
+
+  /*
+   Remove whitespace/newlines.
+  */
+
+  clean =
+    clean.replace(/\s/g,"");
+
+  return clean;
+
+}
+
+
+/* =========================================================
+   BASE64 TO UINT8ARRAY
+========================================================= */
+
+function base64ToUint8Array(base64){
+
+  /*
+   Basic Base64 validation.
+  */
+
+  if(!/^[A-Za-z0-9+/]*={0,2}$/.test(base64)){
+
+    throw new Error(
+      "Invalid Base64 characters."
+    );
 
   }
 
+  if(base64.length % 4 !== 0){
 
-  /*
-   * Remove whitespace and line breaks.
-   */
-
-  clean = clean.replace(/\s/g,"");
-
-
-  /*
-   * Remove accidental quotes.
-   */
-
-  clean = clean.replace(/^['"]|['"]$/g,"");
-
-
-  /*
-   * Base64 should only contain valid characters.
-   */
-
-  if(!/^[A-Za-z0-9+/]*={0,2}$/.test(clean)){
-
-    throw new Error("Invalid Base64 characters.");
+    throw new Error(
+      "Invalid Base64 length."
+    );
 
   }
 
+  const binary =
+    atob(base64);
 
-  /*
-   * Base64 length must be a multiple of 4.
-   */
+  const bytes =
+    new Uint8Array(
+      binary.length
+    );
 
-  if(clean.length % 4 !== 0){
+  for(
+    let i = 0;
+    i < binary.length;
+    i++
+  ){
 
-    throw new Error("Invalid Base64 length.");
-
-  }
-
-
-  const binary = atob(clean);
-
-  const bytes = new Uint8Array(binary.length);
-
-
-  for(let i = 0; i < binary.length; i++){
-
-    bytes[i] = binary.charCodeAt(i);
+    bytes[i] =
+      binary.charCodeAt(i);
 
   }
-
 
   return bytes;
 
@@ -2213,73 +2596,134 @@ function base64ToUint8Array(input){
 
 
 /* =========================================================
-   DOWNLOAD PDF
+   DATA URL PREVIEW
 ========================================================= */
 
-if(downloadPdfBtn){
+function makePreviewBase64(base64){
 
-  downloadPdfBtn.addEventListener("click", () => {
+  const maxPreview =
+    9000;
 
-    if(!decodedPdfBlob){
+  if(base64.length <= maxPreview){
 
-      showToast("Create the PDF first.");
+    return base64;
 
-      return;
+  }
+
+  return (
+    base64.slice(0,maxPreview) +
+    "\n\n... Output preview shortened. Use Copy Base64 to copy the complete string."
+  );
+
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+async function copyText(text){
+
+  try{
+
+    await navigator.clipboard.writeText(text);
+
+    showToast(
+      "Copied successfully"
+    );
+
+  }catch(error){
+
+    /*
+     Fallback for browsers where
+     Clipboard API is unavailable.
+    */
+
+    const textarea =
+      document.createElement("textarea");
+
+    textarea.value = text;
+
+    textarea.style.position =
+      "fixed";
+
+    textarea.style.opacity =
+      "0";
+
+    document.body.appendChild(
+      textarea
+    );
+
+    textarea.select();
+
+    try{
+      document.execCommand("copy");
+      showToast("Copied successfully");
+    }catch(e){
+      showToast("Copy failed. Please copy manually.");
     }
 
+    textarea.remove();
 
-    const url = URL.createObjectURL(decodedPdfBlob);
-
-    const link = document.createElement("a");
-
-    link.href = url;
-
-    link.download = "decoded-base64.pdf";
-
-    document.body.appendChild(link);
-
-    link.click();
-
-    link.remove();
-
-
-    setTimeout(() => {
-
-      URL.revokeObjectURL(url);
-
-    },1000);
-
-
-    showToast("PDF download started.");
-
-  });
+  }
 
 }
 
 
 /* =========================================================
-   CLEAR DECODE
+   DOWNLOAD TEXT
 ========================================================= */
 
-if(clearDecodeBtn){
+function downloadText(text, filename){
 
-  clearDecodeBtn.addEventListener("click", () => {
+  const blob =
+    new Blob(
+      [text],
+      {type:"text/plain;charset=utf-8"}
+    );
 
-    base64Input.value = "";
-
-    decodeResult.classList.remove("show");
-
-    decodedPdfBlob = null;
-
-    showToast("Converter cleared.");
-
-  });
+  downloadBlob(
+    blob,
+    filename
+  );
 
 }
 
 
 /* =========================================================
-   FORMAT FILE SIZE
+   DOWNLOAD BLOB
+========================================================= */
+
+function downloadBlob(blob, filename){
+
+  const url =
+    URL.createObjectURL(blob);
+
+  const link =
+    document.createElement("a");
+
+  link.href = url;
+
+  link.download = filename;
+
+  document.body.appendChild(link);
+
+  link.click();
+
+  link.remove();
+
+  setTimeout(
+    function(){
+      URL.revokeObjectURL(url);
+    },
+    1000
+  );
+
+}
+
+
+/* =========================================================
+   FORMAT BYTES
 ========================================================= */
 
 function formatBytes(bytes){
@@ -2288,28 +2732,89 @@ function formatBytes(bytes){
     return "0 Bytes";
   }
 
-
-  const units = [
-    "Bytes",
-    "KB",
-    "MB",
-    "GB"
-  ];
-
+  const units =
+    [
+      "Bytes",
+      "KB",
+      "MB",
+      "GB"
+    ];
 
   const index =
     Math.floor(
-      Math.log(bytes) / Math.log(1024)
+      Math.log(bytes) /
+      Math.log(1024)
     );
 
+  const value =
+    bytes /
+    Math.pow(1024,index);
 
   return (
-    parseFloat(
-      (bytes / Math.pow(1024,index)).toFixed(2)
-    )
-    + " "
-    + units[index]
+    value.toFixed(
+      index === 0 ? 0 : 2
+    ) +
+    " " +
+    units[index]
   );
+
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
+function escapeHtml(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   ERROR HELPERS
+========================================================= */
+
+function showPdfError(message){
+
+  pdfResult.innerHTML = `
+    <div class="error-box">
+      ⚠️ ${escapeHtml(message)}
+    </div>
+  `;
+
+}
+
+
+function showBase64Error(message){
+
+  base64Result.innerHTML = `
+    <div class="error-box">
+      ⚠️ ${escapeHtml(message)}
+    </div>
+  `;
+
+}
+
+
+/* =========================================================
+   CHARACTER COUNT
+========================================================= */
+
+function updateCharCount(){
+
+  const count =
+    base64Input.value.length;
+
+  charCount.textContent =
+    count.toLocaleString() +
+    " characters";
 
 }
 
@@ -2318,34 +2823,140 @@ function formatBytes(bytes){
    TOAST
 ========================================================= */
 
+let toastTimer = null;
+
 function showToast(message){
 
-  const oldToast =
+  const old =
     document.querySelector(".toast");
 
-  if(oldToast){
-    oldToast.remove();
+  if(old){
+    old.remove();
   }
-
 
   const toast =
     document.createElement("div");
 
-  toast.className = "toast";
+  toast.className =
+    "toast";
 
-  toast.textContent = "✓ " + message;
+  toast.textContent =
+    "✓ " + message;
 
-  document.body.appendChild(toast);
+  document.body.appendChild(
+    toast
+  );
 
+  clearTimeout(toastTimer);
 
-  setTimeout(() => {
-
-    toast.remove();
-
-  },2300);
+  toastTimer =
+    setTimeout(
+      function(){
+        toast.remove();
+      },
+      2200
+    );
 
 }
 
+
+/* =========================================================
+   KEYBOARD SHORTCUT
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    /*
+     Ctrl/Cmd + Enter:
+     Convert active tool.
+    */
+
+    if(
+      (event.ctrlKey || event.metaKey) &&
+      event.key === "Enter"
+    ){
+
+      if(
+        !base64ToPdfPanel.classList.contains("hidden")
+      ){
+
+        convertBase64Btn.click();
+
+      }else{
+
+        convertPdfBtn.click();
+
+      }
+
+    }
+
+  }
+);
+
+</script>
+
+
+<!-- =======================================================
+     FAQ STRUCTURED DATA
+======================================================= -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is a Base64 PDF?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"A Base64 PDF is PDF file data represented as Base64 text. The encoded text can later be decoded to reconstruct the original PDF bytes."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can I convert a PDF to Base64 online?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. ZXing Org provides a browser-based PDF to Base64 converter that reads the selected PDF and generates Base64 data locally."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can Base64 be converted back to PDF?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. Valid Base64 PDF data can be decoded back into a PDF file using the Base64 to PDF converter."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Does the PDF get uploaded to a server?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"The conversion on this page is performed locally in the browser and does not require uploading the selected PDF to a conversion server."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Does Base64 make a PDF smaller?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"No. Base64 generally makes binary data larger. Its main purpose is representing binary content as text."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can I use Base64 PDF data in JSON?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. A Base64 string can be placed in a JSON value when an application needs to transfer PDF data as text."
+      }
+    }
+  ]
+}
 </script>
 
 </body>
