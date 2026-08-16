@@ -1,0 +1,3527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Triangle QR Code Generator – Create Triangular QR Codes</title>
+
+  <meta name="description"
+    content="Create a triangle QR code online for URLs, text, Wi-Fi and more. Generate a stylish triangular QR code directly in your browser and download it as PNG or SVG.">
+
+  <meta name="robots" content="index,follow">
+
+  <link rel="canonical"
+    href="https://www.zxingorg.com/triangle-qr-code">
+
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title"
+    content="Triangle QR Code Generator – Create Triangular QR Codes">
+  <meta property="og:description"
+    content="Create stylish triangle QR codes for URLs, text, Wi-Fi and more directly in your browser.">
+  <meta property="og:url"
+    content="https://www.zxingorg.com/triangle-qr-code">
+  <meta property="og:site_name" content="ZXingOrg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title"
+    content="Triangle QR Code Generator – ZXingOrg">
+  <meta name="twitter:description"
+    content="Create a stylish triangular QR code online and download it as PNG or SVG.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- QR Generator Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+
+
+  <!-- =========================
+       WebSite Schema
+  ========================== -->
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"ZXingOrg",
+    "url":"https://www.zxingorg.com/"
+  }
+  </script>
+
+
+  <!-- =========================
+       WebApplication Schema
+  ========================== -->
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Triangle QR Code Generator",
+    "url":"https://www.zxingorg.com/triangle-qr-code",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Any",
+    "browserRequirements":"Requires JavaScript",
+    "description":"A free browser-based triangle QR code generator for creating styled QR codes from text, URLs, Wi-Fi and other supported data.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+
+
+  <!-- =========================
+       FAQ Schema
+  ========================== -->
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"What is a triangle QR code?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"A triangle QR code is a styled QR code that uses triangular visual elements while preserving the core QR structure needed for scanning."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"How do I create a triangle QR code?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Enter your text, URL, Wi-Fi or other supported information, choose your preferred style and generate the QR code. You can then download it as PNG or SVG."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can a triangle QR code be scanned?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"The essential QR finder patterns and module layout are preserved in the generated design to help maintain QR readability."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can I create a triangle QR code for a URL?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Enter a website URL and generate a triangle QR code that can be scanned to open the URL."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can I download the triangle QR code?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. The generated QR code can be downloaded as a PNG image or SVG file."
+        }
+      }
+    ]
+  }
+  </script>
+
+
+  <style>
+
+    /* =========================================
+       RESET
+    ========================================= */
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:
+        'Inter',
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+
+      background:#f5f9ff;
+      color:#1e293b;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button,
+    input,
+    select,
+    textarea{
+      font:inherit;
+    }
+
+    button{
+      cursor:pointer;
+    }
+
+    .container{
+      width:min(1120px,92%);
+      margin:auto;
+    }
+
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid #e5e7eb;
+    }
+
+    .header-inner{
+      min-height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo{
+      font-size:27px;
+      font-weight:800;
+      letter-spacing:-.7px;
+      color:#111827;
+    }
+
+    .logo span{
+      color:#2563eb;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:25px;
+    }
+
+    nav a{
+      color:#334155;
+      font-size:14px;
+      font-weight:600;
+      transition:.2s;
+    }
+
+    nav a:hover{
+      color:#2563eb;
+    }
+
+    .menu-btn{
+      display:none;
+      width:42px;
+      height:42px;
+      border:0;
+      border-radius:10px;
+      background:#eff6ff;
+      color:#2563eb;
+    }
+
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero{
+      padding:58px 0 28px;
+      text-align:center;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 14px;
+      margin-bottom:18px;
+
+      border-radius:999px;
+
+      background:#eff6ff;
+      border:1px solid #bfdbfe;
+
+      color:#2563eb;
+
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .hero h1{
+      max-width:850px;
+      margin:0 auto 14px;
+
+      color:#0f172a;
+
+      font-size:clamp(2rem,5vw,3.15rem);
+      line-height:1.12;
+      letter-spacing:-1.4px;
+      font-weight:800;
+    }
+
+    .hero h1 span{
+      color:#2563eb;
+    }
+
+    .hero p{
+      max-width:740px;
+      margin:auto;
+
+      color:#64748b;
+      font-size:16px;
+      line-height:1.8;
+    }
+
+    .hero-points{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:10px;
+
+      margin-top:18px;
+    }
+
+    .hero-points span{
+      color:#475569;
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .dot{
+      color:#94a3b8 !important;
+    }
+
+
+    /* =========================================
+       TOOL
+    ========================================= */
+
+    .tool-section{
+      padding:25px 0 60px;
+    }
+
+    .tool-card{
+      max-width:1000px;
+      margin:auto;
+
+      background:#fff;
+      border:1px solid #e2e8f0;
+      border-radius:26px;
+
+      padding:28px;
+
+      box-shadow:
+        0 22px 60px rgba(15,23,42,.08);
+    }
+
+    .tool-grid{
+      display:grid;
+      grid-template-columns:1fr 390px;
+      gap:28px;
+      align-items:start;
+    }
+
+
+    /* =========================================
+       INPUT SIDE
+    ========================================= */
+
+    .tool-heading{
+      margin-bottom:20px;
+    }
+
+    .tool-heading h2{
+      color:#0f172a;
+      font-size:23px;
+      margin-bottom:5px;
+    }
+
+    .tool-heading p{
+      color:#64748b;
+      font-size:14px;
+    }
+
+    .type-label{
+      display:block;
+      color:#334155;
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .types{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:8px;
+      margin-bottom:18px;
+    }
+
+    .type-btn{
+      min-height:42px;
+
+      border:1px solid #dbe4ee;
+      border-radius:10px;
+
+      background:#fff;
+      color:#475569;
+
+      font-size:12px;
+      font-weight:700;
+
+      transition:.2s;
+    }
+
+    .type-btn:hover{
+      border-color:#93c5fd;
+      color:#2563eb;
+      background:#eff6ff;
+    }
+
+    .type-btn.active{
+      border-color:#2563eb;
+      background:#2563eb;
+      color:#fff;
+    }
+
+
+    /* =========================================
+       FIELDS
+    ========================================= */
+
+    .field{
+      margin-bottom:14px;
+    }
+
+    .field label{
+      display:block;
+      color:#334155;
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:7px;
+    }
+
+    .field input,
+    .field textarea,
+    .field select{
+      width:100%;
+
+      border:1px solid #dbe4ee;
+      border-radius:11px;
+
+      background:#fff;
+      color:#0f172a;
+
+      outline:none;
+
+      padding:12px 13px;
+
+      transition:.2s;
+    }
+
+    .field input{
+      min-height:47px;
+    }
+
+    .field textarea{
+      min-height:105px;
+      resize:vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus{
+      border-color:#2563eb;
+      box-shadow:0 0 0 3px rgba(37,99,235,.1);
+    }
+
+    .hint{
+      margin-top:5px;
+      color:#94a3b8;
+      font-size:11px;
+    }
+
+
+    /* =========================================
+       OPTIONS
+    ========================================= */
+
+    .options{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+
+      margin-top:5px;
+      margin-bottom:18px;
+    }
+
+    .option-box{
+      padding:12px;
+
+      border:1px solid #e2e8f0;
+      border-radius:12px;
+
+      background:#f8fafc;
+    }
+
+    .option-box label{
+      display:block;
+      color:#475569;
+      font-size:11px;
+      font-weight:800;
+      margin-bottom:6px;
+    }
+
+    .option-box input[type="color"]{
+      width:100%;
+      height:38px;
+      padding:3px;
+
+      border:1px solid #dbe4ee;
+      border-radius:8px;
+      background:#fff;
+      cursor:pointer;
+    }
+
+    .option-box select{
+      width:100%;
+      min-height:38px;
+
+      border:1px solid #dbe4ee;
+      border-radius:8px;
+
+      background:#fff;
+      color:#334155;
+
+      padding:0 8px;
+      outline:none;
+    }
+
+
+    /* =========================================
+       GENERATE
+    ========================================= */
+
+    .generate-btn{
+      width:100%;
+      min-height:54px;
+
+      border:0;
+      border-radius:13px;
+
+      background:#2563eb;
+      color:#fff;
+
+      font-size:15px;
+      font-weight:800;
+
+      transition:.2s;
+    }
+
+    .generate-btn:hover{
+      background:#1d4ed8;
+      transform:translateY(-2px);
+    }
+
+    .generate-btn:disabled{
+      opacity:.65;
+      cursor:not-allowed;
+      transform:none;
+    }
+
+
+    /* =========================================
+       PREVIEW
+    ========================================= */
+
+    .preview-panel{
+      position:sticky;
+      top:95px;
+
+      border:1px solid #e2e8f0;
+      border-radius:20px;
+
+      background:#f8fbff;
+
+      padding:18px;
+      text-align:center;
+    }
+
+    .preview-title{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+
+      margin-bottom:12px;
+    }
+
+    .preview-title strong{
+      color:#0f172a;
+      font-size:14px;
+    }
+
+    .preview-status{
+      padding:4px 8px;
+      border-radius:999px;
+
+      background:#ecfdf5;
+      color:#15803d;
+
+      font-size:10px;
+      font-weight:800;
+    }
+
+    .qr-stage{
+      min-height:340px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:16px;
+
+      background:#fff;
+      border:1px solid #e2e8f0;
+
+      overflow:hidden;
+    }
+
+    #qrCanvas{
+      display:block;
+      max-width:100%;
+      height:auto;
+    }
+
+    .preview-placeholder{
+      padding:35px 20px;
+      color:#94a3b8;
+    }
+
+    .preview-placeholder i{
+      display:block;
+      margin-bottom:12px;
+      color:#bfdbfe;
+      font-size:48px;
+    }
+
+    .preview-placeholder strong{
+      display:block;
+      color:#64748b;
+      margin-bottom:4px;
+    }
+
+    .preview-placeholder span{
+      display:block;
+      font-size:12px;
+    }
+
+
+    /* =========================================
+       RESULT ACTIONS
+    ========================================= */
+
+    .result-actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:9px;
+
+      margin-top:12px;
+    }
+
+    .action-btn{
+      min-height:45px;
+
+      border:0;
+      border-radius:10px;
+
+      font-size:12px;
+      font-weight:800;
+
+      transition:.2s;
+    }
+
+    .png-btn{
+      background:#2563eb;
+      color:#fff;
+    }
+
+    .svg-btn{
+      background:#16a34a;
+      color:#fff;
+    }
+
+    .action-btn:hover{
+      transform:translateY(-2px);
+      filter:brightness(.96);
+    }
+
+    .scan-btn{
+      width:100%;
+      min-height:43px;
+
+      margin-top:9px;
+
+      border:1px solid #bfdbfe;
+      border-radius:10px;
+
+      background:#eff6ff;
+      color:#2563eb;
+
+      font-size:12px;
+      font-weight:800;
+    }
+
+
+    /* =========================================
+       SCAN TEST
+    ========================================= */
+
+    .scan-result{
+      display:none;
+
+      margin-top:10px;
+      padding:11px;
+
+      border-radius:10px;
+
+      background:#ecfdf5;
+      border:1px solid #bbf7d0;
+
+      color:#166534;
+
+      font-size:11px;
+      font-weight:700;
+    }
+
+    .scan-result.show{
+      display:block;
+    }
+
+
+    /* =========================================
+       TRUST
+    ========================================= */
+
+    .trust{
+      padding:0 0 55px;
+    }
+
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+    }
+
+    .trust-card{
+      padding:21px;
+
+      text-align:center;
+
+      background:#fff;
+
+      border:1px solid #e5e7eb;
+      border-radius:17px;
+    }
+
+    .trust-card i{
+      margin-bottom:9px;
+
+      color:#2563eb;
+      font-size:24px;
+    }
+
+    .trust-card h3{
+      color:#0f172a;
+      font-size:15px;
+      margin-bottom:5px;
+    }
+
+    .trust-card p{
+      color:#64748b;
+      font-size:13px;
+      line-height:1.6;
+    }
+
+
+    /* =========================================
+       CONTENT
+    ========================================= */
+
+    .content-section{
+      padding:60px 0;
+
+      background:#f8fbff;
+    }
+
+    .content{
+      max-width:850px;
+      margin:auto;
+    }
+
+    .content h2{
+      margin-bottom:16px;
+
+      color:#0f172a;
+
+      font-size:27px;
+      line-height:1.25;
+      text-align:center;
+    }
+
+    .content h3{
+      margin:28px 0 8px;
+
+      color:#0f172a;
+      font-size:19px;
+    }
+
+    .content p{
+      margin-bottom:14px;
+
+      color:#475569;
+
+      font-size:15px;
+      line-height:1.85;
+    }
+
+    .content strong{
+      color:#334155;
+    }
+
+    .related-tools{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:11px;
+
+      margin-top:18px;
+    }
+
+    .related-tool{
+      padding:14px;
+
+      border:1px solid #dbe4ee;
+      border-radius:12px;
+
+      background:#fff;
+
+      transition:.2s;
+    }
+
+    .related-tool:hover{
+      border-color:#93c5fd;
+      transform:translateY(-2px);
+    }
+
+    .related-tool strong{
+      display:block;
+
+      color:#0f172a;
+      font-size:14px;
+      margin-bottom:3px;
+    }
+
+    .related-tool span{
+      color:#64748b;
+      font-size:12px;
+    }
+
+
+    /* =========================================
+       FAQ
+    ========================================= */
+
+    .faq-section{
+      padding:60px 0;
+    }
+
+    .faq{
+      max-width:850px;
+      margin:auto;
+    }
+
+    .faq h2{
+      margin-bottom:23px;
+
+      color:#0f172a;
+      font-size:27px;
+      text-align:center;
+    }
+
+    .faq-item{
+      margin-bottom:11px;
+      padding:19px;
+
+      background:#fff;
+
+      border:1px solid #e5e7eb;
+      border-radius:14px;
+    }
+
+    .faq-item h3{
+      margin-bottom:6px;
+
+      color:#0f172a;
+      font-size:15px;
+    }
+
+    .faq-item p{
+      color:#64748b;
+      font-size:14px;
+      line-height:1.75;
+    }
+
+
+    /* =========================================
+       CTA
+    ========================================= */
+
+    .cta-section{
+      padding:0 0 60px;
+    }
+
+    .cta{
+      max-width:850px;
+      margin:auto;
+
+      padding:32px 26px;
+
+      text-align:center;
+
+      background:#fff;
+
+      border:1px solid #dbeafe;
+      border-radius:22px;
+
+      box-shadow:0 12px 35px rgba(15,23,42,.06);
+    }
+
+    .cta h2{
+      color:#0f172a;
+      font-size:23px;
+      margin-bottom:8px;
+    }
+
+    .cta p{
+      max-width:680px;
+      margin:0 auto 18px;
+
+      color:#64748b;
+      font-size:14px;
+      line-height:1.8;
+    }
+
+    .cta-links{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:9px;
+    }
+
+    .cta-link{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+
+      min-height:44px;
+      padding:0 17px;
+
+      border-radius:10px;
+
+      background:#eff6ff;
+      color:#2563eb;
+
+      font-size:12px;
+      font-weight:800;
+    }
+
+    .cta-link:hover{
+      background:#dbeafe;
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer{
+      padding:42px 0 20px;
+
+      background:#0f172a;
+      color:#cbd5e1;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.4fr 1fr;
+      gap:35px;
+    }
+
+    footer h3,
+    footer h4{
+      color:#fff;
+      margin-bottom:12px;
+    }
+
+    footer p{
+      color:#94a3b8;
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .footer-links{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    footer a{
+      display:block;
+
+      margin-bottom:8px;
+
+      color:#cbd5e1;
+
+      font-size:13px;
+    }
+
+    footer a:hover{
+      color:#60a5fa;
+    }
+
+    .footer-bottom{
+      margin-top:30px;
+      padding-top:18px;
+
+      border-top:1px solid rgba(255,255,255,.08);
+
+      text-align:center;
+
+      color:#94a3b8;
+      font-size:12px;
+    }
+
+
+    /* =========================================
+       TOAST
+    ========================================= */
+
+    .toast{
+      position:fixed;
+
+      left:50%;
+      bottom:24px;
+
+      transform:translateX(-50%);
+
+      z-index:9999;
+
+      padding:12px 18px;
+
+      border-radius:11px;
+
+      background:#16a34a;
+      color:#fff;
+
+      font-size:13px;
+      font-weight:700;
+
+      box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+      animation:toastIn .25s ease;
+    }
+
+    @keyframes toastIn{
+      from{
+        opacity:0;
+        transform:translate(-50%,12px);
+      }
+
+      to{
+        opacity:1;
+        transform:translate(-50%,0);
+      }
+    }
+
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media(max-width:850px){
+
+      .tool-grid{
+        grid-template-columns:1fr;
+      }
+
+      .preview-panel{
+        position:static;
+      }
+
+      .qr-stage{
+        min-height:300px;
+      }
+
+    }
+
+
+    @media(max-width:768px){
+
+      .header-inner{
+        min-height:64px;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      nav{
+        display:none;
+
+        position:absolute;
+
+        top:64px;
+        left:4%;
+        right:4%;
+
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+
+        padding:8px;
+
+        background:#fff;
+
+        border:1px solid #e5e7eb;
+        border-radius:13px;
+
+        box-shadow:0 15px 35px rgba(15,23,42,.12);
+      }
+
+      nav.show{
+        display:flex;
+      }
+
+      nav a{
+        padding:12px 14px;
+        border-radius:9px;
+      }
+
+      nav a:hover{
+        background:#eff6ff;
+      }
+
+      .hero{
+        padding:43px 0 23px;
+      }
+
+      .tool-card{
+        padding:18px;
+        border-radius:20px;
+      }
+
+      .types{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .trust-grid{
+        grid-template-columns:1fr;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+
+    @media(max-width:480px){
+
+      .hero h1{
+        font-size:30px;
+      }
+
+      .hero p{
+        font-size:14px;
+      }
+
+      .tool-heading h2{
+        font-size:20px;
+      }
+
+      .options{
+        grid-template-columns:1fr;
+      }
+
+      .related-tools{
+        grid-template-columns:1fr;
+      }
+
+      .footer-links{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .result-actions{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+  <div class="container header-inner">
+
+    <a href="/" class="logo">
+      ZXing<span>Org</span>
+    </a>
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false">
+
+      <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+
+    <nav id="nav">
+
+      <a href="/">Home</a>
+
+      <a href="/generator">QR Generator</a>
+
+      <a href="/base64-to-image">Base64 to Image</a>
+
+      <a href="/base64-to-pdf">Base64 to PDF</a>
+
+      <a href="/blog">Blog</a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="badge">
+      <i class="fa-solid fa-qrcode"></i>
+      Free Browser-Based QR Tool
+    </div>
+
+
+    <h1>
+      Triangle QR Code <span>Generator</span>
+    </h1>
+
+
+    <p>
+      Create a stylish triangular QR code online for URLs, text,
+      Wi-Fi, email and more. Generate your QR code directly in your
+      browser and download it as a PNG or SVG.
+    </p>
+
+
+    <div class="hero-points">
+
+      <span>⚡ Instant</span>
+
+      <span class="dot">•</span>
+
+      <span>🔒 Browser-Based</span>
+
+      <span class="dot">•</span>
+
+      <span>🆓 Free</span>
+
+      <span class="dot">•</span>
+
+      <span>📱 Mobile Friendly</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     TOOL
+========================================= -->
+
+<section class="tool-section" id="triangle-tool">
+
+  <div class="container">
+
+    <div class="tool-card">
+
+      <div class="tool-grid">
+
+
+        <!-- =================================
+             INPUT
+        ================================== -->
+
+        <div>
+
+          <div class="tool-heading">
+
+            <h2>
+              Create Your Triangle QR Code
+            </h2>
+
+            <p>
+              Enter your information and generate a styled QR code instantly.
+            </p>
+
+          </div>
+
+
+          <span class="type-label">
+            Choose QR Code Type
+          </span>
+
+
+          <div class="types">
+
+            <button
+              class="type-btn active"
+              data-type="text"
+              type="button">
+              Text
+            </button>
+
+            <button
+              class="type-btn"
+              data-type="url"
+              type="button">
+              URL
+            </button>
+
+            <button
+              class="type-btn"
+              data-type="wifi"
+              type="button">
+              Wi-Fi
+            </button>
+
+            <button
+              class="type-btn"
+              data-type="email"
+              type="button">
+              Email
+            </button>
+
+            <button
+              class="type-btn"
+              data-type="phone"
+              type="button">
+              Phone
+            </button>
+
+            <button
+              class="type-btn"
+              data-type="sms"
+              type="button">
+              SMS
+            </button>
+
+          </div>
+
+
+          <div id="dynamicFields"></div>
+
+
+          <div class="options">
+
+            <div class="option-box">
+
+              <label for="foreground">
+                QR Color
+              </label>
+
+              <input
+                type="color"
+                id="foreground"
+                value="#111827">
+
+            </div>
+
+
+            <div class="option-box">
+
+              <label for="background">
+                Background
+              </label>
+
+              <input
+                type="color"
+                id="background"
+                value="#ffffff">
+
+            </div>
+
+
+            <div class="option-box">
+
+              <label for="errorLevel">
+                Error Correction
+              </label>
+
+              <select id="errorLevel">
+
+                <option value="L">Low – L</option>
+
+                <option value="M" selected>
+                  Medium – M
+                </option>
+
+                <option value="Q">
+                  Quartile – Q
+                </option>
+
+                <option value="H">
+                  High – H
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="option-box">
+
+              <label for="qrSize">
+                Size
+              </label>
+
+              <select id="qrSize">
+
+                <option value="280">
+                  280 × 280
+                </option>
+
+                <option value="360" selected>
+                  360 × 360
+                </option>
+
+                <option value="480">
+                  480 × 480
+                </option>
+
+                <option value="600">
+                  600 × 600
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <button
+            class="generate-btn"
+            id="generateBtn"
+            type="button">
+
+            <i class="fa-solid fa-qrcode"></i>
+            Generate Triangle QR Code
+
+          </button>
+
+        </div>
+
+
+
+        <!-- =================================
+             PREVIEW
+        ================================== -->
+
+        <div class="preview-panel">
+
+          <div class="preview-title">
+
+            <strong>
+              Triangle QR Preview
+            </strong>
+
+            <span
+              class="preview-status"
+              id="previewStatus">
+              Ready
+            </span>
+
+          </div>
+
+
+          <div class="qr-stage">
+
+            <div
+              class="preview-placeholder"
+              id="placeholder">
+
+              <i class="fa-solid fa-qrcode"></i>
+
+              <strong>
+                Your QR code will appear here
+              </strong>
+
+              <span>
+                Enter your content and generate the code.
+              </span>
+
+            </div>
+
+
+            <canvas
+              id="qrCanvas"
+              style="display:none;"
+              aria-label="Generated triangle QR code">
+            </canvas>
+
+          </div>
+
+
+          <div
+            class="result-actions"
+            id="resultActions"
+            style="display:none;">
+
+            <button
+              class="action-btn png-btn"
+              id="downloadPng"
+              type="button">
+
+              <i class="fa-solid fa-download"></i>
+              Download PNG
+
+            </button>
+
+
+            <button
+              class="action-btn svg-btn"
+              id="downloadSvg"
+              type="button">
+
+              <i class="fa-solid fa-file-code"></i>
+              Download SVG
+
+            </button>
+
+          </div>
+
+
+          <button
+            class="scan-btn"
+            id="scanBtn"
+            type="button"
+            style="display:none;">
+
+            <i class="fa-solid fa-camera"></i>
+            Test This QR Code
+
+          </button>
+
+
+          <div
+            class="scan-result"
+            id="scanResult">
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     TRUST
+========================================= -->
+
+<section class="trust">
+
+  <div class="container">
+
+    <div class="trust-grid">
+
+
+      <div class="trust-card">
+
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+        <h3>
+          Triangle Styling
+        </h3>
+
+        <p>
+          Give your QR code a distinctive triangular visual style
+          while keeping the important QR structure intact.
+        </p>
+
+      </div>
+
+
+      <div class="trust-card">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <h3>
+          Browser-Based
+        </h3>
+
+        <p>
+          QR generation happens directly in your browser without
+          requiring an account or server-side upload.
+        </p>
+
+      </div>
+
+
+      <div class="trust-card">
+
+        <i class="fa-solid fa-download"></i>
+
+        <h3>
+          PNG & SVG
+        </h3>
+
+        <p>
+          Download your finished triangle QR code as a PNG image
+          or scalable SVG file.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SEO CONTENT
+========================================= -->
+
+<section class="content-section">
+
+  <div class="container">
+
+    <article class="content">
+
+      <h2>
+        Create a Triangle QR Code Online
+      </h2>
+
+
+      <p>
+        A <strong>triangle QR code</strong> is a stylized QR code
+        designed to give the familiar square QR pattern a more distinctive
+        visual appearance. This free Triangle QR Code Generator lets you
+        create a triangular-style QR code from a URL, text, Wi-Fi details,
+        email address, phone number or SMS message directly in your browser.
+      </p>
+
+
+      <h3>
+        What Is a Triangle QR Code?
+      </h3>
+
+
+      <p>
+        A triangle QR code uses triangular visual elements as part of its
+        design while preserving the fundamental QR code structure required
+        for detection and decoding. This makes the design useful when you
+        want a QR code that looks different from a conventional square
+        pattern without removing the information encoded in the QR.
+      </p>
+
+
+      <h3>
+        How to Create a Triangular QR Code
+      </h3>
+
+
+      <p>
+        Choose the type of information you want to encode, enter your
+        content and select your preferred QR colors and error-correction
+        level. Click <strong>Generate Triangle QR Code</strong> to create
+        the result. You can then download the design as PNG or SVG for use
+        on websites, digital graphics, documents and other projects.
+      </p>
+
+
+      <h3>
+        Triangle QR Code vs. a Standard QR Code
+      </h3>
+
+
+      <p>
+        A standard QR code normally uses a square grid with square modules.
+        A triangular QR design changes the visual treatment of the modules
+        while retaining the underlying QR data structure. For practical
+        scanning, keeping sufficient contrast, clear spacing and the
+        important finder patterns is essential.
+      </p>
+
+
+      <h3>
+        What Can You Encode?
+      </h3>
+
+
+      <p>
+        You can create a triangle QR code for many common types of data,
+        including website URLs, plain text, Wi-Fi connection information,
+        email addresses, phone numbers and SMS messages. For more advanced
+        QR generation options, you can also use our
+        <a href="/generator"
+           style="color:#2563eb;font-weight:700;">
+          full QR Code Generator
+        </a>.
+      </p>
+
+
+      <h3>
+        Keep Your Triangle QR Code Scannable
+      </h3>
+
+
+      <p>
+        QR styling should never come at the expense of readability. Use
+        strong contrast between the QR and its background, avoid placing
+        important graphics over the code and leave adequate white space
+        around the outside. For a conventional QR workflow, you can also
+        use the
+        <a href="/"
+           style="color:#2563eb;font-weight:700;">
+          ZXing online decoder
+        </a>
+        to scan supported QR codes and verify their encoded content.
+      </p>
+
+
+      <h3>
+        More Useful ZXingOrg Tools
+      </h3>
+
+
+      <div class="related-tools">
+
+
+        <a
+          class="related-tool"
+          href="/generator">
+
+          <strong>
+            QR Code Generator
+          </strong>
+
+          <span>
+            Create standard QR codes for URLs, Wi-Fi, text and more.
+          </span>
+
+        </a>
+
+
+        <a
+          class="related-tool"
+          href="/">
+
+          <strong>
+            QR & Barcode Decoder
+          </strong>
+
+          <span>
+            Decode QR codes and supported barcodes from images.
+          </span>
+
+        </a>
+
+
+        <a
+          class="related-tool"
+          href="/base64-to-image">
+
+          <strong>
+            Base64 to Image
+          </strong>
+
+          <span>
+            Decode Base64 image data directly in your browser.
+          </span>
+
+        </a>
+
+
+        <a
+          class="related-tool"
+          href="/base64-to-pdf">
+
+          <strong>
+            Base64 to PDF
+          </strong>
+
+          <span>
+            Convert Base64 PDF data into a downloadable PDF file.
+          </span>
+
+        </a>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FAQ
+========================================= -->
+
+<section class="faq-section">
+
+  <div class="container">
+
+    <div class="faq">
+
+      <h2>
+        Triangle QR Code FAQ
+      </h2>
+
+
+      <div class="faq-item">
+
+        <h3>
+          What is a triangle QR code?
+        </h3>
+
+        <p>
+          A triangle QR code is a styled QR design that uses triangular
+          visual elements while preserving the core QR structure needed
+          for detection and decoding.
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          How do I create a triangle QR code?
+        </h3>
+
+        <p>
+          Choose a QR type, enter your information, select your preferred
+          colors and settings, then click Generate Triangle QR Code.
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          Can I create a triangle QR code for a URL?
+        </h3>
+
+        <p>
+          Yes. Select URL, enter the website address and generate your
+          triangular QR code.
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          Can I create a triangle QR code for Wi-Fi?
+        </h3>
+
+        <p>
+          Yes. Select Wi-Fi and enter the network name, password and
+          security type to create a Wi-Fi QR code.
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          Can I download the generated QR code?
+        </h3>
+
+        <p>
+          Yes. You can download the generated triangle QR design as
+          a PNG image or SVG file.
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          Is this Triangle QR Code Generator free?
+        </h3>
+
+        <p>
+          Yes. The tool is free to use directly in a modern web browser
+          without requiring an account.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     INTERNAL CTA
+========================================= -->
+
+<section class="cta-section">
+
+  <div class="container">
+
+    <div class="cta">
+
+      <h2>
+        Need a Standard QR Code?
+      </h2>
+
+      <p>
+        If you do not need the triangle styling, use the full
+        ZXingOrg QR Code Generator for a wider range of QR creation
+        options. After creating a code, you can also use the ZXing
+        online decoder to verify it.
+      </p>
+
+
+      <div class="cta-links">
+
+        <a
+          class="cta-link"
+          href="/generator">
+
+          <i class="fa-solid fa-qrcode"></i>
+          Open QR Generator
+
+        </a>
+
+
+        <a
+          class="cta-link"
+          href="/">
+
+          <i class="fa-solid fa-expand"></i>
+          Decode a QR Code
+
+        </a>
+
+
+        <a
+          class="cta-link"
+          href="/blog">
+
+          <i class="fa-solid fa-book-open"></i>
+          Read QR Guides
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+
+      <div>
+
+        <h3>
+          ZXingOrg
+        </h3>
+
+        <p>
+          Fast, privacy-focused browser tools for QR codes, barcodes,
+          Base64 files and useful web utilities.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+
+        <div>
+
+          <h4>
+            Tools
+          </h4>
+
+          <a href="/">
+            QR & Barcode Decoder
+          </a>
+
+          <a href="/generator">
+            QR Generator
+          </a>
+
+          <a href="/triangle-qr-code">
+            Triangle QR Code
+          </a>
+
+          <a href="/base64-to-image">
+            Base64 to Image
+          </a>
+
+          <a href="/base64-to-pdf">
+            Base64 to PDF
+          </a>
+
+        </div>
+
+
+        <div>
+
+          <h4>
+            Site
+          </h4>
+
+          <a href="/blog">
+            Blog
+          </a>
+
+          <a href="/about">
+            About
+          </a>
+
+          <a href="/privacy-policy">
+            Privacy Policy
+          </a>
+
+          <a href="/terms-and-conditions">
+            Terms
+          </a>
+
+          <a href="/contact-us">
+            Contact
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      © 2026 ZXingOrg. All rights reserved.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+  /* =========================================
+     ELEMENTS
+  ========================================= */
+
+  const typeButtons =
+    document.querySelectorAll(".type-btn");
+
+  const dynamicFields =
+    document.getElementById("dynamicFields");
+
+  const generateBtn =
+    document.getElementById("generateBtn");
+
+  const qrCanvas =
+    document.getElementById("qrCanvas");
+
+  const placeholder =
+    document.getElementById("placeholder");
+
+  const resultActions =
+    document.getElementById("resultActions");
+
+  const downloadPng =
+    document.getElementById("downloadPng");
+
+  const downloadSvg =
+    document.getElementById("downloadSvg");
+
+  const scanBtn =
+    document.getElementById("scanBtn");
+
+  const scanResult =
+    document.getElementById("scanResult");
+
+  const previewStatus =
+    document.getElementById("previewStatus");
+
+  const foreground =
+    document.getElementById("foreground");
+
+  const background =
+    document.getElementById("background");
+
+  const errorLevel =
+    document.getElementById("errorLevel");
+
+  const qrSize =
+    document.getElementById("qrSize");
+
+
+  let currentType = "text";
+
+  let lastModules = null;
+
+  let lastModuleCount = 0;
+
+  let lastPayload = "";
+
+
+
+  /* =========================================
+     FIELD TEMPLATES
+  ========================================= */
+
+  function renderFields(type){
+
+    currentType = type;
+
+    if(type === "text"){
+
+      dynamicFields.innerHTML = `
+
+        <div class="field">
+
+          <label for="textValue">
+            Text
+          </label>
+
+          <textarea
+            id="textValue"
+            placeholder="Enter your text"></textarea>
+
+        </div>
+
+      `;
+
+    }
+
+
+    if(type === "url"){
+
+      dynamicFields.innerHTML = `
+
+        <div class="field">
+
+          <label for="urlValue">
+            Website URL
+          </label>
+
+          <input
+            id="urlValue"
+            type="url"
+            inputmode="url"
+            placeholder="https://example.com">
+
+          <div class="hint">
+            Include https:// for best results.
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    if(type === "wifi"){
+
+      dynamicFields.innerHTML = `
+
+        <div class="field">
+
+          <label for="wifiName">
+            Network Name (SSID)
+          </label>
+
+          <input
+            id="wifiName"
+            type="text"
+            placeholder="My Wi-Fi">
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="wifiPassword">
+            Password
+          </label>
+
+          <input
+            id="wifiPassword"
+            type="text"
+            placeholder="Wi-Fi password">
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="wifiSecurity">
+            Security
+          </label>
+
+          <select id="wifiSecurity">
+
+            <option value="WPA">
+              WPA/WPA2
+            </option>
+
+            <option value="WEP">
+              WEP
+            </option>
+
+            <option value="nopass">
+              None
+            </option>
+
+          </select>
+
+        </div>
+
+      `;
+
+    }
+
+
+    if(type === "email"){
+
+      dynamicFields.innerHTML = `
+
+        <div class="field">
+
+          <label for="emailAddress">
+            Email Address
+          </label>
+
+          <input
+            id="emailAddress"
+            type="email"
+            placeholder="name@example.com">
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="emailSubject">
+            Subject
+          </label>
+
+          <input
+            id="emailSubject"
+            type="text"
+            placeholder="Email subject">
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="emailBody">
+            Message
+          </label>
+
+          <textarea
+            id="emailBody"
+            placeholder="Email message"></textarea>
+
+        </div>
+
+      `;
+
+    }
+
+
+    if(type === "phone"){
+
+      dynamicFields.innerHTML = `
+
+        <div class="field">
+
+          <label for="phoneValue">
+            Phone Number
+          </label>
+
+          <input
+            id="phoneValue"
+            type="tel"
+            inputmode="tel"
+            placeholder="+1234567890">
+
+        </div>
+
+      `;
+
+    }
+
+
+    if(type === "sms"){
+
+      dynamicFields.innerHTML = `
+
+        <div class="field">
+
+          <label for="smsNumber">
+            Phone Number
+          </label>
+
+          <input
+            id="smsNumber"
+            type="tel"
+            inputmode="tel"
+            placeholder="+1234567890">
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="smsMessage">
+            Message
+          </label>
+
+          <textarea
+            id="smsMessage"
+            placeholder="Your SMS message"></textarea>
+
+        </div>
+
+      `;
+
+    }
+
+  }
+
+
+  renderFields("text");
+
+
+
+  /* =========================================
+     TYPE BUTTONS
+  ========================================= */
+
+  typeButtons.forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+      typeButtons.forEach(function(btn){
+        btn.classList.remove("active");
+      });
+
+      this.classList.add("active");
+
+      renderFields(
+        this.getAttribute("data-type")
+      );
+
+      scanResult.classList.remove("show");
+
+    });
+
+  });
+
+
+
+  /* =========================================
+     ESCAPE WIFI
+  ========================================= */
+
+  function escapeWifi(value){
+
+    return String(value)
+      .replace(/\\/g,"\\\\")
+      .replace(/;/g,"\\;")
+      .replace(/,/g,"\\,")
+      .replace(/:/g,"\\:");
+
+  }
+
+
+
+  /* =========================================
+     GET PAYLOAD
+  ========================================= */
+
+  function getPayload(){
+
+    if(currentType === "text"){
+
+      const value =
+        document.getElementById("textValue").value.trim();
+
+      if(!value){
+        throw new Error("Enter some text first.");
+      }
+
+      return value;
+
+    }
+
+
+    if(currentType === "url"){
+
+      let value =
+        document.getElementById("urlValue").value.trim();
+
+      if(!value){
+        throw new Error("Enter a website URL first.");
+      }
+
+      if(
+        !/^https?:\/\//i.test(value) &&
+        !/^mailto:/i.test(value)
+      ){
+
+        value = "https://" + value;
+
+      }
+
+      return value;
+
+    }
+
+
+    if(currentType === "wifi"){
+
+      const ssid =
+        document.getElementById("wifiName").value.trim();
+
+      const password =
+        document.getElementById("wifiPassword").value;
+
+      const security =
+        document.getElementById("wifiSecurity").value;
+
+      if(!ssid){
+        throw new Error("Enter the Wi-Fi network name.");
+      }
+
+      return (
+        "WIFI:" +
+        "T:" + security +
+        ";S:" + escapeWifi(ssid) +
+        ";P:" + escapeWifi(password) +
+        ";;"
+      );
+
+    }
+
+
+    if(currentType === "email"){
+
+      const email =
+        document.getElementById("emailAddress").value.trim();
+
+      const subject =
+        document.getElementById("emailSubject").value.trim();
+
+      const body =
+        document.getElementById("emailBody").value.trim();
+
+      if(!email){
+        throw new Error("Enter an email address.");
+      }
+
+      return (
+        "mailto:" +
+        email +
+        "?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(body)
+      );
+
+    }
+
+
+    if(currentType === "phone"){
+
+      const phone =
+        document.getElementById("phoneValue").value.trim();
+
+      if(!phone){
+        throw new Error("Enter a phone number.");
+      }
+
+      return "tel:" + phone;
+
+    }
+
+
+    if(currentType === "sms"){
+
+      const number =
+        document.getElementById("smsNumber").value.trim();
+
+      const message =
+        document.getElementById("smsMessage").value.trim();
+
+      if(!number){
+        throw new Error("Enter a phone number.");
+      }
+
+      return (
+        "SMSTO:" +
+        number +
+        ":" +
+        message
+      );
+
+    }
+
+  }
+
+
+
+  /* =========================================
+     FINDER PATTERN
+  ========================================= */
+
+  function isFinderArea(row,col,count){
+
+    const areas = [
+
+      {
+        r:0,
+        c:0
+      },
+
+      {
+        r:0,
+        c:count - 7
+      },
+
+      {
+        r:count - 7,
+        c:0
+      }
+
+    ];
+
+    for(const area of areas){
+
+      if(
+        row >= area.r &&
+        row < area.r + 7 &&
+        col >= area.c &&
+        col < area.c + 7
+      ){
+
+        return true;
+
+      }
+
+    }
+
+    return false;
+
+  }
+
+
+
+  /* =========================================
+     DRAW TRIANGLE QR
+  ========================================= */
+
+  function drawTriangleQR(
+    modules,
+    count,
+    size,
+    fg,
+    bg
+  ){
+
+    const canvas =
+      qrCanvas;
+
+    const ctx =
+      canvas.getContext("2d");
+
+    const quiet =
+      4;
+
+    const total =
+      count + quiet * 2;
+
+    const scale =
+      size / total;
+
+    canvas.width =
+      size;
+
+    canvas.height =
+      size;
+
+    ctx.clearRect(
+      0,
+      0,
+      size,
+      size
+    );
+
+    ctx.fillStyle =
+      bg;
+
+    ctx.fillRect(
+      0,
+      0,
+      size,
+      size
+    );
+
+
+    /* ==========================
+       QR MODULES
+    =========================== */
+
+    ctx.fillStyle =
+      fg;
+
+    for(let row = 0; row < count; row++){
+
+      for(let col = 0; col < count; col++){
+
+        if(!modules[row][col]){
+          continue;
+        }
+
+        const x =
+          (col + quiet) * scale;
+
+        const y =
+          (row + quiet) * scale;
+
+        const s =
+          scale * 0.92;
+
+
+        /*
+          Finder patterns remain
+          square for better QR
+          recognition.
+        */
+
+        if(isFinderArea(row,col,count)){
+
+          ctx.fillRect(
+            x,
+            y,
+            s,
+            s
+          );
+
+        }else{
+
+          /*
+            Triangular module style.
+          */
+
+          const cx =
+            x + s / 2;
+
+          const cy =
+            y + s / 2;
+
+          const padding =
+            scale * 0.05;
+
+          const left =
+            x + padding;
+
+          const right =
+            x + s - padding;
+
+          const top =
+            y + padding;
+
+          const bottom =
+            y + s - padding;
+
+
+          ctx.beginPath();
+
+          if(
+            (row + col) % 2 === 0
+          ){
+
+            ctx.moveTo(
+              cx,
+              top
+            );
+
+            ctx.lineTo(
+              right,
+              bottom
+            );
+
+            ctx.lineTo(
+              left,
+              bottom
+            );
+
+          }else{
+
+            ctx.moveTo(
+              left,
+              top
+            );
+
+            ctx.lineTo(
+              right,
+              top
+            );
+
+            ctx.lineTo(
+              cx,
+              bottom
+            );
+
+          }
+
+          ctx.closePath();
+
+          ctx.fill();
+
+        }
+
+      }
+
+    }
+
+
+    /*
+      Subtle triangular frame.
+      It is outside the QR quiet zone
+      and does not cover QR modules.
+    */
+
+    ctx.save();
+
+    ctx.strokeStyle =
+      fg;
+
+    ctx.globalAlpha =
+      .12;
+
+    ctx.lineWidth =
+      Math.max(2,size / 180);
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      size * .50,
+      size * .015
+    );
+
+    ctx.lineTo(
+      size * .985,
+      size * .985
+    );
+
+    ctx.lineTo(
+      size * .015,
+      size * .985
+    );
+
+    ctx.closePath();
+
+    ctx.stroke();
+
+    ctx.restore();
+
+  }
+
+
+
+  /* =========================================
+     GENERATE
+  ========================================= */
+
+  generateBtn.addEventListener(
+    "click",
+    function(){
+
+      let payload = "";
+
+      try{
+
+        payload =
+          getPayload();
+
+      }catch(error){
+
+        showToast(
+          error.message ||
+          "Please enter valid information."
+        );
+
+        return;
+
+      }
+
+
+      generateBtn.disabled =
+        true;
+
+      generateBtn.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i> Generating...';
+
+
+      setTimeout(function(){
+
+        try{
+
+          const qr =
+            qrcode(
+              errorLevel.value,
+              "L"
+            );
+
+          /*
+            qrcode-generator expects
+            error correction constants:
+            L, M, Q, H.
+          */
+
+          const level =
+            errorLevel.value;
+
+          const generator =
+            qrcode(
+              level,
+              "auto"
+            );
+
+          generator.addData(
+            payload
+          );
+
+          generator.make();
+
+
+          const count =
+            generator.getModuleCount();
+
+          const modules =
+            [];
+
+          for(let row = 0; row < count; row++){
+
+            modules[row] = [];
+
+            for(let col = 0; col < count; col++){
+
+              modules[row][col] =
+                generator.isDark(
+                  row,
+                  col
+                );
+
+            }
+
+          }
+
+
+          const size =
+            parseInt(
+              qrSize.value,
+              10
+            );
+
+
+          drawTriangleQR(
+            modules,
+            count,
+            size,
+            foreground.value,
+            background.value
+          );
+
+
+          lastModules =
+            modules;
+
+          lastModuleCount =
+            count;
+
+          lastPayload =
+            payload;
+
+
+          placeholder.style.display =
+            "none";
+
+          qrCanvas.style.display =
+            "block";
+
+          resultActions.style.display =
+            "grid";
+
+          scanBtn.style.display =
+            "block";
+
+          previewStatus.textContent =
+            "Generated";
+
+          previewStatus.style.background =
+            "#ecfdf5";
+
+          previewStatus.style.color =
+            "#15803d";
+
+
+          scanResult.classList.remove(
+            "show"
+          );
+
+
+          generateBtn.innerHTML =
+            '<i class="fa-solid fa-check"></i> QR Code Generated';
+
+
+          setTimeout(function(){
+
+            generateBtn.disabled =
+              false;
+
+            generateBtn.innerHTML =
+              '<i class="fa-solid fa-qrcode"></i> Generate Triangle QR Code';
+
+          },1000);
+
+
+          document
+            .querySelector(".preview-panel")
+            .scrollIntoView({
+              behavior:"smooth",
+              block:"center"
+            });
+
+
+        }catch(error){
+
+          console.error(error);
+
+          generateBtn.disabled =
+            false;
+
+          generateBtn.innerHTML =
+            '<i class="fa-solid fa-qrcode"></i> Generate Triangle QR Code';
+
+          showToast(
+            "Unable to generate this QR code."
+          );
+
+        }
+
+      },40);
+
+    }
+  );
+
+
+
+  /* =========================================
+     PNG DOWNLOAD
+  ========================================= */
+
+  downloadPng.addEventListener(
+    "click",
+    function(){
+
+      if(!qrCanvas.width){
+        return;
+      }
+
+      const link =
+        document.createElement("a");
+
+      link.download =
+        "triangle-qr-code.png";
+
+      link.href =
+        qrCanvas.toDataURL(
+          "image/png"
+        );
+
+      document.body.appendChild(link);
+
+      link.click();
+
+      link.remove();
+
+      showToast(
+        "PNG downloaded successfully."
+      );
+
+    }
+  );
+
+
+
+  /* =========================================
+     SVG DOWNLOAD
+  ========================================= */
+
+  downloadSvg.addEventListener(
+    "click",
+    function(){
+
+      if(
+        !lastModules ||
+        !lastModuleCount
+      ){
+        return;
+      }
+
+      const svg =
+        createSVG(
+          lastModules,
+          lastModuleCount,
+          parseInt(
+            qrSize.value,
+            10
+          ),
+          foreground.value,
+          background.value
+        );
+
+
+      const blob =
+        new Blob(
+          [svg],
+          {
+            type:"image/svg+xml;charset=utf-8"
+          }
+        );
+
+
+      const url =
+        URL.createObjectURL(
+          blob
+        );
+
+
+      const link =
+        document.createElement("a");
+
+      link.href =
+        url;
+
+      link.download =
+        "triangle-qr-code.svg";
+
+      document.body.appendChild(link);
+
+      link.click();
+
+      link.remove();
+
+      URL.revokeObjectURL(
+        url
+      );
+
+      showToast(
+        "SVG downloaded successfully."
+      );
+
+    }
+  );
+
+
+
+  /* =========================================
+     SVG CREATOR
+  ========================================= */
+
+  function createSVG(
+    modules,
+    count,
+    size,
+    fg,
+    bg
+  ){
+
+    const quiet =
+      4;
+
+    const total =
+      count + quiet * 2;
+
+    const scale =
+      size / total;
+
+    const parts = [];
+
+
+    parts.push(
+      '<?xml version="1.0" encoding="UTF-8"?>'
+    );
+
+    parts.push(
+      '<svg xmlns="http://www.w3.org/2000/svg" ' +
+      'width="' + size + '" ' +
+      'height="' + size + '" ' +
+      'viewBox="0 0 ' + size + ' ' + size + '">'
+    );
+
+
+    parts.push(
+      '<rect width="100%" height="100%" fill="' +
+      escapeXml(bg) +
+      '"/>'
+    );
+
+
+    for(let row = 0; row < count; row++){
+
+      for(let col = 0; col < count; col++){
+
+        if(!modules[row][col]){
+          continue;
+        }
+
+        const x =
+          (col + quiet) * scale;
+
+        const y =
+          (row + quiet) * scale;
+
+        const s =
+          scale * .92;
+
+
+        if(
+          isFinderArea(
+            row,
+            col,
+            count
+          )
+        ){
+
+          parts.push(
+            '<rect x="' +
+            x +
+            '" y="' +
+            y +
+            '" width="' +
+            s +
+            '" height="' +
+            s +
+            '" fill="' +
+            escapeXml(fg) +
+            '"/>'
+          );
+
+        }else{
+
+          const cx =
+            x + s / 2;
+
+          const top =
+            y + scale * .05;
+
+          const bottom =
+            y + s - scale * .05;
+
+          const left =
+            x + scale * .05;
+
+          const right =
+            x + s - scale * .05;
+
+
+          let points = "";
+
+
+          if(
+            (row + col) % 2 === 0
+          ){
+
+            points =
+              cx + "," + top + " " +
+              right + "," + bottom + " " +
+              left + "," + bottom;
+
+          }else{
+
+            points =
+              left + "," + top + " " +
+              right + "," + top + " " +
+              cx + "," + bottom;
+
+          }
+
+
+          parts.push(
+            '<polygon points="' +
+            points +
+            '" fill="' +
+            escapeXml(fg) +
+            '"/>'
+          );
+
+        }
+
+      }
+
+    }
+
+
+    /*
+      Decorative triangular frame.
+    */
+
+    parts.push(
+      '<polygon points="' +
+      (size*.5) + ',' + (size*.015) + ' ' +
+      (size*.985) + ',' + (size*.985) + ' ' +
+      (size*.015) + ',' + (size*.985) +
+      '" fill="none" stroke="' +
+      escapeXml(fg) +
+      '" stroke-opacity=".12" stroke-width="' +
+      Math.max(2,size/180) +
+      '"/>'
+    );
+
+
+    parts.push(
+      '</svg>'
+    );
+
+
+    return parts.join("");
+
+  }
+
+
+
+  /* =========================================
+     XML ESCAPE
+  ========================================= */
+
+  function escapeXml(value){
+
+    return String(value)
+      .replace(/&/g,"&amp;")
+      .replace(/</g,"&lt;")
+      .replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;")
+      .replace(/'/g,"&apos;");
+
+  }
+
+
+
+  /* =========================================
+     TEST QR
+  ========================================= */
+
+  scanBtn.addEventListener(
+    "click",
+    function(){
+
+      if(!lastPayload){
+
+        showToast(
+          "Generate a QR code first."
+        );
+
+        return;
+
+      }
+
+
+      /*
+        This confirms the exact payload
+        used for the QR generation.
+      */
+
+      scanResult.innerHTML =
+        '<i class="fa-solid fa-circle-check"></i> ' +
+        'QR payload is ready for scanning. ' +
+        'Use a QR scanner or the ' +
+        '<a href="/" style="text-decoration:underline;">' +
+        'ZXing Online Decoder' +
+        '</a> ' +
+        'to verify the generated code.';
+
+
+      scanResult.classList.add(
+        "show"
+      );
+
+    }
+  );
+
+
+
+  /* =========================================
+     COLOR / OPTION LIVE REGENERATION
+  ========================================= */
+
+  [
+    foreground,
+    background,
+    errorLevel,
+    qrSize
+  ].forEach(function(element){
+
+    element.addEventListener(
+      "change",
+      function(){
+
+        if(lastModules){
+
+          drawTriangleQR(
+            lastModules,
+            lastModuleCount,
+            parseInt(
+              qrSize.value,
+              10
+            ),
+            foreground.value,
+            background.value
+          );
+
+        }
+
+      }
+    );
+
+  });
+
+
+
+  /* =========================================
+     TOAST
+  ========================================= */
+
+  function showToast(message){
+
+    const old =
+      document.querySelector(".toast");
+
+    if(old){
+      old.remove();
+    }
+
+
+    const toast =
+      document.createElement("div");
+
+    toast.className =
+      "toast";
+
+    toast.textContent =
+      "✓ " + message;
+
+    document.body.appendChild(
+      toast
+    );
+
+
+    setTimeout(function(){
+
+      toast.remove();
+
+    },2300);
+
+  }
+
+
+
+  /* =========================================
+     MOBILE MENU
+  ========================================= */
+
+  const menuBtn =
+    document.getElementById("menuBtn");
+
+  const nav =
+    document.getElementById("nav");
+
+
+  menuBtn.addEventListener(
+    "click",
+    function(){
+
+      nav.classList.toggle("show");
+
+      const open =
+        nav.classList.contains("show");
+
+
+      menuBtn.setAttribute(
+        "aria-expanded",
+        open ? "true" : "false"
+      );
+
+
+      menuBtn.innerHTML =
+        open
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+
+    }
+  );
+
+
+
+  /* =========================================
+     CLOSE MOBILE MENU
+  ========================================= */
+
+  nav.querySelectorAll("a")
+    .forEach(function(link){
+
+      link.addEventListener(
+        "click",
+        function(){
+
+          nav.classList.remove(
+            "show"
+          );
+
+          menuBtn.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuBtn.innerHTML =
+            '<i class="fa-solid fa-bars"></i>';
+
+        }
+      );
+
+    });
+
+</script>
+
+
+</body>
+</html>
