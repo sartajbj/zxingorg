@@ -2162,8 +2162,7 @@ addCodeBtn.innerHTML =
 
 function validateCode(value){
 
-const cleaned =
-value.trim().toUpperCase();
+const cleaned = value.trim();
 
 if(cleaned.length === 0){
 return { valid:false, empty:true, value:cleaned };
