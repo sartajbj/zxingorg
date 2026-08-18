@@ -2333,9 +2333,11 @@ hint.textContent = i===0 ? "Menu → Friend → Profile Info to find your code."
 }
 
 validCodes.push({
-label: "Friend Code " + (i+1),
-value: result.value
+  label: "Friend Code " + (i+1),
+  value: result.value,
+  raw: input.value
 });
+
 
 });
 
@@ -2407,8 +2409,7 @@ wrap.appendChild(canvas);
 const label =
 document.createElement("span");
 
-label.textContent =
-codeObj.label + " — " + codeObj.value;
+label.textContent = codeObj.label + " - " + codeObj.raw;
 
 wrap.appendChild(label);
 
