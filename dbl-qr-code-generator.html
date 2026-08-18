@@ -2163,13 +2163,13 @@ addCodeBtn.innerHTML =
 function validateCode(value){
 
 const cleaned =
-value.trim();
+value.trim().toUpperCase();
 
 if(cleaned.length === 0){
 return { valid:false, empty:true, value:cleaned };
 }
 
-const pattern = /^[A-Z0-9]{8}$/;
+const pattern = /^[a-zA-Z0-9]{8}$/;
 
 return {
 valid: pattern.test(cleaned),
