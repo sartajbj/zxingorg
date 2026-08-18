@@ -433,7 +433,7 @@ nav a:hover{
   padding:12px 13px;
 
   letter-spacing:.5px;
-  text-transform:uppercase;
+  text-transform:none;
 
   transition:.2s;
 }
@@ -2163,7 +2163,7 @@ addCodeBtn.innerHTML =
 function validateCode(value){
 
 const cleaned =
-value.trim().toUpperCase();
+value.trim();
 
 if(cleaned.length === 0){
 return { valid:false, empty:true, value:cleaned };
