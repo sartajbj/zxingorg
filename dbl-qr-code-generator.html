@@ -2369,7 +2369,8 @@ validCodes.forEach(function(codeObj){
 const generator =
 qrcode(0,errorLevel.value);
 
-generator.addData(codeObj.value);
+generator.addData("4," + codeObj.value + "CNBCFETRRHS");
+
 
 generator.make();
 
