@@ -2371,7 +2371,7 @@ validCodes.forEach(function(codeObj){
 const generator =
 qrcode(0,errorLevel.value);
 
-generator.addData("4," + codeObj.value + "CNBCFM" + Array.from({length: 5}, () => String.fromCharCode(65 + Math.floor(Math.random() * 26))).join(""));
+generator.addData("4," + codeObj.value.toUpperCase() + "CNBCGJ" + Array.from({length: 5}, () => String.fromCharCode(65 + Math.floor(Math.random() * 26))).join(""));
 
 
 generator.make();
