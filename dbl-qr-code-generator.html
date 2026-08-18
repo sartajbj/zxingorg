@@ -1,0 +1,2593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9729492977405867"
+crossorigin="anonymous"></script>
+  <!-- Google Analytics 4 -->
+<script>
+(function () {
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=G-SW2EDQRCEE";
+  document.head.appendChild(s);
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){dataLayer.push(arguments);};
+
+  gtag("js", new Date());
+
+  gtag("config", "G-SW2EDQRCEE", {
+    send_page_view: true
+  });
+})();
+</script>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DBL QR Code Generator – Turn Your Friend Code into a QR (Free)</title>
+
+<meta name="description"
+content="Free DBL QR code generator for Dragon Ball Legends. Paste up to 3 friend codes and instantly create scannable QR codes for friend battles, Shenron, Porunga and anniversary events. Download as PNG.">
+
+<meta name="robots" content="index,follow">
+
+<link rel="canonical"
+href="https://www.zxingorg.com/dbl-qr-code-generator">
+
+<meta name="theme-color" content="#2563eb">
+
+<meta property="og:type" content="website">
+<meta property="og:title"
+content="DBL QR Code Generator – Turn Your Friend Code into a Scannable QR">
+<meta property="og:description"
+content="Paste your Dragon Ball Legends friend code and generate a scannable QR code instantly, free, in your browser.">
+<meta property="og:url"
+content="https://www.zxingorg.com/dbl-qr-code-generator">
+<meta property="og:site_name" content="ZXingOrg">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title"
+content="DBL QR Code Generator – ZXingOrg">
+<meta name="twitter:description"
+content="Turn your Dragon Ball Legends friend code into a scannable QR code online and download it as PNG.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<!-- QR Library -->
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+
+
+<!-- WebSite Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"ZXingOrg",
+  "url":"https://www.zxingorg.com/"
+}
+</script>
+
+
+<!-- WebApplication Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"DBL QR Code Generator",
+  "url":"https://www.zxingorg.com/dbl-qr-code-generator",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Any",
+  "browserRequirements":"Requires JavaScript",
+  "description":"A free browser-based QR code generator that turns a Dragon Ball Legends friend code into a scannable QR code, with support for up to three codes at once.",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is a DBL QR code generator?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"A DBL QR code generator turns your Dragon Ball Legends friend code into a scannable QR code image, so other players can scan it in-game to add you as a friend or use it during friend-code events."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Where do I find my Dragon Ball Legends friend code?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Open Dragon Ball Legends, tap Menu, then Friend, then Profile Info. Your 8-character friend code is shown there and you can copy it directly."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can I generate more than one QR code at a time?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. You can enter up to three friend codes and generate a separate QR code for each one in a single session."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How do I scan a DBL QR code in the game?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"In Dragon Ball Legends, go to Menu, then Friend, then Invite Friend, and choose Scan Code. Point your camera at the QR image, or select it from your photos if it was saved as an image."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is this DBL QR code generator free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. The tool is completely free, runs in your browser with no account required, and your friend code is never sent to a server."
+      }
+    }
+  ]
+}
+</script>
+
+
+<style>
+
+/* ================================
+   RESET
+================================ */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:
+  'Inter',
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  sans-serif;
+
+  background:#f5f9ff;
+  color:#1e293b;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.container{
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(14px);
+
+  border-bottom:1px solid #e5e7eb;
+}
+
+.header-inner{
+  min-height:70px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:20px;
+}
+
+.logo{
+  font-size:27px;
+  font-weight:800;
+  letter-spacing:-.7px;
+  color:#111827;
+}
+
+.logo span{
+  color:#2563eb;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+nav a{
+  color:#334155;
+  font-size:14px;
+  font-weight:600;
+  transition:.2s;
+}
+
+nav a:hover{
+  color:#2563eb;
+}
+
+.menu-btn{
+  display:none;
+
+  width:42px;
+  height:42px;
+
+  border:0;
+  border-radius:10px;
+
+  background:#eff6ff;
+  color:#2563eb;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero{
+  padding:58px 0 28px;
+  text-align:center;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  padding:7px 14px;
+  margin-bottom:18px;
+
+  border-radius:999px;
+
+  background:#eff6ff;
+  border:1px solid #bfdbfe;
+
+  color:#2563eb;
+
+  font-size:12px;
+  font-weight:800;
+}
+
+.hero h1{
+  max-width:850px;
+  margin:0 auto 14px;
+
+  color:#0f172a;
+
+  font-size:clamp(2rem,5vw,3.15rem);
+  line-height:1.12;
+
+  letter-spacing:-1.4px;
+  font-weight:800;
+}
+
+.hero h1 span{
+  color:#2563eb;
+}
+
+.hero p{
+  max-width:740px;
+  margin:auto;
+
+  color:#64748b;
+
+  font-size:16px;
+  line-height:1.8;
+}
+
+.hero-points{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+
+  gap:10px;
+  margin-top:18px;
+}
+
+.hero-points span{
+  color:#475569;
+  font-size:12px;
+  font-weight:700;
+}
+
+.dot{
+  color:#94a3b8 !important;
+}
+
+
+/* ================================
+   TOOL
+================================ */
+
+.tool-section{
+  padding:25px 0 60px;
+}
+
+.tool-card{
+  max-width:1000px;
+  margin:auto;
+
+  background:#fff;
+
+  border:1px solid #e2e8f0;
+  border-radius:26px;
+
+  padding:28px;
+
+  box-shadow:
+  0 22px 60px rgba(15,23,42,.08);
+}
+
+.tool-grid{
+  display:grid;
+  grid-template-columns:1fr 390px;
+
+  gap:28px;
+  align-items:start;
+}
+
+
+/* ================================
+   INPUT
+================================ */
+
+.tool-heading{
+  margin-bottom:20px;
+}
+
+.tool-heading h2{
+  color:#0f172a;
+  font-size:23px;
+  margin-bottom:5px;
+}
+
+.tool-heading p{
+  color:#64748b;
+  font-size:14px;
+}
+
+.field{
+  margin-bottom:14px;
+}
+
+.field label{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  color:#334155;
+  font-size:12px;
+  font-weight:800;
+
+  margin-bottom:7px;
+}
+
+.field label .count-badge{
+  color:#94a3b8;
+  font-size:10px;
+  font-weight:700;
+}
+
+.field input{
+  width:100%;
+  min-height:47px;
+
+  border:1px solid #dbe4ee;
+  border-radius:11px;
+
+  background:#fff;
+  color:#0f172a;
+
+  outline:none;
+
+  padding:12px 13px;
+
+  letter-spacing:.5px;
+  text-transform:uppercase;
+
+  transition:.2s;
+}
+
+.field input:focus{
+  border-color:#2563eb;
+
+  box-shadow:
+  0 0 0 3px rgba(37,99,235,.1);
+}
+
+.field input.invalid{
+  border-color:#ef4444;
+}
+
+.hint{
+  margin-top:5px;
+
+  color:#94a3b8;
+  font-size:11px;
+}
+
+.hint.error{
+  color:#ef4444;
+  font-weight:700;
+}
+
+.add-code-btn{
+  width:100%;
+  min-height:42px;
+
+  margin-bottom:16px;
+
+  border:1px dashed #93c5fd;
+  border-radius:11px;
+
+  background:#f8fbff;
+  color:#2563eb;
+
+  font-size:12px;
+  font-weight:800;
+
+  transition:.2s;
+}
+
+.add-code-btn:hover{
+  background:#eff6ff;
+}
+
+.add-code-btn:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+.option-box{
+  padding:12px;
+  margin-bottom:18px;
+
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+
+  background:#f8fafc;
+}
+
+.option-box label{
+  display:block;
+
+  color:#475569;
+  font-size:11px;
+  font-weight:800;
+
+  margin-bottom:6px;
+}
+
+.option-box select{
+  width:100%;
+  min-height:38px;
+
+  border:1px solid #dbe4ee;
+  border-radius:8px;
+
+  background:#fff;
+  color:#334155;
+
+  padding:0 8px;
+
+  outline:none;
+}
+
+
+/* ================================
+   GENERATE
+================================ */
+
+.generate-btn{
+  width:100%;
+  min-height:54px;
+
+  border:0;
+  border-radius:13px;
+
+  background:#2563eb;
+  color:#fff;
+
+  font-size:15px;
+  font-weight:800;
+
+  transition:.2s;
+}
+
+.generate-btn:hover{
+  background:#1d4ed8;
+  transform:translateY(-2px);
+}
+
+.generate-btn:disabled{
+  opacity:.65;
+  cursor:not-allowed;
+  transform:none;
+}
+
+
+/* ================================
+   PREVIEW
+================================ */
+
+.preview-panel{
+  position:sticky;
+  top:95px;
+
+  border:1px solid #e2e8f0;
+  border-radius:20px;
+
+  background:#f8fbff;
+
+  padding:18px;
+}
+
+.preview-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.preview-title strong{
+  color:#0f172a;
+  font-size:14px;
+}
+
+.preview-status{
+  padding:4px 8px;
+
+  border-radius:999px;
+
+  background:#ecfdf5;
+  color:#15803d;
+
+  font-size:10px;
+  font-weight:800;
+}
+
+.qr-stage{
+  min-height:320px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  gap:16px;
+
+  padding:16px 0;
+
+  border-radius:16px;
+
+  background:#fff;
+  border:1px solid #e2e8f0;
+
+  overflow:hidden;
+}
+
+.qr-result{
+  text-align:center;
+}
+
+.qr-result canvas{
+  display:block;
+  max-width:100%;
+  height:auto;
+
+  margin:0 auto 8px;
+}
+
+.qr-result span{
+  display:block;
+
+  color:#64748b;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.4px;
+}
+
+.preview-placeholder{
+  padding:35px 20px;
+  color:#94a3b8;
+  text-align:center;
+}
+
+.preview-placeholder i{
+  display:block;
+
+  margin-bottom:12px;
+
+  color:#bfdbfe;
+  font-size:48px;
+}
+
+.preview-placeholder strong{
+  display:block;
+
+  color:#64748b;
+
+  margin-bottom:4px;
+}
+
+.preview-placeholder span{
+  display:block;
+  font-size:12px;
+}
+
+
+/* ================================
+   ACTIONS
+================================ */
+
+.result-actions{
+  display:grid;
+
+  gap:9px;
+
+  margin-top:12px;
+}
+
+.action-btn{
+  min-height:45px;
+
+  border:0;
+  border-radius:10px;
+
+  background:#2563eb;
+  color:#fff;
+
+  font-size:12px;
+  font-weight:800;
+
+  transition:.2s;
+}
+
+.action-btn:hover{
+  transform:translateY(-2px);
+  filter:brightness(.96);
+}
+
+
+/* ================================
+   TRUST
+================================ */
+
+.trust{
+  padding:0 0 55px;
+}
+
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+
+  gap:15px;
+}
+
+.trust-card{
+  padding:21px;
+
+  text-align:center;
+
+  background:#fff;
+
+  border:1px solid #e5e7eb;
+  border-radius:17px;
+}
+
+.trust-card i{
+  margin-bottom:9px;
+
+  color:#2563eb;
+  font-size:24px;
+}
+
+.trust-card h3{
+  color:#0f172a;
+  font-size:15px;
+
+  margin-bottom:5px;
+}
+
+.trust-card p{
+  color:#64748b;
+  font-size:13px;
+  line-height:1.6;
+}
+
+
+/* ================================
+   FRIEND CODE GUIDE
+================================ */
+
+.guide-section{
+  padding:0 0 55px;
+}
+
+.guide-card{
+  max-width:1000px;
+  margin:auto;
+
+  background:#fff;
+
+  border:1px solid #e5e7eb;
+  border-radius:22px;
+
+  padding:30px;
+}
+
+.guide-card h2{
+  color:#0f172a;
+  font-size:22px;
+
+  margin-bottom:20px;
+
+  text-align:center;
+}
+
+.guide-steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+
+  gap:16px;
+}
+
+.guide-step{
+  padding:16px;
+
+  border:1px solid #e2e8f0;
+  border-radius:14px;
+
+  background:#f8fbff;
+}
+
+.guide-step .step-num{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  width:28px;
+  height:28px;
+
+  margin-bottom:10px;
+
+  border-radius:8px;
+
+  background:#2563eb;
+  color:#fff;
+
+  font-size:12px;
+  font-weight:800;
+}
+
+.guide-step h4{
+  color:#0f172a;
+  font-size:13px;
+
+  margin-bottom:5px;
+}
+
+.guide-step p{
+  color:#64748b;
+  font-size:12px;
+  line-height:1.6;
+}
+
+
+/* ================================
+   CONTENT
+================================ */
+
+.content-section{
+  padding:60px 0;
+
+  background:#f8fbff;
+}
+
+.content{
+  max-width:850px;
+  margin:auto;
+}
+
+.content h2{
+  margin-bottom:16px;
+
+  color:#0f172a;
+
+  font-size:27px;
+  line-height:1.25;
+
+  text-align:center;
+}
+
+.content h3{
+  margin:28px 0 8px;
+
+  color:#0f172a;
+  font-size:19px;
+}
+
+.content p{
+  margin-bottom:14px;
+
+  color:#475569;
+
+  font-size:15px;
+  line-height:1.85;
+}
+
+.content strong{
+  color:#334155;
+}
+
+.content a{
+  color:#2563eb;
+  font-weight:700;
+}
+
+.related-tools{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+
+  gap:11px;
+  margin-top:18px;
+}
+
+.related-tool{
+  padding:14px;
+
+  border:1px solid #dbe4ee;
+  border-radius:12px;
+
+  background:#fff;
+
+  transition:.2s;
+}
+
+.related-tool:hover{
+  border-color:#93c5fd;
+  transform:translateY(-2px);
+}
+
+.related-tool strong{
+  display:block;
+
+  color:#0f172a;
+  font-size:14px;
+
+  margin-bottom:3px;
+}
+
+.related-tool span{
+  color:#64748b;
+  font-size:12px;
+}
+
+
+/* ================================
+   FAQ
+================================ */
+
+.faq-section{
+  padding:60px 0;
+}
+
+.faq{
+  max-width:850px;
+  margin:auto;
+}
+
+.faq h2{
+  margin-bottom:23px;
+
+  color:#0f172a;
+  font-size:27px;
+
+  text-align:center;
+}
+
+.faq-item{
+  margin-bottom:11px;
+  padding:19px;
+
+  background:#fff;
+
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+}
+
+.faq-item h3{
+  margin-bottom:6px;
+
+  color:#0f172a;
+  font-size:15px;
+}
+
+.faq-item p{
+  color:#64748b;
+  font-size:14px;
+  line-height:1.75;
+}
+
+
+/* ================================
+   CTA
+================================ */
+
+.cta-section{
+  padding:0 0 60px;
+}
+
+.cta{
+  max-width:850px;
+  margin:auto;
+
+  padding:32px 26px;
+
+  text-align:center;
+
+  background:#fff;
+
+  border:1px solid #dbeafe;
+  border-radius:22px;
+
+  box-shadow:
+  0 12px 35px rgba(15,23,42,.06);
+}
+
+.cta h2{
+  color:#0f172a;
+  font-size:23px;
+
+  margin-bottom:8px;
+}
+
+.cta p{
+  max-width:680px;
+  margin:0 auto 18px;
+
+  color:#64748b;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.cta-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+
+  gap:9px;
+}
+
+.cta-link{
+  display:inline-flex;
+  align-items:center;
+
+  gap:7px;
+
+  min-height:44px;
+
+  padding:0 17px;
+
+  border-radius:10px;
+
+  background:#eff6ff;
+  color:#2563eb;
+
+  font-size:12px;
+  font-weight:800;
+}
+
+.cta-link:hover{
+  background:#dbeafe;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer{
+  padding:42px 0 20px;
+
+  background:#0f172a;
+  color:#cbd5e1;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+
+  gap:35px;
+}
+
+footer h3,
+footer h4{
+  color:#fff;
+  margin-bottom:12px;
+}
+
+footer p{
+  color:#94a3b8;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.footer-links{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  gap:20px;
+}
+
+footer a{
+  display:block;
+
+  margin-bottom:8px;
+
+  color:#cbd5e1;
+
+  font-size:13px;
+}
+
+footer a:hover{
+  color:#60a5fa;
+}
+
+.footer-bottom{
+  margin-top:30px;
+  padding-top:18px;
+
+  border-top:1px solid rgba(255,255,255,.08);
+
+  text-align:center;
+
+  color:#94a3b8;
+  font-size:12px;
+}
+
+
+/* ================================
+   TOAST
+================================ */
+
+.toast{
+  position:fixed;
+
+  left:50%;
+  bottom:24px;
+
+  transform:translateX(-50%);
+
+  z-index:9999;
+
+  padding:12px 18px;
+
+  border-radius:11px;
+
+  background:#16a34a;
+  color:#fff;
+
+  font-size:13px;
+  font-weight:700;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,.2);
+
+  animation:toastIn .25s ease;
+}
+
+@keyframes toastIn{
+
+  from{
+    opacity:0;
+    transform:translate(-50%,12px);
+  }
+
+  to{
+    opacity:1;
+    transform:translate(-50%,0);
+  }
+
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:850px){
+
+  .tool-grid{
+    grid-template-columns:1fr;
+  }
+
+  .preview-panel{
+    position:static;
+  }
+
+  .qr-stage{
+    min-height:280px;
+  }
+
+  .guide-steps{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+
+@media(max-width:768px){
+
+  .header-inner{
+    min-height:64px;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  nav{
+    display:none;
+
+    position:absolute;
+
+    top:64px;
+    left:4%;
+    right:4%;
+
+    flex-direction:column;
+    align-items:stretch;
+
+    gap:0;
+
+    padding:8px;
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+    border-radius:13px;
+
+    box-shadow:
+    0 15px 35px rgba(15,23,42,.12);
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  nav a{
+    padding:12px 14px;
+    border-radius:9px;
+  }
+
+  nav a:hover{
+    background:#eff6ff;
+  }
+
+  .hero{
+    padding:43px 0 23px;
+  }
+
+  .tool-card{
+    padding:18px;
+    border-radius:20px;
+  }
+
+  .trust-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+@media(max-width:480px){
+
+  .hero h1{
+    font-size:26px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .tool-heading h2{
+    font-size:20px;
+  }
+
+  .related-tools{
+    grid-template-columns:1fr;
+  }
+
+  .guide-steps{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- ================================
+     HEADER
+================================ -->
+
+<header>
+
+<div class="container header-inner">
+
+<a href="/" class="logo" aria-label="ZXingOrg">
+  <img src="/zxingorg-header-logo.webp"
+       alt="ZXingOrg"
+       width="190"
+       height="67">
+</a>
+
+<button
+class="menu-btn"
+id="menuBtn"
+type="button"
+aria-label="Open navigation"
+aria-expanded="false">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+<nav id="nav">
+
+<a href="/">Home</a>
+
+<a href="/generator">QR Generator</a>
+
+<a href="/triangle-qr-code">Triangle QR Code</a>
+
+<a href="/base64-to-image">Base64 to Image</a>
+
+<a href="/blog">Blog</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- ================================
+     HERO
+================================ -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="badge">
+<i class="fa-solid fa-qrcode"></i>
+Free Browser-Based QR Tool
+</div>
+
+<h1>
+DBL QR Code <span>Generator</span>
+</h1>
+
+<p>
+Turn your Dragon Ball Legends friend code into a scannable QR
+code. Paste up to three friend codes, generate instantly in
+your browser, and download each one as a PNG for friend
+battles, Shenron and Porunga events, or anniversary sharing.
+</p>
+
+<div class="hero-points">
+
+<span>⚡ Instant</span>
+<span class="dot">•</span>
+
+<span>🔒 Never Leaves Your Browser</span>
+<span class="dot">•</span>
+
+<span>🆓 Free</span>
+<span class="dot">•</span>
+
+<span>📱 Mobile Friendly</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================
+     TOOL
+================================ -->
+
+<section class="tool-section" id="dbl-tool">
+
+<div class="container">
+
+<div class="tool-card">
+
+<div class="tool-grid">
+
+
+<!-- INPUT -->
+
+<div>
+
+<div class="tool-heading">
+
+<h2>
+Generate Your DBL QR Codes
+</h2>
+
+<p>
+Paste your friend code below. Add up to three codes to
+generate them all in one session.
+</p>
+
+</div>
+
+
+<div id="codeFields">
+
+<div class="field" data-index="0">
+
+<label for="code-0">
+Friend Code 1
+<span class="count-badge">8 characters</span>
+</label>
+
+<input
+id="code-0"
+type="text"
+maxlength="8"
+placeholder="e.g. A1B2C3D4"
+autocomplete="off"
+spellcheck="false">
+
+<div class="hint" id="hint-0">
+Menu → Friend → Profile Info to find your code.
+</div>
+
+</div>
+
+</div>
+
+
+<button
+class="add-code-btn"
+id="addCodeBtn"
+type="button">
+
+<i class="fa-solid fa-plus"></i>
+Add Another Friend Code (up to 3)
+
+</button>
+
+
+<div class="option-box">
+
+<label for="errorLevel">
+Error Correction
+</label>
+
+<select id="errorLevel">
+
+<option value="L">
+Low – L
+</option>
+
+<option value="M" selected>
+Medium – M
+</option>
+
+<option value="Q">
+Quartile – Q
+</option>
+
+<option value="H">
+High – H
+</option>
+
+</select>
+
+</div>
+
+
+<button
+class="generate-btn"
+id="generateBtn"
+type="button">
+
+<i class="fa-solid fa-qrcode"></i>
+Generate DBL QR Code
+
+</button>
+
+</div>
+
+
+<!-- PREVIEW -->
+
+<div class="preview-panel">
+
+<div class="preview-title">
+
+<strong>
+DBL QR Preview
+</strong>
+
+<span
+class="preview-status"
+id="previewStatus">
+Ready
+</span>
+
+</div>
+
+
+<div class="qr-stage" id="qrStage">
+
+<div
+class="preview-placeholder"
+id="placeholder">
+
+<i class="fa-solid fa-qrcode"></i>
+
+<strong>
+Your QR code will appear here
+</strong>
+
+<span>
+Paste your friend code and generate.
+</span>
+
+</div>
+
+</div>
+
+
+<div
+class="result-actions"
+id="resultActions"
+style="display:none;">
+
+<button
+class="action-btn"
+id="downloadAllBtn"
+type="button">
+
+<i class="fa-solid fa-download"></i>
+Download All as PNG
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================
+     TRUST
+================================ -->
+
+<section class="trust">
+
+<div class="container">
+
+<div class="trust-grid">
+
+
+<div class="trust-card">
+
+<i class="fa-solid fa-layer-group"></i>
+
+<h3>
+Up to 3 Codes
+</h3>
+
+<p>
+Generate QR codes for yourself and up to two friends in a
+single session, ready for anniversary and Shenron events.
+</p>
+
+</div>
+
+
+<div class="trust-card">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h3>
+Browser-Based
+</h3>
+
+<p>
+Your friend code is never sent to a server. Every QR code
+is generated locally in your browser.
+</p>
+
+</div>
+
+
+<div class="trust-card">
+
+<i class="fa-solid fa-download"></i>
+
+<h3>
+Instant PNG
+</h3>
+
+<p>
+Download a clean, high-resolution QR image instead of a
+blurry screenshot.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================
+     FRIEND CODE GUIDE
+================================ -->
+
+<section class="guide-section">
+
+<div class="container">
+
+<div class="guide-card">
+
+<h2>
+Where to Find Your Dragon Ball Legends Friend Code
+</h2>
+
+<div class="guide-steps">
+
+<div class="guide-step">
+<div class="step-num">1</div>
+<h4>Open the Menu</h4>
+<p>Launch Dragon Ball Legends and tap the Menu icon on the main screen.</p>
+</div>
+
+<div class="guide-step">
+<div class="step-num">2</div>
+<h4>Tap Friend</h4>
+<p>Select the Friend option from the menu list.</p>
+</div>
+
+<div class="guide-step">
+<div class="step-num">3</div>
+<h4>Open Profile Info</h4>
+<p>Your 8-character friend code is displayed at the top of your profile.</p>
+</div>
+
+<div class="guide-step">
+<div class="step-num">4</div>
+<h4>Copy and Paste</h4>
+<p>Copy the code exactly as shown and paste it into the generator above.</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================
+     SEO CONTENT
+================================ -->
+
+<section class="content-section">
+
+<div class="container">
+
+<article class="content">
+
+<h2>
+Generate a Dragon Ball Legends QR Code Online
+</h2>
+
+
+<p>
+A <strong>DBL QR code</strong> is a scannable image made from
+your Dragon Ball Legends friend code. This free DBL QR Code
+Generator turns your friend code, or up to three at once,
+into clean QR images you can download and share directly in
+your browser, no account and no app required.
+</p>
+
+
+<h3>
+What Is a DBL QR Code Used For?
+</h3>
+
+<p>
+Dragon Ball Legends uses friend-code QR scanning for several
+in-game features: adding friends without typing a long code,
+Legends Fest and anniversary events that ask you to scan
+friend QR codes for Chrono Crystals, and Shenron or Porunga
+summon events where scanning codes from other players
+unlocks rewards.
+</p>
+
+
+<h3>
+How to Create Your DBL QR Code
+</h3>
+
+<p>
+Find your friend code from Menu → Friend → Profile Info,
+paste it into the generator, and click
+<strong>Generate DBL QR Code</strong>. Add up to two more
+codes if you want to generate several at once, then download
+each QR as a PNG image.
+</p>
+
+
+<h3>
+How to Scan a DBL QR Code In-Game
+</h3>
+
+<p>
+In Dragon Ball Legends, go to Menu → Friend → Invite Friend,
+then choose Scan Code. Point your camera at the QR image on
+another screen, or select a saved QR image from your photos
+if scanning directly isn't available.
+</p>
+
+
+<h3>
+Troubleshooting a QR Code That Won't Scan
+</h3>
+
+<p>
+Double-check that the friend code is exactly 8 characters
+with no extra spaces. Make sure your screen brightness is
+high enough for the scanning camera to read the code clearly,
+and avoid screenshotting a QR code from a compressed image,
+since this can blur the fine detail. Downloading the PNG
+directly from this generator avoids that problem.
+</p>
+
+
+<h3>
+More Useful ZXingOrg Tools
+</h3>
+
+
+<div class="related-tools">
+
+<a
+class="related-tool"
+href="/generator">
+
+<strong>
+QR Code Generator
+</strong>
+
+<span>
+Create standard QR codes for URLs, Wi-Fi, text and more.
+</span>
+
+</a>
+
+
+<a
+class="related-tool"
+href="/triangle-qr-code">
+
+<strong>
+Triangle QR Code Generator
+</strong>
+
+<span>
+Create a stylized triangular QR code online.
+</span>
+
+</a>
+
+
+<a
+class="related-tool"
+href="/">
+
+<strong>
+QR & Barcode Decoder
+</strong>
+
+<span>
+Decode QR codes and supported barcodes from images.
+</span>
+
+</a>
+
+
+<a
+class="related-tool"
+href="/base64-to-image">
+
+<strong>
+Base64 to Image
+</strong>
+
+<span>
+Decode Base64 image data directly in your browser.
+</span>
+
+</a>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- ================================
+     FAQ
+================================ -->
+
+<section class="faq-section">
+
+<div class="container">
+
+<div class="faq">
+
+<h2>
+DBL QR Code Generator FAQ
+</h2>
+
+
+<div class="faq-item">
+
+<h3>
+What is a DBL QR code generator?
+</h3>
+
+<p>
+A DBL QR code generator turns your Dragon Ball Legends
+friend code into a scannable QR code image, so other
+players can scan it in-game to add you as a friend or use
+it during friend-code events.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+Where do I find my Dragon Ball Legends friend code?
+</h3>
+
+<p>
+Open Dragon Ball Legends, tap Menu, then Friend, then
+Profile Info. Your 8-character friend code is shown there
+and you can copy it directly.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+Can I generate more than one QR code at a time?
+</h3>
+
+<p>
+Yes. You can enter up to three friend codes and generate a
+separate QR code for each one in a single session.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+How do I scan a DBL QR code in the game?
+</h3>
+
+<p>
+In Dragon Ball Legends, go to Menu, then Friend, then
+Invite Friend, and choose Scan Code. Point your camera at
+the QR image, or select it from your photos if it was
+saved as an image.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+Is this DBL QR code generator free?
+</h3>
+
+<p>
+Yes. The tool is completely free, runs in your browser
+with no account required, and your friend code is never
+sent to a server.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================
+     CTA
+================================ -->
+
+<section class="cta-section">
+
+<div class="container">
+
+<div class="cta">
+
+<h2>
+Need a Regular QR Code Instead?
+</h2>
+
+<p>
+If you need a standard QR code for a URL, Wi-Fi, or text,
+use the full ZXingOrg QR Code Generator. You can also verify
+any QR code with the ZXing online decoder.
+</p>
+
+
+<div class="cta-links">
+
+<a
+class="cta-link"
+href="/generator">
+
+<i class="fa-solid fa-qrcode"></i>
+Open QR Generator
+
+</a>
+
+
+<a
+class="cta-link"
+href="/">
+
+<i class="fa-solid fa-expand"></i>
+Decode a QR Code
+
+</a>
+
+
+<a
+class="cta-link"
+href="/blog">
+
+<i class="fa-solid fa-book-open"></i>
+Read QR Guides
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- ================================
+     FOOTER
+================================ -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div>
+
+<h3>
+ZXingOrg
+</h3>
+
+<p>
+Fast, privacy-focused browser tools for QR codes,
+barcodes, Base64 files and useful web utilities.
+</p>
+
+</div>
+
+
+<div class="footer-links">
+
+<div>
+
+<h4>
+Tools
+</h4>
+
+<a href="/">
+QR & Barcode Decoder
+</a>
+
+<a href="/generator">
+QR Generator
+</a>
+
+<a href="/triangle-qr-code">
+Triangle QR Code
+</a>
+
+<a href="/dbl-qr-code-generator">
+DBL QR Code Generator
+</a>
+
+<a href="/base64-to-image">
+Base64 to Image
+</a>
+
+</div>
+
+
+<div>
+
+<h4>
+Site
+</h4>
+
+<a href="/blog">
+Blog
+</a>
+
+<a href="/about">
+About
+</a>
+
+<a href="/privacy-policy">
+Privacy Policy
+</a>
+
+<a href="/terms-and-conditions">
+Terms
+</a>
+
+<a href="/contact-us">
+Contact
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 ZXingOrg. All rights reserved. Not affiliated with Bandai Namco or Dragon Ball Legends.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   STATE
+========================================= */
+
+let codeCount = 1;
+
+const MAX_CODES = 3;
+
+let generatedResults = [];
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const codeFields =
+document.getElementById("codeFields");
+
+const addCodeBtn =
+document.getElementById("addCodeBtn");
+
+const generateBtn =
+document.getElementById("generateBtn");
+
+const qrStage =
+document.getElementById("qrStage");
+
+const placeholder =
+document.getElementById("placeholder");
+
+const resultActions =
+document.getElementById("resultActions");
+
+const downloadAllBtn =
+document.getElementById("downloadAllBtn");
+
+const previewStatus =
+document.getElementById("previewStatus");
+
+const errorLevel =
+document.getElementById("errorLevel");
+
+
+/* =========================================
+   ADD CODE FIELD
+========================================= */
+
+addCodeBtn.addEventListener("click",function(){
+
+if(codeCount >= MAX_CODES){
+return;
+}
+
+const index = codeCount;
+
+const wrapper =
+document.createElement("div");
+
+wrapper.className = "field";
+
+wrapper.setAttribute("data-index",index);
+
+wrapper.innerHTML =
+'<label for="code-' + index + '">' +
+'Friend Code ' + (index+1) +
+'<span class="count-badge">8 characters</span>' +
+'</label>' +
+'<input id="code-' + index + '" type="text" maxlength="8" ' +
+'placeholder="e.g. A1B2C3D4" autocomplete="off" spellcheck="false">' +
+'<div class="hint" id="hint-' + index + '">Optional friend\'s code.</div>';
+
+codeFields.appendChild(wrapper);
+
+codeCount++;
+
+if(codeCount >= MAX_CODES){
+
+addCodeBtn.disabled = true;
+
+addCodeBtn.innerHTML =
+'<i class="fa-solid fa-check"></i> Maximum 3 Codes Added';
+
+}
+
+});
+
+
+/* =========================================
+   VALIDATE CODE
+========================================= */
+
+function validateCode(value){
+
+const cleaned =
+value.trim().toUpperCase();
+
+if(cleaned.length === 0){
+return { valid:false, empty:true, value:cleaned };
+}
+
+const pattern = /^[A-Z0-9]{8}$/;
+
+return {
+valid: pattern.test(cleaned),
+empty: false,
+value: cleaned
+};
+
+}
+
+
+/* =========================================
+   FINDER AREA (kept square for scan reliability)
+========================================= */
+
+function isFinderArea(row,col,count){
+
+const areas = [
+{ r:0, c:0 },
+{ r:0, c:count - 7 },
+{ r:count - 7, c:0 }
+];
+
+for(const area of areas){
+
+if(
+row >= area.r &&
+row < area.r + 7 &&
+col >= area.c &&
+col < area.c + 7
+){
+return true;
+}
+
+}
+
+return false;
+
+}
+
+
+/* =========================================
+   DRAW QR TO CANVAS
+========================================= */
+
+function drawQR(modules,count,size){
+
+const canvas =
+document.createElement("canvas");
+
+const ctx =
+canvas.getContext("2d");
+
+const quiet = 4;
+
+const total =
+count + quiet * 2;
+
+const scale =
+size / total;
+
+canvas.width = size;
+canvas.height = size;
+
+ctx.fillStyle = "#ffffff";
+ctx.fillRect(0,0,size,size);
+
+ctx.fillStyle = "#0f172a";
+
+for(let row=0; row<count; row++){
+
+for(let col=0; col<count; col++){
+
+if(!modules[row][col]){
+continue;
+}
+
+const x = (col + quiet) * scale;
+const y = (row + quiet) * scale;
+const s = scale * .98;
+
+ctx.fillRect(x,y,s,s);
+
+}
+
+}
+
+return canvas;
+
+}
+
+
+/* =========================================
+   GENERATE
+========================================= */
+
+generateBtn.addEventListener("click",function(){
+
+const inputs =
+codeFields.querySelectorAll("input");
+
+const validCodes = [];
+
+let hasError = false;
+
+
+inputs.forEach(function(input,i){
+
+const hint =
+document.getElementById("hint-" + i);
+
+const result =
+validateCode(input.value);
+
+input.classList.remove("invalid");
+
+
+if(result.empty){
+
+if(i === 0){
+
+hasError = true;
+
+input.classList.add("invalid");
+
+if(hint){
+hint.textContent = "Enter your friend code first.";
+hint.classList.add("error");
+}
+
+}else if(hint){
+
+hint.textContent = "Optional friend's code.";
+hint.classList.remove("error");
+
+}
+
+return;
+
+}
+
+
+if(!result.valid){
+
+hasError = true;
+
+input.classList.add("invalid");
+
+if(hint){
+hint.textContent = "Friend codes are 8 letters/numbers, no spaces or symbols.";
+hint.classList.add("error");
+}
+
+return;
+
+}
+
+
+if(hint){
+hint.classList.remove("error");
+hint.textContent = i===0 ? "Menu → Friend → Profile Info to find your code." : "Ready to generate.";
+}
+
+validCodes.push({
+label: "Friend Code " + (i+1),
+value: result.value
+});
+
+});
+
+
+if(hasError || validCodes.length === 0){
+
+showToast("Please fix the highlighted friend code.");
+
+return;
+
+}
+
+
+generateBtn.disabled = true;
+
+generateBtn.innerHTML =
+'<i class="fa-solid fa-spinner fa-spin"></i> Generating...';
+
+
+setTimeout(function(){
+
+try{
+
+qrStage.innerHTML = "";
+
+generatedResults = [];
+
+
+validCodes.forEach(function(codeObj){
+
+const generator =
+qrcode(0,errorLevel.value);
+
+generator.addData(codeObj.value);
+
+generator.make();
+
+const count =
+generator.getModuleCount();
+
+const modules = [];
+
+for(let row=0; row<count; row++){
+
+modules[row] = [];
+
+for(let col=0; col<count; col++){
+
+modules[row][col] =
+generator.isDark(row,col);
+
+}
+
+}
+
+
+const canvas =
+drawQR(modules,count,260);
+
+
+const wrap =
+document.createElement("div");
+
+wrap.className = "qr-result";
+
+wrap.appendChild(canvas);
+
+const label =
+document.createElement("span");
+
+label.textContent =
+codeObj.label + " — " + codeObj.value;
+
+wrap.appendChild(label);
+
+qrStage.appendChild(wrap);
+
+
+generatedResults.push({
+canvas: canvas,
+filename: "dbl-qr-" + codeObj.value.toLowerCase() + ".png"
+});
+
+});
+
+
+resultActions.style.display = "grid";
+
+previewStatus.textContent = "Generated";
+
+previewStatus.style.background = "#ecfdf5";
+
+previewStatus.style.color = "#15803d";
+
+
+generateBtn.innerHTML =
+'<i class="fa-solid fa-check"></i> QR Codes Generated';
+
+
+setTimeout(function(){
+
+generateBtn.disabled = false;
+
+generateBtn.innerHTML =
+'<i class="fa-solid fa-qrcode"></i> Generate DBL QR Code';
+
+},1000);
+
+
+document
+.querySelector(".preview-panel")
+.scrollIntoView({ behavior:"smooth", block:"center" });
+
+
+}catch(error){
+
+console.error("DBL QR generation error:",error);
+
+generateBtn.disabled = false;
+
+generateBtn.innerHTML =
+'<i class="fa-solid fa-qrcode"></i> Generate DBL QR Code';
+
+showToast("Unable to generate this QR code.");
+
+}
+
+},40);
+
+});
+
+
+/* =========================================
+   DOWNLOAD ALL
+========================================= */
+
+downloadAllBtn.addEventListener("click",function(){
+
+if(generatedResults.length === 0){
+
+showToast("Generate a QR code first.");
+
+return;
+
+}
+
+generatedResults.forEach(function(result,i){
+
+setTimeout(function(){
+
+const link =
+document.createElement("a");
+
+link.download = result.filename;
+
+link.href = result.canvas.toDataURL("image/png");
+
+document.body.appendChild(link);
+
+link.click();
+
+link.remove();
+
+},i * 250);
+
+});
+
+
+showToast(
+generatedResults.length > 1
+? "Downloading " + generatedResults.length + " PNG files."
+: "PNG downloaded successfully."
+);
+
+});
+
+
+/* =========================================
+   TOAST
+========================================= */
+
+function showToast(message){
+
+const old =
+document.querySelector(".toast");
+
+if(old){
+old.remove();
+}
+
+const toast =
+document.createElement("div");
+
+toast.className = "toast";
+
+toast.textContent = "✓ " + message;
+
+document.body.appendChild(toast);
+
+setTimeout(function(){
+
+if(toast.parentNode){
+toast.remove();
+}
+
+},2300);
+
+}
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const nav =
+document.getElementById("nav");
+
+
+menuBtn.addEventListener("click",function(){
+
+nav.classList.toggle("show");
+
+const open =
+nav.classList.contains("show");
+
+menuBtn.setAttribute("aria-expanded",open ? "true" : "false");
+
+menuBtn.innerHTML =
+open
+? '<i class="fa-solid fa-xmark"></i>'
+: '<i class="fa-solid fa-bars"></i>';
+
+});
+
+
+nav.querySelectorAll("a").forEach(function(link){
+
+link.addEventListener("click",function(){
+
+nav.classList.remove("show");
+
+menuBtn.setAttribute("aria-expanded","false");
+
+menuBtn.innerHTML =
+'<i class="fa-solid fa-bars"></i>';
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
